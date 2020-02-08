@@ -1,0 +1,269 @@
+# Math
+global !p
+texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C', 'CS', 'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS', 'J', 'JS', 'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
+texIgnoreMathZones = ['texMathText']
+texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
+texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
+ignore = texIgnoreMathZoneIds[0]
+def math():
+	synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
+	try:
+		first = next(i for i in reversed(synstackids) if i in texIgnoreMathZoneIds or i in texMathZoneIds)
+		return first != ignore
+	except StopIteration:
+		return False
+def notMath():
+	return not math()
+endglobal
+
+
+# template
+context "notMath()"
+snippet templ "normal template"
+\documentclass{scrartcl}
+\usepackage[pset]{kev}
+
+\title{$1}
+\author{Kevin Chen}
+\date{$2}
+
+\begin{document}
+\maketitle
+$0
+\end{document}
+endsnippet
+
+
+# style
+snippet bf "bold"
+\textbf{$1}
+endsnippet
+
+snippet it "italics"
+\textit{$1}
+endsnippet
+
+snippet voc "vocab"
+\vocab{$1}
+endsnippet
+
+snippet ... "dots" iA
+\ldots
+endsnippet
+
+snippet sec "section"
+\section{$1}
+endsnippet
+
+snippet sub "subsection"
+\subsection{$1}
+endsnippet
+
+snippet subsub "subsubsection"
+\subsubsection{$1}
+endsnippet
+
+snippet sec* "section"
+\section*{$1}
+endsnippet
+
+snippet sub* "subsection"
+\subsection*{$1}
+endsnippet
+
+snippet subsub* "subsubsection"
+\subsubsection*{$1}
+endsnippet
+
+
+# deliminters
+context "notMath()"
+snippet ",\[ " "math display" rbA
+\[ $1 \]
+endsnippet
+
+context "math()"
+snippet ",\(\( " "big parentheses" rA
+\left( $1 \right)
+endsnippet
+
+context "math()"
+snippet ",\|\| " "big absolute values" rA
+\left| $1 \right|
+endsnippet
+
+context "math()"
+snippet ",{{ " "big brackets" rA
+\left\\{ $1 \right\\}
+endsnippet
+
+context "math()"
+snippet ",\[\[ " "big square brackets" rA
+\left[ $1 \right]
+endsnippet
+
+context "math()"
+snippet ",< " "angle brackets" rA
+\langle $1 \rangle
+endsnippet
+
+context "math()"
+snippet ",<< " "big angle brackets" rA
+\left< $1 \right>
+endsnippet
+
+
+# math symbols
+context "math()"
+snippet ;/ "fraction" iA
+\frac{$1}{$2}
+endsnippet
+
+context "math()"
+snippet ^^ "exponent" iA
+^{$1}
+endsnippet
+
+context "math()"
+snippet __ "subscript" iA
+_{$1}
+endsnippet
+
+context "math()"
+snippet ;| "better |" iA
+\mid
+endsnippet
+
+context "math()"
+snippet ;2 "sqrt" iA
+\sqrt{$1}
+endsnippet
+
+context "math()"
+snippet ;: "colon" iA
+\colon
+endsnippet
+
+context "math()"
+snippet ;I "integral" iA
+\int_{$1}^{$2} $3
+endsnippet
+
+# environments (there are a lot)
+snippet begin "for general environments"
+\begin{$1}
+	$2
+\end{$1}
+endsnippet
+
+context "notMath()"
+snippet eq "equation"
+\begin{equation}
+	\label{$1}
+	$2
+\end{equation}
+endsnippet
+
+context "notMath()"
+snippet align "align"
+\begin{align*}
+	$1
+\end{align*}
+endsnippet
+
+context "notMath()"
+snippet enum "enumerate"
+\begin{enumerate}
+	\ii $1
+\end{enumerate}
+endsnippet
+
+context "notMath()"
+snippet item "itemize"
+\begin{itemize}
+	\ii $1
+\end{itemize}
+endsnippet
+
+context "notMath()"
+snippet thm "theorem"
+\begin{theorem}
+	$1
+\end{theorem}
+endsnippet
+
+context "notMath()"
+snippet thm[] "labelled thm"
+\begin{theorem}
+	[$1]
+	$2
+\end{theorem}
+endsnippet
+
+context "notMath()"
+snippet prop "proposition"
+\begin{proposition}
+	$1
+\end{proposition}
+endsnippet
+
+context "notMath()"
+snippet lem "lemma"
+\begin{lemma}
+	$1
+\end{lemma}
+endsnippet
+
+context "notMath()"
+snippet cor "corollary"
+\begin{corollary}
+	$1
+\end{corollary}
+endsnippet
+
+context "notMath()"
+snippet proof "proof"
+\begin{proof}
+	$1
+\end{proof}
+endsnippet
+
+context "notMath()"
+snippet def "definition"
+\begin{definition}
+	$1
+\end{definition}
+endsnippet
+
+context "notMath()"
+snippet ex "example"
+\begin{example}
+	$1
+\end{example}
+endsnippet
+
+context "notMath()"
+snippet rem "remark"
+\begin{remark}
+	$1
+\end{remark}
+endsnippet
+
+context "notMath()"
+snippet cd "tikz-cd"
+\begin{center}
+	\begin{tikzcd}
+		$1
+	\end{tikzcd}
+\end{center}
+endsnippet
+
+context "notMath()"
+snippet tabular "tabular"
+\begin{center}
+	\begin{tabular}{${1:c|c}}
+		$2 &  \\\\
+		 & 
+	\end{tabular}
+\end{center}
+endsnippet
