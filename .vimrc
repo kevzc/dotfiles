@@ -107,10 +107,10 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
 
 let g:syntastic_mode_map = { 'passive_filetypes': ['tex'] }
 let g:syntastic_tex_checkers = ['chktex']
@@ -124,15 +124,18 @@ let g:syntastic_tex_checkers = ['chktex']
 
 
 " delimitMate
-let delimitMate_expand_cr = 1
-let delimitMate_expand_space = 1
+" ft customizations
+let delimitMate_offByDefault=1
 
-" autocmd FileType tex let b:delimitMate_matchpairs = "(:),[:],{:}"
-autocmd FileType tex,txt let b:delimitMate_matchpairs = ""
-autocmd FileType tex let b:delimitMate_quotes = "$"
-autocmd FileType tex let b:delimitMate_smart_matchpairs = '^\%(\w\|\!\|[£]\|[^[:space:][:punct:]]\)'
+autocmd FileType cpp,java,py,tex let delimitMate_offByDefault=0
+autocmd FileType tex let b:delimitMate_quotes="$"
+autocmd FileType tex let b:delimitMate_smart_matchpairs='^\%(\w\|\!\|[£]\|[^[:space:][:punct:]]\)'
 
-autocmd FileType snippets let b:loaded_delimitMate = 1
+
+" expanding options
+let delimitMate_expand_cr=1
+let delimitMate_expand_space=1
+
 
 " NERDCommenter
 let NERDSpaceDelims=1
