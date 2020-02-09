@@ -161,7 +161,7 @@
 \newif\ifkevthm\kevthmtrue
 \newif\ifkevthmmd\kevthmmdfalse
 \newif\ifkevthmsec\kevthmsecfalse
-\newif\ifkevthmsubsec\kevthmsubsecfalse
+\newif\ifkevthmsub\kevthmsubfalse
 
 \newif\ifkevasy\kevasytrue
 \newif\ifkevdiagrams\kevdiagramstrue
@@ -190,10 +190,10 @@
 
 \DeclareOption{thmmd}{\kevthmmdtrue}
 \DeclareOption{nothmmd}{\kevthmmdfalse}
-\DeclareOption{thmsec}{\kevthmsectrue}
+\DeclareOption{thmsec}{\kevthmsectrue\kevthmsubfalse}
 \DeclareOption{nothmsec}{\kevthmsecfalse}
-\DeclareOption{thmsubsec}{\kevthmsubsectrue}
-\DeclareOption{nothmsubsec}{\kevthmsubsecfalse}
+\DeclareOption{thmsub}{\kevthmsubtrue\kevthmsecfalse}
+\DeclareOption{nothmsub}{\kevthmsubfalse}
 
 \DeclareOption{diagrams}{\kevdiagramstrue}
 \DeclareOption{nodiagrams}{\kevdiagramsfalse}
@@ -430,7 +430,7 @@
     		\ifkevthmsec
                 \declaretheorem[style=thmbluebox,name=Theorem,numberwithin=section]{theorem}
             \else
-                \ifkevthmsubsec
+                \ifkevthmsub
                     \declaretheorem[style=thmbluebox,name=Theorem,numberwithin=subsection]{theorem}
                 \else
                     \declaretheorem[style=thmbluebox,name=Theorem]{theorem}
@@ -459,7 +459,7 @@
 			\ifkevthmsec
 				\newtheorem{theorem}{Theorem}[section]
 			\else
-			    \ifkevthmsubsec
+			    \ifkevthmsub
 			       \newtheorem{theorem}{Theorem}[subsection]
 				\else
 				    \newtheorem{theorem}{Theorem}
