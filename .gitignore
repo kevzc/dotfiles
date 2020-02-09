@@ -1,4 +1,5 @@
 .vim/plugged/
+.NERDTreeBookmarks
 
 .CFUserTextEncoding
 .bash_history

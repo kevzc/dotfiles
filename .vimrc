@@ -128,6 +128,7 @@ let g:syntastic_tex_checkers = ['chktex']
 let delimitMate_offByDefault=1
 
 autocmd FileType cpp,java,py,tex let delimitMate_offByDefault=0
+autocmd FileType tex let b:delimitMate_matchpairs=""
 autocmd FileType tex let b:delimitMate_quotes="$"
 autocmd FileType tex let b:delimitMate_smart_matchpairs='^\%(\w\|\!\|[£]\|[^[:space:][:punct:]]\)'
 
