@@ -1,0 +1,494 @@
+% Fakesection Essentials
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{kev}[2020/02/07 @ 22:10 Custom Package]
+\RequirePackage{silence}
+\WarningFilter{remreset}{The remreset package}
+
+% Basic Packages
+\RequirePackage{amsmath, amssymb}
+\RequirePackage{mathtools}
+\RequirePackage{textcomp}
+\RequirePackage{enumerate}
+\RequirePackage[shortlabels]{enumitem}
+\RequirePackage{hyperref}
+\RequirePackage{cleveref}
+\RequirePackage{verbatim}
+\RequirePackage[dvipsnames]{xcolor}
+
+%% more symbols
+\RequirePackage{stmaryrd}
+\RequirePackage{bbm}
+
+
+% Fakesection Macros
+
+%% sets & symbols
+\newcommand{\CC}{\mathbb C}
+\newcommand{\EE}{\mathbb E}
+\newcommand{\FF}{\mathbb F}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\ZZ}{\mathbb Z}
+
+\newcommand{\SA}{\mathcal A}
+\newcommand{\SB}{\mathcal B}
+\newcommand{\SC}{\mathcal C}
+\newcommand{\SF}{\mathcal F}
+\newcommand{\SN}{\mathcal N}
+\newcommand{\SO}{\mathcal O}
+\newcommand{\SP}{\mathcal P}
+\newcommand{\SR}{\mathcal R}
+\newcommand{\ST}{\mathcal T}
+
+\newcommand{\ka}{\mathfrak a}
+\newcommand{\kb}{\mathfrak b}
+\newcommand{\kc}{\mathfrak c}
+\newcommand{\kd}{\mathfrak d}
+\newcommand{\kg}{\mathfrak g}
+\newcommand{\kh}{\mathfrak h}
+\newcommand{\kn}{\mathfrak n}
+\newcommand{\ku}{\mathfrak u}
+\newcommand{\kz}{\mathfrak z}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vphi}{\varphi}
+\newcommand{\one}{\mathbbm 1}
+
+%% delimiters
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\vmag}[1]{\left\| #1 \right\|}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+
+%% operations
+\newcommand{\cbrt}[1]{\sqrt[3]{#1}}
+\newcommand{\inv}{^{-1}}
+\DeclareMathOperator{\ord}{ord}
+
+\newcommand{\ol}{\overline}
+\newcommand{\wt}{\widetilde}
+\newcommand{\wh}{\widehat}
+
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+%% miscellaneous
+\newcommand{\QED}{\hfill\qed}
+\newcommand{\aand}{\qquad\text{and}\qquad}
+\newcommand{\bigmid}{~\bigg\vert~}
+\newcommand{\tsup}{\textsuperscript}
+\newcommand{\tsub}{\textsubscript}
+\newcommand{\ii}{\item}
+
+\newcommand{\nin}{\noindent}
+\newcommand{\vin}{\vspace{0.5em}\noindent}
+\newcommand{\bin}[1]{\vspace{0.5em}\noindent\textbf{#1}}
+
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+\newcommand{\vocab}[1]{\textbf{\color{blue} #1}}
+
+%% environments
+\newenvironment{abstract*}%
+    {\renewcommand{\abstractname}{\vspace{-\baselineskip}}\begin{abstract}}%
+    {\end{abstract}}
+\newenvironment{subproof}[1][Proof]%
+    {\begin{proof}[#1]\renewcommand{\qedsymbol}{$\blacksquare$}}%
+    {\end{proof}}
+\newenvironment{bflist}%
+    {\begin{enumerate} [label=\textbf{(\alph*)}, wide,labelindent=0pt, labelwidth=!, parsep=0em, itemsep=1em]}%
+    {\end{enumerate}}
+
+%% MAT218
+\newcommand{\limit}[3]{\lim_{#1 \to #2}#3}
+\newcommand{\deriv}[2]{\frac{d#1}{d#2}}
+\newcommand{\mderiv}[3]{\frac{d^{#3}#1}{d#2^{#3}}}
+\newcommand{\pderiv}[2]{\frac{\partial#1}{\partial #2}}
+\newcommand{\mpderiv}[3]{\frac{\partial^{#3}#1}{\partial#2^{#3}}}
+
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\vspan}{span}
+
+\newcommand{\mtrans}[1]{~^t\!#1}
+\newcommand{\btrans}[1]{\prescript{t}{}{#1}}
+\newcommand{\sm}{\setminus}
+
+%% MAT345
+\newcommand{\zmod}[1]{\mathbb Z/#1\mathbb Z}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\supp}{supp}
+
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+
+\newcommand{\surjto}{\twoheadrightarrow}
+\newcommand{\injto}{\hookrightarrow}
+
+%% MAT365
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\inter}{int}
+\DeclareMathOperator{\clo}{clo}
+
+
+% Fakesection Options
+
+\newif\ifkevsetup\kevsetuptrue
+
+\newif\ifkevtitle\kevtitletrue
+\newif\ifkevfancytitle\kevfancytitlefalse
+\newif\ifkevshorttitle\kevshorttitlefalse
+\newif\ifkevbooktitle\kevbooktitlefalse
+
+\newif\ifkevhdr\kevhdrtrue
+\newif\ifkevcolorsec\kevcolorsecfalse
+
+\newif\ifkevthm\kevthmtrue
+\newif\ifkevthmmd\kevthmmdfalse
+\newif\ifkevthmsec\kevthmsecfalse
+\newif\ifkevthmsubsec\kevthmsubsecfalse
+
+\newif\ifkevasy\kevasytrue
+\newif\ifkevdiagrams\kevdiagramstrue
+
+\DeclareOption{fancy}{\kevfancytitletrue\kevcolorsectrue\kevthmmdtrue\kevthmsectrue}
+\DeclareOption{pset}{\kevshorttitletrue\kevthmsectrue}
+\DeclareOption{book}{\kevbooktitletrue\kevcolorsectrue\kevthmmdtrue\kevthmsectrue}
+
+\DeclareOption{setup}{\kevsetuptrue}
+\DeclareOption{nosetup}{\kevsetupfalse}
+
+\DeclareOption{title}{\kevtitletrue}
+\DeclareOption{notitle}{\kevtitlefalse}
+\DeclareOption{fancytitle}{\kevtitletrue}
+\DeclareOption{nofancytitle}{\kevtitlefalse}
+\DeclareOption{shorttitle}{\kevshorttitletrue}
+\DeclareOption{noshorttitle}{\kevshorttitlefalse}
+\DeclareOption{booktitle}{\kevbooktiletrue}
+\DeclareOption{nobooktitle}{\kevbooktitlefalse}
+
+\DeclareOption{hdr}{\kevhdrtrue}
+\DeclareOption{nohdr}{\kevhdrfalse}
+
+\DeclareOption{colorsec}{\kevcolorsectrue}
+\DeclareOption{nocolorsec}{\kevcolorsecfalse}
+
+\DeclareOption{thmmd}{\kevthmmdtrue}
+\DeclareOption{nothmmd}{\kevthmmdfalse}
+\DeclareOption{thmsec}{\kevthmsectrue}
+\DeclareOption{nothmsec}{\kevthmsecfalse}
+\DeclareOption{thmsubsec}{\kevthmsubsectrue}
+\DeclareOption{nothmsubsec}{\kevthmsubsecfalse}
+
+\DeclareOption{diagrams}{\kevdiagramstrue}
+\DeclareOption{nodiagrams}{\kevdiagramsfalse}
+\DeclareOption{asy}{\kevasytrue}
+\DeclareOption{noasy}{\kevasyfalse}
+
+%% declaration warning (put directly after declarations)
+\DeclareOption*{\PackageWarning{kev}{Unknown ‘\CurrentOption’}}
+\ProcessOptions\relax
+
+
+% Fakesection Setup
+\ifkevsetup
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% Basics
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    %% margins
+    \usepackage[margin=1in]{geometry}
+    
+    %% title, ...
+	\providecommand{\thetitle}{\@title}
+	\providecommand{\theauthor}{\@author}
+	\providecommand{\thedate}{\@date}
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% title
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ifkevtitle
+        %% setting font with no hdr errors (for font size)
+        \newcommand{\addtotitlefont}[1]{
+            \let\oldtitlefont\title
+            \renewcommand{\title}[1]{\oldtitlefont{#1 ##1} \renewcommand{\thetitle}{##1}}
+        }
+        
+        \@ifundefined{KOMAClassName}{}{
+            %% fancy title
+            \ifkevfancytitle
+                \addtotitlefont{\LARGE}
+        		\addtokomafont{subtitle}{\Large}
+        		\setkomafont{author}{\large\scshape}
+        		\setkomafont{date}{\normalsize}
+    		\fi
+    
+            %% short title
+            \ifkevshorttitle
+                \addtotitlefont{\vspace{-2em}\LARGE\rmfamily}
+                \addtokomafont{author}{\vspace{-.5em}\normalsize\scshape}
+                \addtokomafont{date}{\vspace{-.5em}\normalsize}
+                \let\maketitlesmallgap\maketitle
+                \renewcommand{\maketitle}{\maketitlesmallgap\vspace{-1em}}
+            \fi
+            
+            \ifkevbooktitle
+        		\addtokomafont{subtitle}{\LARGE}
+        		\setkomafont{author}{\Large\scshape}
+        		\setkomafont{date}{\normalsize}
+            \fi
+        }
+    \else
+        \@ifundefined{KOMAClassName}{}{
+            \addtokomafont{title}{\rmfamily}
+            \setkomafont{author}{\large}
+            \setkomafont{date}{\normalsize}
+        }
+    \fi
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% header
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ifkevhdr
+        \RequirePackage{fancyhdr, lastpage}
+        \pagestyle{fancy}
+        \lhead{\theauthor}
+        \chead{\thetitle}
+        \rhead{Page \thepage\ of \pageref*{LastPage}}
+        \lfoot{}
+        \cfoot{}
+        \rfoot{}
+        
+        %% no page numbers on title page
+        \let\maketitlenopagenum\maketitle
+        \renewcommand{\maketitle}{\maketitlenopagenum\thispagestyle{empty}}
+    \fi
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% sections
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+    \ifkevcolorsec
+        \@ifundefined{KOMAClassName}{
+            \sectionfont{\sffamily}
+            \subsectionfont{\sffamily}
+            \subsubsectionfont{\sffamily}
+        
+            \makeatletter
+            \def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+                {\csname the#1\endcsname\quad}
+                {\csname #1@cntformat\endcsname}}
+                
+            \newcommand{\section@cntformat} {\color{purple}\S\thesection\quad}
+            \newcommand{\subsection@cntformat} {\color{purple}\S\thesubsection\quad}
+                \newcommand{\subsubsection@cntformat} {\color{purple}\S\thesubsubsection\quad}
+            \makeatletter
+        }
+        {
+            %% section style
+            \renewcommand*{\sectionformat}{\color{purple}\S\thesection\enskip}
+			\renewcommand*{\subsectionformat}{\color{purple}\S\thesubsection\enskip}
+			\renewcommand*{\subsubsectionformat}{\color{purple}\S\thesubsubsection\enskip}
+			\KOMAoptions{numbers=noenddot}
+			
+			%% chapter style
+			\@ifundefined{chapter}{}{
+				\addtokomafont{partprefix}{\rmfamily}
+				\renewcommand*{\partformat}{\color{purple}
+					\scalebox{2.5}{\thepart}\enlargethispage{2em}}
+				\addtokomafont{chapterprefix}{\raggedleft}
+				\RedeclareSectionCommand[beforeskip=0.5em]{chapter}
+				\renewcommand*{\chapterformat}{\mbox{%
+					\scalebox{1.5}{\chapappifchapterprefix{\nobreakspace}}%
+					\scalebox{2.718}{\color{purple}\thechapter}\enskip}}
+				%% unstretched
+				\raggedbottom
+				
+				%% no page number
+                \fancypagestyle{plain}{%
+                  \renewcommand{\headrulewidth}{0pt}%
+                  \fancyhf{}%
+                }
+			}
+        }
+        
+    \else
+        \@ifundefined{KOMAClassName}{}{
+            \addtokomafont{section}{\rmfamily}
+            \addtokomafont{subsection}{\rmfamily}
+            \addtokomafont{subsubsection}{\rmfamily}
+        }
+    \fi
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% theorems
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ifkevthm
+        \RequirePackage{amsthm}
+        \RequirePackage{thmtools}
+        \RequirePackage[framemethod=TikZ]{mdframed}
+        
+        %% for enumerate/itemize in theorem environment
+        \newcommand{\listhack}{$\empty$\vspace{-2em}}
+    
+        %% md thm
+        \ifkevthmmd
+            \theoremstyle{definition}
+            \mdfdefinestyle{mdbluebox}{%
+            	roundcorner=10pt,
+            	linewidth=1pt,
+            	skipabove=12pt,
+            	innerbottommargin=9pt,
+            	skipbelow=2pt,
+            	nobreak=true,
+            	linecolor=blue,
+            	backgroundcolor=TealBlue!5,
+            }
+            \declaretheoremstyle[
+            	headfont=\sffamily\bfseries\color{MidnightBlue},
+            	mdframed={style=mdbluebox},
+            	headpunct={\\[3pt]},
+            	postheadspace={0pt}
+            ]{thmbluebox}
+            
+            \mdfdefinestyle{mdredbox}{%
+            	linewidth=0.5pt,
+            	skipabove=12pt,
+            	frametitleaboveskip=5pt,
+            	frametitlebelowskip=0pt,
+            	skipbelow=2pt,
+            	frametitlefont=\bfseries,
+            	innertopmargin=4pt,
+            	innerbottommargin=8pt,
+            	nobreak=true,
+            	linecolor=RawSienna,
+            	backgroundcolor=Salmon!5,
+            }
+            \declaretheoremstyle[
+            	headfont=\bfseries\color{RawSienna},
+            	mdframed={style=mdredbox},
+            	headpunct={\\[3pt]},
+            	postheadspace={0pt},
+            ]{thmredbox}
+            
+            \mdfdefinestyle{mdgreenbox}{%
+            	skipabove=8pt,
+            	linewidth=2pt,
+            	rightline=false,
+            	leftline=true,
+            	topline=false,
+            	bottomline=false,
+            	linecolor=ForestGreen,
+            	backgroundcolor=ForestGreen!5,
+            }
+            \declaretheoremstyle[
+            	headfont=\bfseries\sffamily\color{ForestGreen!70!black},
+            	bodyfont=\normalfont,
+            	spaceabove=2pt,
+            	spacebelow=1pt,
+            	mdframed={style=mdgreenbox},
+            	headpunct={ --- },
+            ]{thmgreenbox}
+            
+            \mdfdefinestyle{mdblackbox}{%
+            	skipabove=8pt,
+            	linewidth=3pt,
+            	rightline=false,
+            	leftline=true,
+            	topline=false,
+            	bottomline=false,
+            	linecolor=black,
+            	backgroundcolor=RedViolet!5!gray!5,
+            }
+            \declaretheoremstyle[
+            	headfont=\bfseries,
+            	bodyfont=\normalfont\small,
+            	spaceabove=0pt,
+            	spacebelow=0pt,
+            	mdframed={style=mdblackbox}
+            ]{thmblackbox}
+    		
+            %% section theorem numbering
+    		\ifkevthmsec
+                \declaretheorem[style=thmbluebox,name=Theorem,numberwithin=section]{theorem}
+            \else
+                \ifkevthmsubsec
+                    \declaretheorem[style=thmbluebox,name=Theorem,numberwithin=subsection]{theorem}
+                \else
+                    \declaretheorem[style=thmbluebox,name=Theorem]{theorem}
+                \fi
+    	    \fi
+    	    
+    	    %% other thm environments
+    	    \declaretheorem[style=thmbluebox,name=Lemma,sibling=theorem]{lemma}
+    		\declaretheorem[style=thmbluebox,name=Proposition,sibling=theorem]{proposition}
+    		\declaretheorem[style=thmbluebox,name=Corollary,sibling=theorem]{corollary}
+    		\declaretheorem[style=thmgreenbox,name=Remark,sibling=theorem]{remark}
+    		\declaretheorem[style=thmredbox,name=Example,sibling=theorem]{example}
+    		\declaretheorem[style=definition,name=Definition,sibling=theorem]{definition}
+    		
+    		%% no numbering
+    		\declaretheorem[style=thmbluebox,name=Theorem,numbered=no]{theorem*}
+    		\declaretheorem[style=thmbluebox,name=Lemma,numbered=no]{lemma*}
+    		\declaretheorem[style=thmbluebox,name=Proposition,numbered=no]{proposition*}
+    		\declaretheorem[style=thmbluebox,name=Corollary,numbered=no]{corollary*}
+    		\declaretheorem[style=thmgreenbox,name=Remark,numbered=no]{remark*}
+    	
+    	\else
+    	    %% no italics inside thm environment
+    	    \theoremstyle{definition}
+    	    
+			\ifkevthmsec
+				\newtheorem{theorem}{Theorem}[section]
+			\else
+			    \ifkevthmsubsec
+			       \newtheorem{theorem}{Theorem}[subsection]
+				\else
+				    \newtheorem{theorem}{Theorem}
+				\fi
+			\fi
+			\newtheorem{lemma}[theorem]{Lemma}
+			\newtheorem{proposition}[theorem]{Proposition}
+			\newtheorem{corollary}[theorem]{Corollary}
+			\newtheorem*{theorem*}{Theorem}
+			\newtheorem*{lemma*}{Lemma}
+			\newtheorem*{proposition*}{Proposition}
+			\newtheorem*{corollary*}{Corollary}
+		\fi
+    \fi
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% Diagrams and Asymptote
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ifkevdiagrams        
+        \RequirePackage{tikz-cd}
+        \usetikzlibrary{decorations.pathmorphing}
+        \tikzcdset{row sep/normal=4em,column sep/normal=4em}
+    \fi
+
+    \ifkevasy
+        \RequirePackage[inline]{asymptote}
+        \begin{asydef}
+    		size(6cm);
+            defaultpen(fontsize(11pt));
+        \end{asydef}
+    \fi
+\fi
