@@ -1,4 +1,4 @@
-# Math
+# defining texMathZone
 global !p
 texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C', 'CS', 'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS', 'J', 'JS', 'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
 texIgnoreMathZones = ['texMathText']
@@ -29,22 +29,32 @@ snippet templ "normal template"
 
 \begin{document}
 \maketitle
+
 $0
+
 \end{document}
 endsnippet
 
+# testing
+snippet "rep (\d+) (\w+)" "repeat" r
+`!p snip.rv = int(match.group(1))*match.group(2)`
+endsnippet
+
+snippet "\\(\w+)" "command" r
+`!p snip.rv = "\\" + match.group(1)`{${1:${VISUAL}}}
+endsnippet
 
 # style
 snippet bf "bold"
-\textbf{$1}
+\textbf{${1:${VISUAL}}}
 endsnippet
 
 snippet it "italics"
-\textit{$1}
+\textit{${1:${VISUAL}}}
 endsnippet
 
 snippet voc "vocab"
-\vocab{$1}
+\vocab{${1:${VISUAL}}}
 endsnippet
 
 snippet ... "dots" iA
