@@ -53,11 +53,12 @@ if has("gui_running")
 	syntax match texMathSymbol "\\colon\>" contained conceal cchar=:
 endif
 
-" rid annoying ]] from vimtex
-iunmap <buffer> ]]
-
-" spelling
-" put after conceal
-" or else things mess up
+" put spelling after conceal
+" or else it won't work
 set spell
 syntax spell toplevel
+
+" rid annoying ]] from vimtex
+if ('g:loaded_vimtex')
+	iunmap <buffer> ]]
+endif
