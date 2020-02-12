@@ -11,6 +11,9 @@ Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'lervag/vimtex'
+" Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -20,7 +23,7 @@ call plug#end()
 
 filetype plugin indent on
 syntax on
-set number
+set relativenumber
 set wildmenu
 
 set tabstop=4
@@ -40,7 +43,7 @@ endif
 
 " tabs for macvim
 if has("gui_macvim")
-	" Press Ctrl-Tab to switch between open tabs (like browser tabs) to 
+	" Press Ctrl-Tab to switch between open tabs (like browser tabs) to
 	" the right side. Ctrl-Shift-Tab goes the other way.
 	noremap <C-Tab> <Esc>:tabnext<CR>
 	noremap <C-S-Tab> <Esc>:tabprev<CR>
@@ -76,22 +79,79 @@ endif
 
 " basic tex stuff
 let g:tex_flavor="latex"
-let g:tex_conceal='abmg'
+let g:tex_conceal='abmgs'
 let g:vimtex_imaps_leader=';'
 
 " }}}1
 
 " {{{1 configure plugins
 
+" " {{{2 lightline.vim
+
+" " always display status line
+" set laststatus=2
+
+" " do not show mode
+" set noshowmode
+
+" " define lightline configuration
+" let g:lightline = {
+			" \ 'colorscheme': 'solarized',
+			" \ }
+
+" " define function to toggle solarized theme
+" " change background and update lightline color scheme
+" function! ToggleSolarizedTheme()
+	" let &background = ( &background == "dark"? "light" : "dark" )
+	" if exists("g:lightline")
+		" runtime autoload/lightline/colorscheme/solarized.vim
+		" call lightline#colorscheme()
+	" endif
+" endfunction
+
+" " map F12 to ToggleSolarizedTheme() function
+" map <F12> :call ToggleSolarizedTheme()<CR>
+
+" "}}}2
+
+" {{{2 vim-airline
+
+" basic
+set laststatus=2
+set noshowmode
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+
+" font for arrows
+set guifont=Hack
+let g:airline_powerline_fonts=1
+
+" status line
+let g:airline#extensions#wordcount#enabled=0  " no word count
+let g:airline_section_y=''  " no utf-8 stuff
+let g:airline_section_error='' " remove error messages
+let g:airline_section_warning=''  " remove warnings
+let g:airline_detect_spell=0  " remove spell
+
+" tabline
+let g:airline#extensions#tabline#enabled=1  " enable
+let g:airline#extensions#tabline#show_tab_type=0  " remove tab/buffer labels
+let g:airline#extensions#tabline#show_close_button=0  " remove x
+let g:airline#extensions#tabline#overflow_marker='…'  " overflow marker
+let airline#extensions#tabline#show_splits=0  " remove double naming
+let g:airline#extensions#tabline#show_buffers=0  " don't show open buffers
+
+" }}}2
+
 " {{{2 vimtex
 let g:vimtex_fold_enabled=1
 let g:vimtex_fold_types={
-	\ 'envs' : {
-	\	'whitelist' : ['asy', 'comment'],
-	\ },
-	\ 'markers' : {'enabled': 0},
-	\ 'sections' : {'parse_levels': 1},
-	\}
+			\ 'envs' : {
+			\	'whitelist' : ['asy', 'comment'],
+			\ },
+			\ 'markers' : {'enabled': 0},
+			\ 'sections' : {'parse_levels': 1},
+			\}
 
 " skim pdf stuff
 let g:vimtex_view_method='skim'
@@ -136,7 +196,7 @@ let g:loaded_matchparen=0
 
 " let delimitMate_blacklist=['cpp', 'java', 'py', 'tex']
 " if index(delimitMate_blacklist, &filetype) == -1
-	" let delimitMate_offByDefault=1
+" let delimitMate_offByDefault=1
 " endif
 
 " autocmd FileType tex let b:delimitMate_matchpairs=""
