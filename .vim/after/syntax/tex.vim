@@ -59,6 +59,4 @@ set spell
 syntax spell toplevel
 
 " rid annoying ]] from vimtex
-if ('g:loaded_vimtex')
-	iunmap <buffer> ]]
-endif
+iunmap <buffer> ]]

@@ -3,10 +3,10 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-surround'
-Plug 'raimondi/delimitmate'
+" Plug 'raimondi/delimitmate'
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'vim-scripts/vim-auto-save'
@@ -74,14 +74,6 @@ if has("gui_macvim")
 	inoremap <D-9> <Esc>:tablast<CR>
 endif
 
-" folding
-set foldlevelstart=0
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
-
 " basic tex stuff
 let g:tex_flavor="latex"
 let g:tex_conceal='abmg'
@@ -117,18 +109,18 @@ let g:loaded_matchparen=0
 
 " {{{2 Syntastic
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
+" let g:syntastic_always_populate_loc_list=1
+" let g:syntastic_auto_loc_list=1
+" let g:syntastic_check_on_open=1
+" let g:syntastic_check_on_wq=0
 
-let g:syntastic_mode_map={'passive_filetypes': ['tex']}
-let g:syntastic_tex_checkers=['chktex']
-" let g:syntastic_quiet_messages = { "type": "style" }
+" let g:syntastic_mode_map={'passive_filetypes': ['tex']}
+" let g:syntastic_tex_checkers=['chktex']
+" " let g:syntastic_quiet_messages = { "type": "style" }
 
 " }}}2
 
@@ -142,18 +134,18 @@ let g:syntastic_tex_checkers=['chktex']
 
 " {{{2 delimitMate
 
-let delimitMate_blacklist=['cpp', 'java', 'py', 'tex']
-if index(delimitMate_blacklist, &filetype) == -1
-	let delimitMate_offByDefault=1
-endif
+" let delimitMate_blacklist=['cpp', 'java', 'py', 'tex']
+" if index(delimitMate_blacklist, &filetype) == -1
+	" let delimitMate_offByDefault=1
+" endif
 
-autocmd FileType tex let b:delimitMate_matchpairs=""
-autocmd FileType tex let b:delimitMate_quotes="$"
-autocmd FileType tex let b:delimitMate_smart_matchpairs='^\%(\w\|\!\|[£]\|[^[:space:][:punct:]]\)'
+" autocmd FileType tex let b:delimitMate_matchpairs=""
+" autocmd FileType tex let b:delimitMate_quotes="$"
+" autocmd FileType tex let b:delimitMate_smart_matchpairs='^\%(\w\|\!\|[£]\|[^[:space:][:punct:]]\)'
 
-" expanding options
-let delimitMate_expand_cr=1
-let delimitMate_expand_space=1
+" " expanding options
+" let delimitMate_expand_cr=1
+" let delimitMate_expand_space=1
 
 " }}}2
 
