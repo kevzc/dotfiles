@@ -92,6 +92,13 @@ snippet ",\[ " "math display" rbA
 \[ $1 \]
 endsnippet
 
+context "notMath()"
+snippet "dd " "multi-line math display" rbA
+\[
+	$1
+\]
+endsnippet
+
 context "math()"
 snippet ",\(\( " "big parentheses" rA
 \left( $1 \right)
@@ -170,7 +177,7 @@ context "notMath()"
 snippet eq "equation"
 \begin{equation}
 	\label{$1}
-	$2
+	${2:${VISUAL}}
 \end{equation}
 endsnippet
 
@@ -276,4 +283,11 @@ snippet tabular "tabular"
 		 & 
 	\end{tabular}
 \end{center}
+endsnippet
+
+snippet map "map"
+\begin{align*}
+	${1:map}\colon ${2:domain} &\longrightarrow ${3:range} \\\\
+	${4:x} &\longmapsto ${5:f(x)}
+\end{align*}
 endsnippet
