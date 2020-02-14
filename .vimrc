@@ -2,18 +2,26 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-fugitive'
-" Plug 'vim-syntastic/syntastic'
+" Commands and Snippets
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-surround'
-" Plug 'raimondi/delimitmate'
+
+" Language
+" Plug 'vim-syntastic/syntastic'
 Plug 'preservim/nerdcommenter'
-Plug 'preservim/nerdtree'
-Plug 'vim-scripts/vim-auto-save'
 Plug 'lervag/vimtex'
-" Plug 'itchyny/lightline.vim'
+
+" Integration
+Plug 'tpope/vim-fugitive'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" UI
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" Other
+Plug 'vim-scripts/vim-auto-save'
 
 call plug#end()
 
@@ -29,6 +37,8 @@ set wildmenu
 set tabstop=4
 set shiftwidth=4
 
+set guifont=Hack
+
 " appearance
 if has("gui_running")
 	set background=dark
@@ -43,12 +53,9 @@ endif
 
 " tabs for macvim
 if has("gui_macvim")
-	" Press Ctrl-Tab to switch between open tabs (like browser tabs) to
-	" the right side. Ctrl-Shift-Tab goes the other way.
 	noremap <C-Tab> <Esc>:tabnext<CR>
 	noremap <C-S-Tab> <Esc>:tabprev<CR>
 
-	" Switch to specific tab numbers with Command-number
 	noremap <D-1> <Esc>:tabn 1<CR>
 	noremap <D-2> <Esc>:tabn 2<CR>
 	noremap <D-3> <Esc>:tabn 3<CR>
@@ -57,14 +64,12 @@ if has("gui_macvim")
 	noremap <D-6> <Esc>:tabn 6<CR>
 	noremap <D-7> <Esc>:tabn 7<CR>
 	noremap <D-8> <Esc>:tabn 8<CR>
-	" last tab
 	noremap <D-9> <Esc>:tablast<CR>
 
-	" same but for insert mode
+	" for insert mode
 	inoremap <C-Tab> <Esc>:tabnext<CR>
 	inoremap <C-S-Tab> <Esc>:tabprev<CR>
 
-	" Switch to specific tab numbers with Command-number
 	inoremap <D-1> <Esc>:tabn 1<CR>
 	inoremap <D-2> <Esc>:tabn 2<CR>
 	inoremap <D-3> <Esc>:tabn 3<CR>
@@ -73,57 +78,25 @@ if has("gui_macvim")
 	inoremap <D-6> <Esc>:tabn 6<CR>
 	inoremap <D-7> <Esc>:tabn 7<CR>
 	inoremap <D-8> <Esc>:tabn 8<CR>
-	" last tab
 	inoremap <D-9> <Esc>:tablast<CR>
 endif
-
-" basic tex stuff
-let g:tex_flavor="latex"
-let g:tex_conceal='abmgs'
-let g:vimtex_imaps_leader=';'
 
 " }}}1
 
 " {{{1 configure plugins
-
-" " {{{2 lightline.vim
-
-" " always display status line
-" set laststatus=2
-
-" " do not show mode
-" set noshowmode
-
-" " define lightline configuration
-" let g:lightline = {
-			" \ 'colorscheme': 'solarized',
-			" \ }
-
-" " define function to toggle solarized theme
-" " change background and update lightline color scheme
-" function! ToggleSolarizedTheme()
-	" let &background = ( &background == "dark"? "light" : "dark" )
-	" if exists("g:lightline")
-		" runtime autoload/lightline/colorscheme/solarized.vim
-		" call lightline#colorscheme()
-	" endif
-" endfunction
-
-" " map F12 to ToggleSolarizedTheme() function
-" map <F12> :call ToggleSolarizedTheme()<CR>
-
-" "}}}2
 
 " {{{2 vim-airline
 
 " basic
 set laststatus=2
 set noshowmode
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
+
+if has("gui_running")
+	let g:airline_theme='solarized'
+	let g:airline_solarized_bg='dark'
+endif
 
 " font for arrows
-set guifont=Hack
 let g:airline_powerline_fonts=1
 
 " status line
@@ -144,6 +117,12 @@ let g:airline#extensions#tabline#show_buffers=0  " don't show open buffers
 " }}}2
 
 " {{{2 vimtex
+" basic tex settings
+let g:tex_flavor="latex"
+let g:tex_conceal='abmgs'
+let g:vimtex_imaps_leader=';'
+
+" folding
 let g:vimtex_fold_enabled=1
 let g:vimtex_fold_types={
 			\ 'envs' : {
@@ -217,8 +196,22 @@ let NERDSpaceDelims=1
 
 " {{{2 NERDTree
 
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
+" opening
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>n :NERDTreeFocus<CR>
+
+" what to show
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+
+" what to ignore
+let NERDTreeIgnore=['\~$', '\.DS_Store$']
+
+" Quit when opening a file
+let NERDTreeQuitOnOpen=1
+
+" Delete buffer if file deleted
+let NERDTreeAutoDeleteBuffer = 1
 
 " }}}2
 
