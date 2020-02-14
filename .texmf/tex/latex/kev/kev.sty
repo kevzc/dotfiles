@@ -22,7 +22,7 @@
 
 % Fakesection Macros
 
-%% sets & symbols
+%% letters
 \newcommand{\CC}{\mathbb C}
 \newcommand{\EE}{\mathbb E}
 \newcommand{\FF}{\mathbb F}
@@ -41,6 +41,7 @@
 \newcommand{\SP}{\mathcal P}
 \newcommand{\SR}{\mathcal R}
 \newcommand{\ST}{\mathcal T}
+\newcommand{\OO}{\mathcal O}
 
 \newcommand{\ka}{\mathfrak a}
 \newcommand{\kb}{\mathfrak b}
@@ -56,15 +57,10 @@
 \newcommand{\vphi}{\varphi}
 \newcommand{\one}{\mathbbm 1}
 
-%% delimiters
-\newcommand{\abs}[1]{\left| #1 \right|}
-\newcommand{\vmag}[1]{\left\| #1 \right\|}
-\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
-\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
-
-%% operations
+%% math operations
 \newcommand{\cbrt}[1]{\sqrt[3]{#1}}
 \newcommand{\inv}{^{-1}}
+\newcommand{\half}{\frac{1}{2}}
 \DeclareMathOperator{\ord}{ord}
 
 \newcommand{\ol}{\overline}
@@ -76,22 +72,49 @@
 \let\Im\relax
 \DeclareMathOperator{\Im}{Im}
 
-%% miscellaneous
+%% delimiters
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\vmag}[1]{\left\| #1 \right\|}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+
+%% arrows
+\newcommand{\lto}{\longrightarrow}
+\newcommand{\xto}{\xrightarrow}
+
+\newcommand{\from}{\leftarrow}
+\newcommand{\lfrom}{\longleftarrow}
+\newcommand{\xfrom}{\xleftarrow}
+
+\newcommand{\injto}{\hookrightarrow}
+\newcommand{\xinjto}{\xhookrightarrow}
+\newcommand{\injfrom}{\hookleftarrow}
+\newcommand{\xinjfrom}{\xhookleftarrow}
+
+\newcommand{\surjto}{\twoheadrightarrow}
+\newcommand{\surjfrom}{\twoheadleftarrow}
+
+\newcommand{\bij}{\leftrightarrow}
+\newcommand{\lbij}{\longleftrightarrow}
+\newcommand{\xbij}{\xleftrightarrow}
+
+\newcommand{\lmapsto}{\longmapsto}
+\newcommand{\lmapsfrom}{\longmapsfrom}
+
+%% style
 \newcommand{\QED}{\hfill\qed}
 \newcommand{\aand}{\qquad\text{and}\qquad}
-\newcommand{\bigmid}{~\bigg\vert~}
+\newcommand{\ii}{\item}
+
+\newcommand{\bigmid}{~\big\vert~}
+\newcommand{\biggmid}{~\bigg\vert~}
+
 \newcommand{\tsup}{\textsuperscript}
 \newcommand{\tsub}{\textsubscript}
-\newcommand{\ii}{\item}
 
 \newcommand{\nin}{\noindent}
 \newcommand{\vin}{\vspace{0.5em}\noindent}
 \newcommand{\bin}[1]{\vspace{0.5em}\noindent\textbf{#1}}
-
-\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
-\newcommand{\symsum}{\sum_{\mathrm{sym}}}
-\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
-\newcommand{\symprod}{\prod_{\mathrm{sym}}}
 
 \newcommand{\vocab}[1]{\textbf{\color{blue} #1}}
 
@@ -115,6 +138,7 @@
 
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\vspan}{span}
 
 \newcommand{\mtrans}[1]{~^t\!#1}
@@ -137,11 +161,9 @@
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Hom}{Hom}
 
-\newcommand{\surjto}{\twoheadrightarrow}
-\newcommand{\injto}{\hookrightarrow}
-
 %% MAT365
 \DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Id}{Id}
 \DeclareMathOperator{\inter}{int}
 \DeclareMathOperator{\clo}{clo}
 
