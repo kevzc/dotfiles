@@ -144,6 +144,12 @@ let g:vimtex_view_skim_reading_bar=1
 " let g:vimtex_delim_stopline=0
 let g:loaded_matchparen=0
 
+" refresh status bar after compiling
+function! Callback_airline_refresh(status)
+	execute "AirlineRefresh"
+endfunction
+let g:vimtex_compiler_callback_hooks = ['Callback_airline_refresh']
+
 " }}}2
 
 " {{{2 Syntastic
