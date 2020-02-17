@@ -42,8 +42,8 @@ if has("gui_running")
 
 	" other symbols
 	syntax match texMathSymbol "\\half\>" contained conceal cchar=½
-	syntax match texMathSymbol "*\>" contained conceal cchar=∗
-	syntax match texMathSymbol "\\\#\>" contained conceal cchar=#
+	syntax match texMathSymbol "*" contained conceal cchar=∗
+	syntax match texMathSymbol "\\\#" contained conceal cchar=#
 	syntax match texMathSymbol "\\colon\>" contained conceal cchar=:
 	syntax match texMathSymbol "\\mid\>" contained conceal cchar=|
 	
