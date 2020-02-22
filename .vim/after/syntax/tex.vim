@@ -2,6 +2,7 @@
 call TexNewMathZone("Z","diagram",0)
 call TexNewMathZone("Z","tikzcd",0)
 call TexNewMathZone("Z","align",0)
+call TexNewMathZone("Z","align*",0)
 
 " asy syntax
 syntax include @ASY after/syntax/asy.vim
