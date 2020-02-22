@@ -39,6 +39,11 @@ set shiftwidth=4
 
 set guifont=Hack
 
+" puts cursor where left off after reopenning
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
+
 " appearance
 if has("gui_running")
 	set background=dark
@@ -171,9 +176,17 @@ let g:vimtex_compiler_callback_hooks = ['Callback_airline_refresh']
 
 " {{{2 Ultisnips
 
-" let g:UltiSnipsExpandTrigger="<S-space>"
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+" let g:UltiSnipsExpandTrigger='<S-space>'
+" let g:UltiSnipsJumpForwardTrigger='<tab>'
+" let g:UltiSnipsJumpBackwardTrigger='<S-tab>'
+" nnoremap <leader>es :UltiSnipsEdit!<cr>
+
+" }}}2
+
+" {{{2 Surround
+
+autocmd FileType tex let b:surround_100 = "\\[ \r \\]"
+autocmd FileType tex let b:surroundd_108 = "\\begin{\1environment: \1}\r\\end{\1\1}"
 
 " }}}2
 
