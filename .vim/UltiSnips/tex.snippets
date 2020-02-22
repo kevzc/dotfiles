@@ -21,7 +21,7 @@ endglobal
 context "notMath()"
 snippet templ "normal template"
 \documentclass{scrartcl}
-\usepackage[pset]{kev}
+\usepackage[fancy]{kev}
 
 \title{$1}
 \author{Kevin Chen}
@@ -53,6 +53,10 @@ snippet it "italics"
 \textit{${1:${VISUAL}}}
 endsnippet
 
+snippet tt "text" i
+\text{${1:${VISUAL}}}
+endsnippet
+
 snippet voc "vocab"
 \vocab{${1:${VISUAL}}}
 endsnippet
@@ -61,42 +65,65 @@ snippet ... "dots" iA
 \ldots
 endsnippet
 
+snippet ::: "cdots" iA
+\cdots
+endsnippet
+
+
+# sections
 snippet sec "section"
 \section{$1}
+
+${0:%% text here}
 endsnippet
 
 snippet sub "subsection"
 \subsection{$1}
+
+${0:%% text here}
 endsnippet
 
 snippet subsub "subsubsection"
 \subsubsection{$1}
+
+${0:%% text here}
 endsnippet
 
 snippet sec* "section"
 \section*{$1}
+
+${0:%% text here}
 endsnippet
 
 snippet sub* "subsection"
 \subsection*{$1}
+
+${0:%% text here}
 endsnippet
 
 snippet subsub* "subsubsection"
 \subsubsection*{$1}
+
+${0:%% text here}
 endsnippet
 
 
 # deliminters
 context "notMath()"
-snippet ",\[ " "math display" rbA
-\[ $1 \]
+snippet "d\[ " "display math" rbA
+\[ ${1:${VISUAL}} \]
 endsnippet
 
 context "notMath()"
 snippet "dd " "multi-line math display" rbA
 \[
-	$1
+	${1:${VISUAL}}
 \]
+endsnippet
+
+context "math()"
+snippet $ "in-line math"
+$$1$
 endsnippet
 
 context "math()"
@@ -166,6 +193,21 @@ snippet ;I "integral" iA
 \int_{$1}^{$2} $3
 endsnippet
 
+context "math()"
+snippet ;@ "composition" iA
+\circ
+endsnippet
+
+context "math()"
+snippet sum "sum"
+\sum_{$1}^{$2} $3
+endsnippet
+
+context "math()"
+snippet prod "prod"
+\prod_{$1}^{$2} $3
+endsnippet
+
 # environments (there are a lot)
 snippet begin "for general environments"
 \begin{$1}
@@ -184,7 +226,7 @@ endsnippet
 context "notMath()"
 snippet align "align"
 \begin{align*}
-	$1
+	${1:${VISUAL}}
 \end{align*}
 endsnippet
 
@@ -192,6 +234,13 @@ context "notMath()"
 snippet enum "enumerate"
 \begin{enumerate}
 	\ii $1
+\end{enumerate}
+endsnippet
+
+context "notMath()"
+snippet enum[] "enumerate options"
+\begin{enumerate}[$1]
+	\ii $2
 \end{enumerate}
 endsnippet
 
@@ -276,6 +325,15 @@ snippet cd "tikz-cd"
 endsnippet
 
 context "notMath()"
+snippet asy "asy with center"
+\begin{center}
+	\begin{asy}
+		$1
+	\end{asy}
+\end{center}
+endsnippet
+
+context "notMath()"
 snippet tabular "tabular"
 \begin{center}
 	\begin{tabular}{${1:c|c}}
@@ -290,4 +348,22 @@ snippet map "map"
 	${1:map}\colon ${2:domain} &\lto ${3:range} \\\\
 	${4:x} &\lmapsto ${5:f(x)}
 \end{align*}
+endsnippet
+
+snippet mat "bmatrix"
+\begin{bmatrix}
+	$1
+\end{bmatrix}
+endsnippet
+
+snippet det "vmatrix"
+\begin{vmatrix}
+	$1
+\end{vmatrix}
+endsnippet
+
+snippet cases "cases"
+\begin{cases}
+	$1
+\end{cases}
 endsnippet
