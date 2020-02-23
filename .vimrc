@@ -21,6 +21,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Other
+" Plug 'Konfekt/FastFold'
 Plug 'vim-scripts/vim-auto-save'
 
 call plug#end()
@@ -31,7 +32,7 @@ call plug#end()
 
 filetype plugin indent on
 syntax on
-set relativenumber
+set number
 set wildmenu
 
 set tabstop=4
