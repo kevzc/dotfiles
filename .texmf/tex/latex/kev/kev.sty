@@ -10,7 +10,8 @@
 \RequirePackage{textcomp}
 \RequirePackage{enumerate}
 \RequirePackage[shortlabels]{enumitem}
-\RequirePackage{hyperref}
+\RequirePackage[hidelinks,colorlinks=true]{hyperref}
+\hypersetup{urlcolor=RubineRed,linkcolor=RoyalBlue,citecolor=ForestGreen}
 \RequirePackage{cleveref}
 \RequirePackage{verbatim}
 \RequirePackage[dvipsnames]{xcolor}
@@ -49,6 +50,7 @@
 \newcommand{\kd}{\mathfrak d}
 \newcommand{\kg}{\mathfrak g}
 \newcommand{\kh}{\mathfrak h}
+\newcommand{\km}{\mathfrak m}
 \newcommand{\kn}{\mathfrak n}
 \newcommand{\ku}{\mathfrak u}
 \newcommand{\kz}{\mathfrak z}
@@ -71,6 +73,8 @@
 \DeclareMathOperator{\Re}{Re}
 \let\Im\relax
 \DeclareMathOperator{\Im}{Im}
+
+\newcommand{\pii}{\pi i} % because i'm that lazy
 
 %% delimiters
 \newcommand{\abs}[1]{\left| #1 \right|}
@@ -138,7 +142,6 @@
 
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\tr}{tr}
-\DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\vspan}{span}
 
 \newcommand{\mtrans}[1]{~^t\!#1}
@@ -167,6 +170,14 @@
 \DeclareMathOperator{\inter}{int}
 \DeclareMathOperator{\clo}{clo}
 
+%% MAT419
+\DeclareMathOperator{\charof}{char}
+\DeclareMathOperator{\Emb}{Emb}
+\DeclareMathOperator{\trace}{trace}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\TrK}{Tr_{K/\mathbb Q}}
+\DeclareMathOperator{\Nm}{N}
+\DeclareMathOperator{\NmK}{N_{K/\mathbb Q}}
 
 % Fakesection Options
 
