@@ -21,7 +21,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Other
-" Plug 'Konfekt/FastFold'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-scripts/vim-auto-save'
 
 call plug#end()
@@ -194,7 +194,13 @@ let NERDTreeIgnore=['\~$', '\.DS_Store$']
 let NERDTreeQuitOnOpen=1
 
 " Delete buffer if file deleted
-let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeAutoDeleteBuffer=1
+
+" }}}2
+
+" {{{2
+
+let g:ctrlp_cmd = 'CtrlPMRU'
 
 " }}}2
 
