@@ -119,6 +119,7 @@ let g:airline#extensions#tabline#show_close_button=0  " remove x
 let g:airline#extensions#tabline#overflow_marker='…'  " overflow marker
 let airline#extensions#tabline#show_splits=0  " remove double naming
 let g:airline#extensions#tabline#show_buffers=0  " don't show open buffers
+let g:airline#extensions#tabline#formatter='unique_tail'  " remove file location in tab name
 
 " }}}2
 
@@ -143,11 +144,16 @@ let g:vimtex_view_method='skim'
 let g:vimtex_view_skim_activate=1
 let g:vimtex_view_skim_reading_bar=1
 
+" ignore warnings after compilation
+let g:vimtex_quickfix_latexlog = {
+			\ 'overfull' : 0,
+			\ 'font' : 0,
+			\ 'packages' : {
+			\   'minitoc' : 0,
+			\ },
+			\}
+
 " parentheses stuff (b/c it's laggy!!!)
-" let g:vimtex_matchparen_enabled=0
-" let g:vimtex_motion_matchparen=0
-" let g:vimtex_delim_stopline=0
-" let g:vimtex_delim_stopline=0
 let g:loaded_matchparen=0
 
 " refresh status bar after compiling
@@ -158,53 +164,10 @@ let g:vimtex_compiler_callback_hooks = ['Callback_airline_refresh']
 
 " }}}2
 
-" {{{2 Syntastic
-
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list=1
-" let g:syntastic_auto_loc_list=1
-" let g:syntastic_check_on_open=1
-" let g:syntastic_check_on_wq=0
-
-" let g:syntastic_mode_map={'passive_filetypes': ['tex']}
-" let g:syntastic_tex_checkers=['chktex']
-" " let g:syntastic_quiet_messages = { "type": "style" }
-
-" }}}2
-
-" {{{2 Ultisnips
-
-" let g:UltiSnipsExpandTrigger='<S-space>'
-" let g:UltiSnipsJumpForwardTrigger='<tab>'
-" let g:UltiSnipsJumpBackwardTrigger='<S-tab>'
-" nnoremap <leader>es :UltiSnipsEdit!<cr>
-
-" }}}2
-
 " {{{2 Surround
 
-autocmd FileType tex let b:surround_100 = "\\[ \r \\]"
+autocmd FileType tex let b:surround_109 = "\\[ \r \\]"
 autocmd FileType tex let b:surroundd_108 = "\\begin{\1environment: \1}\r\\end{\1\1}"
-
-" }}}2
-
-" {{{2 delimitMate
-
-" let delimitMate_blacklist=['cpp', 'java', 'py', 'tex']
-" if index(delimitMate_blacklist, &filetype) == -1
-" let delimitMate_offByDefault=1
-" endif
-
-" autocmd FileType tex let b:delimitMate_matchpairs=""
-" autocmd FileType tex let b:delimitMate_quotes="$"
-" autocmd FileType tex let b:delimitMate_smart_matchpairs='^\%(\w\|\!\|[£]\|[^[:space:][:punct:]]\)'
-
-" " expanding options
-" let delimitMate_expand_cr=1
-" let delimitMate_expand_space=1
 
 " }}}2
 
