@@ -44,6 +44,268 @@ snippet "\\(\w+)" "command" r
 `!p snip.rv = "\\" + match.group(1)`{${1:${VISUAL}}}
 endsnippet
 
+# usual
+snippet ;0 "\emptyset" iA
+\emptyset
+endsnippet
+
+snippet ;6 "\partial" iA
+\partial
+endsnippet
+
+snippet ;8 "\infty" iA
+\infty
+endsnippet
+
+snippet ;= "\equiv" iA
+\equiv
+endsnippet
+
+snippet ;\ "\setminus" iA
+\setminus
+endsnippet
+
+snippet ;. "\cdot" iA
+\cdot
+endsnippet
+
+snippet ;* "\times" iA
+\times
+endsnippet
+
+snippet ;< "\langle" iA
+\langle
+endsnippet
+
+snippet ;> "\rangle" iA
+\rangle
+endsnippet
+
+snippet ;H "\hbar" iA
+\hbar
+endsnippet
+
+snippet ;+ "\dagger" iA
+\dagger
+endsnippet
+
+snippet ;[ "\subseteq" iA
+\subseteq
+endsnippet
+
+snippet ;] "\supseteq" iA
+\supseteq
+endsnippet
+
+snippet ;( "\subset" iA
+\subset
+endsnippet
+
+snippet ;) "\supset" iA
+\supset
+endsnippet
+
+snippet ;A "\forall" iA
+\forall
+endsnippet
+
+snippet ;E "\exists" iA
+\exists
+endsnippet
+
+snippet ;jj "\downarrow" iA
+\downarrow
+endsnippet
+
+snippet ;jJ "\Downarrow" iA
+\Downarrow
+endsnippet
+
+snippet ;jk "\uparrow" iA
+\uparrow
+endsnippet
+
+snippet ;jK "\Uparrow" iA
+\Uparrow
+endsnippet
+
+snippet ;jh "\leftarrow" iA
+\leftarrow
+endsnippet
+
+snippet ;jH "\Leftarrow" iA
+\Leftarrow
+endsnippet
+
+snippet ;jl "\rightarrow" iA
+\rightarrow
+endsnippet
+
+snippet ;jL "\Rightarrow" iA
+\Rightarrow
+endsnippet
+
+snippet ;a "\alpha" iA
+\alpha
+endsnippet
+
+snippet ;b "\beta" iA
+\beta
+endsnippet
+
+snippet ;c "\chi" iA
+\chi
+endsnippet
+
+snippet ;d "\delta" iA
+\delta
+endsnippet
+
+snippet ;e "\epsilon" iA
+\epsilon
+endsnippet
+
+snippet ;f "\phi" iA
+\phi
+endsnippet
+
+snippet ;g "\gamma" iA
+\gamma
+endsnippet
+
+snippet ;h "\eta" iA
+\eta
+endsnippet
+
+snippet ;i "\iota" iA
+\iota
+endsnippet
+
+snippet ;k "\kappa" iA
+\kappa
+endsnippet
+
+snippet ;l "\lambda" iA
+\lambda
+endsnippet
+
+snippet ;m "\mu" iA
+\mu
+endsnippet
+
+snippet ;n "\nu" iA
+\nu
+endsnippet
+
+snippet ;p "\pi" iA
+\pi
+endsnippet
+
+snippet ;q "\theta" iA
+\theta
+endsnippet
+
+snippet ;r "\rho" iA
+\rho
+endsnippet
+
+snippet ;s "\sigma" iA
+\sigma
+endsnippet
+
+snippet ;t "\tau" iA
+\tau
+endsnippet
+
+snippet ;y "\psi" iA
+\psi
+endsnippet
+
+snippet ;u "\upsilon" iA
+\upsilon
+endsnippet
+
+snippet ;w "\omega" iA
+\omega
+endsnippet
+
+snippet ;z "\zeta" iA
+\zeta
+endsnippet
+
+snippet ;x "\xi" iA
+\xi
+endsnippet
+
+snippet ;G "\Gamma" iA
+\Gamma
+endsnippet
+
+snippet ;D "\Delta" iA
+\Delta
+endsnippet
+
+snippet ;F "\Phi" iA
+\Phi
+endsnippet
+
+snippet ;G "\Gamma" iA
+\Gamma
+endsnippet
+
+snippet ;L "\Lambda" iA
+\Lambda
+endsnippet
+
+snippet ;P "\Pi" iA
+\Pi
+endsnippet
+
+snippet ;Q "\Theta" iA
+\Theta
+endsnippet
+
+snippet ;S "\Sigma" iA
+\Sigma
+endsnippet
+
+snippet ;U "\Upsilon" iA
+\Upsilon
+endsnippet
+
+snippet ;W "\Omega" iA
+\Omega
+endsnippet
+
+snippet ;X "\Xi" iA
+\Xi
+endsnippet
+
+snippet ;Y "\Psi" iA
+\Psi
+endsnippet
+
+snippet ;ve "\varepsilon" iA
+\varepsilon
+endsnippet
+
+snippet ;vf "\varphi" iA
+\varphi
+endsnippet
+
+snippet ;vk "\varkappa" iA
+\varkappa
+endsnippet
+
+snippet ;vq "\vartheta" iA
+\vartheta
+endsnippet
+
+snippet ;vr "\varrho" iA
+\varrho
+endsnippet
+
+
 # style
 snippet bf "bold"
 \textbf{${1:${VISUAL}}}
@@ -121,91 +383,74 @@ snippet "dd " "multi-line math display" rbA
 \]
 endsnippet
 
-context "math()"
 snippet $ "in-line math"
 $$1$
 endsnippet
 
-context "math()"
 snippet ",\(\( " "big parentheses" rA
 \left( $1 \right)
 endsnippet
 
-context "math()"
 snippet ",\|\| " "big absolute values" rA
 \left| $1 \right|
 endsnippet
 
-context "math()"
 snippet ",{{ " "big brackets" rA
 \left\\{ $1 \right\\}
 endsnippet
 
-context "math()"
 snippet ",\[\[ " "big square brackets" rA
 \left[ $1 \right]
 endsnippet
 
-context "math()"
 snippet ",< " "angle brackets" rA
 \langle $1 \rangle
 endsnippet
 
-context "math()"
 snippet ",<< " "big angle brackets" rA
 \left< $1 \right>
 endsnippet
 
 
 # math symbols
-context "math()"
 snippet ;/ "fraction" iA
 \frac{$1}{$2}
 endsnippet
 
-context "math()"
 snippet ^^ "exponent" iA
 ^{$1}
 endsnippet
 
-context "math()"
 snippet __ "subscript" iA
 _{$1}
 endsnippet
 
-context "math()"
 snippet ;| "better |" iA
 \mid
 endsnippet
 
-context "math()"
 snippet ;2 "sqrt" iA
 \sqrt{$1}
 endsnippet
 
-context "math()"
 snippet ;: "colon" iA
 \colon
 endsnippet
 
-context "math()"
 snippet ;I "integral" iA
-\int_{$1}^{$2} $3
+\int_{$1}^{$2}
 endsnippet
 
-context "math()"
 snippet ;@ "composition" iA
 \circ
 endsnippet
 
-context "math()"
-snippet sum "sum"
-\sum_{$1}^{$2} $3
+snippet sum "sum" i
+\sum_{$1}^{$2}
 endsnippet
 
-context "math()"
-snippet prod "prod"
-\prod_{$1}^{$2} $3
+snippet prod "prod" i
+\prod_{$1}^{$2}
 endsnippet
 
 # environments (there are a lot)
