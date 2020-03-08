@@ -7,7 +7,6 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-surround'
 
 " Language
-" Plug 'vim-syntastic/syntastic'
 Plug 'preservim/nerdcommenter'
 Plug 'lervag/vimtex'
 
@@ -128,12 +127,13 @@ let g:airline#extensions#tabline#formatter='unique_tail'  " remove file location
 let g:tex_flavor="latex"
 let g:tex_conceal='abmgs'
 let g:vimtex_imaps_leader=';'
+let g:vimtex_imaps_enabled=0  " replace for UltiSnips
 
 " folding
 let g:vimtex_fold_enabled=1
 let g:vimtex_fold_types={
 			\ 'envs' : {
-			\	'whitelist' : ['asy', 'comment'],
+			\	'whitelist' : ['asy', 'comment', 'abstract', 'abstract*'],
 			\ },
 			\ 'markers' : {'enabled': 0},
 			\ 'sections' : {'parse_levels': 1},
@@ -145,16 +145,19 @@ let g:vimtex_view_skim_activate=1
 let g:vimtex_view_skim_reading_bar=1
 
 " ignore warnings after compilation
-let g:vimtex_quickfix_latexlog = {
-			\ 'overfull' : 0,
-			\ 'font' : 0,
-			\ 'packages' : {
-			\   'minitoc' : 0,
-			\ },
-			\}
+" let g:vimtex_quickfix_latexlog = {
+			" \ 'overfull' : 0,
+			" \ 'font' : 0,
+			" \ 'packages' : {
+			" \   'minitoc' : 0,
+			" \ },
+			" \}
 
 " parentheses stuff (b/c it's laggy!!!)
 let g:loaded_matchparen=0
+let g:vimtex_mappings_disable = {
+			\ 'i': [']]'],
+			\}
 
 " refresh status bar after compiling
 function! Callback_airline_refresh(status)
