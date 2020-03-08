@@ -2,6 +2,7 @@
 .vim/spell/
 .vim/view/
 .NERDTreeBookmarks
+.vim/.netrwhist
 
 .CFUserTextEncoding
 .bash_history
