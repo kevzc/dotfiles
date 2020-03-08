@@ -71,6 +71,3 @@ endif
 " put spelling after conceal or else it won't work
 set spell
 syntax spell toplevel
-
-" rid annoying ]] from vimtex
-iunmap <buffer> ]]
