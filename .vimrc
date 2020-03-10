@@ -101,6 +101,8 @@ if has("gui_running")
 	let g:airline_solarized_bg='dark'
 endif
 
+inoremap <C-j> <Nop>
+
 " font for arrows
 let g:airline_powerline_fonts=1
 
@@ -145,13 +147,13 @@ let g:vimtex_view_skim_activate=1
 let g:vimtex_view_skim_reading_bar=1
 
 " ignore warnings after compilation
-" let g:vimtex_quickfix_latexlog = {
-			" \ 'overfull' : 0,
-			" \ 'font' : 0,
-			" \ 'packages' : {
-			" \   'minitoc' : 0,
-			" \ },
-			" \}
+let g:vimtex_quickfix_latexlog = {
+			\ 'overfull' : 0,
+			\ 'font' : 0,
+			\ 'packages' : {
+			\   'minitoc' : 0,
+			\ },
+			\}
 
 " parentheses stuff (b/c it's laggy!!!)
 let g:loaded_matchparen=0
@@ -183,8 +185,9 @@ let NERDSpaceDelims=1
 " {{{2 NERDTree
 
 " opening
-nnoremap <silent> <C-n> :NERDTreeToggle<CR>
-nnoremap <silent> <Leader>n :NERDTreeFocus<CR>
+nnoremap <silent> <C-n><C-n> :NERDTreeToggle <CR>
+nnoremap <silent> <C-n><C-f> :NERDTreeFind<CR>
+nnoremap <silent> <C-n><C-s> :NERDTreeFocus<CR>
 
 " what to show
 let NERDTreeMinimalUI=1
