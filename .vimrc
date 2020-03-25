@@ -39,7 +39,7 @@ set shiftwidth=4
 
 set guifont=Hack
 
-" puts cursor where left off after reopenning
+" puts cursor where left off after reopening
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
@@ -49,8 +49,6 @@ if has("gui_running")
 	set background=dark
 	colorscheme solarized
 else
-	" set background=light
-	" colorscheme solarized
 	let &t_SI.="\e[5 q" "SI = INSERT mode
 	let &t_SR.="\e[3 q" "SR = REPLACE mode
 	let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
