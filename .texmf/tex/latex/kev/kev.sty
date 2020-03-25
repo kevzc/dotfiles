@@ -69,6 +69,7 @@
 \DeclareMathOperator{\lcm}{lcm}
 
 \newcommand{\ol}{\overline}
+\newcommand{\ul}{\underline}
 \newcommand{\wt}{\widetilde}
 \newcommand{\wh}{\widehat}
 
@@ -317,9 +318,9 @@
     \ifkevhdr
         \RequirePackage{fancyhdr, lastpage}
         \pagestyle{fancy}
-        \lhead{\theauthor}
-        \chead{\thetitle}
-        \rhead{Page \thepage\ of \pageref*{LastPage}}
+        \lhead{\small \theauthor}
+        \chead{\small \bfseries \sffamily \thetitle}
+        \rhead{\small Page \thepage\ of \pageref*{LastPage}}
         \lfoot{}
         \cfoot{}
         \rfoot{}
