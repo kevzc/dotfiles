@@ -44,107 +44,12 @@ snippet "\\(\w+)" "command" r
 `!p snip.rv = "\\" + match.group(1)`{${1:${VISUAL}}}
 endsnippet
 
-# usual
-snippet ;0 "\emptyset" iA
-\emptyset
+# annoying commands
+snippet texpdf "texorpdfstring" i
+\texorpdfstring{$$1$}{$2}
 endsnippet
 
-snippet ;6 "\partial" iA
-\partial
-endsnippet
-
-snippet ;8 "\infty" iA
-\infty
-endsnippet
-
-snippet ;= "\equiv" iA
-\equiv
-endsnippet
-
-snippet ;\ "\setminus" iA
-\setminus
-endsnippet
-
-snippet ;. "\cdot" iA
-\cdot
-endsnippet
-
-snippet ;* "\times" iA
-\times
-endsnippet
-
-snippet ;< "\langle" iA
-\langle
-endsnippet
-
-snippet ;> "\rangle" iA
-\rangle
-endsnippet
-
-snippet ;H "\hbar" iA
-\hbar
-endsnippet
-
-snippet ;+ "\dagger" iA
-\dagger
-endsnippet
-
-snippet ;[ "\subseteq" iA
-\subseteq
-endsnippet
-
-snippet ;] "\supseteq" iA
-\supseteq
-endsnippet
-
-snippet ;( "\subset" iA
-\subset
-endsnippet
-
-snippet ;) "\supset" iA
-\supset
-endsnippet
-
-snippet ;A "\forall" iA
-\forall
-endsnippet
-
-snippet ;E "\exists" iA
-\exists
-endsnippet
-
-snippet ;jj "\downarrow" iA
-\downarrow
-endsnippet
-
-snippet ;jJ "\Downarrow" iA
-\Downarrow
-endsnippet
-
-snippet ;jk "\uparrow" iA
-\uparrow
-endsnippet
-
-snippet ;jK "\Uparrow" iA
-\Uparrow
-endsnippet
-
-snippet ;jh "\leftarrow" iA
-\leftarrow
-endsnippet
-
-snippet ;jH "\Leftarrow" iA
-\Leftarrow
-endsnippet
-
-snippet ;jl "\rightarrow" iA
-\rightarrow
-endsnippet
-
-snippet ;jL "\Rightarrow" iA
-\Rightarrow
-endsnippet
-
+# greek letters
 snippet ;a "\alpha" iA
 \alpha
 endsnippet
@@ -336,37 +241,37 @@ endsnippet
 snippet sec "section"
 \section{$1}
 
-${0:%% text here}
+${0:${VISUAL:%% text here}}
 endsnippet
 
 snippet sub "subsection"
 \subsection{$1}
 
-${0:%% text here}
+${0:${VISUAL:%% text here}}
 endsnippet
 
 snippet subsub "subsubsection"
 \subsubsection{$1}
 
-${0:%% text here}
+${0:${VISUAL:%% text here}}
 endsnippet
 
 snippet sec* "section"
 \section*{$1}
 
-${0:%% text here}
+${0:${VISUAL:%% text here}}
 endsnippet
 
 snippet sub* "subsection"
 \subsection*{$1}
 
-${0:%% text here}
+${0:${VISUAL:%% text here}}
 endsnippet
 
 snippet subsub* "subsubsection"
 \subsubsection*{$1}
 
-${0:%% text here}
+${0:${VISUAL:%% text here}}
 endsnippet
 
 
@@ -413,6 +318,58 @@ endsnippet
 
 
 # math symbols
+snippet ;0 "\emptyset" iA
+\emptyset
+endsnippet
+
+snippet ;6 "\partial" iA
+\partial
+endsnippet
+
+snippet ;8 "\infty" iA
+\infty
+endsnippet
+
+snippet ;= "\equiv" iA
+\equiv
+endsnippet
+
+snippet ;\ "\setminus" iA
+\setminus
+endsnippet
+
+snippet ;. "\cdot" iA
+\cdot
+endsnippet
+
+snippet ;* "\times" iA
+\times
+endsnippet
+
+snippet ;( "\subset" iA
+\subset
+endsnippet
+
+snippet ;) "\supset" iA
+\supset
+endsnippet
+
+snippet ;[ "\subseteq" iA
+\subseteq
+endsnippet
+
+snippet ;] "\supset" iA
+\supseteq
+endsnippet
+
+snippet ;{ "\subsetneq" iA
+\subsetneq
+endsnippet
+
+snippet ;} "\supsetneq" iA
+\supsetneq
+endsnippet
+
 snippet ;/ "fraction" iA
 \frac{$1}{$2}
 endsnippet
@@ -453,7 +410,42 @@ snippet prod "prod" i
 \prod_{$1}^{$2}
 endsnippet
 
-# environments (there are a lot)
+
+# arrows
+snippet ;jj "\downarrow" iA
+\downarrow
+endsnippet
+
+snippet ;jJ "\Downarrow" iA
+\Downarrow
+endsnippet
+
+snippet ;jk "\uparrow" iA
+\uparrow
+endsnippet
+
+snippet ;jK "\Uparrow" iA
+\Uparrow
+endsnippet
+
+snippet ;jh "\leftarrow" iA
+\leftarrow
+endsnippet
+
+snippet ;jH "\Leftarrow" iA
+\Leftarrow
+endsnippet
+
+snippet ;jl "\rightarrow" iA
+\rightarrow
+endsnippet
+
+snippet ;jL "\Rightarrow" iA
+\Rightarrow
+endsnippet
+
+
+# environments
 snippet begin "for general environments"
 \begin{$1}
 	$2
