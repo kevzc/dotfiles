@@ -153,6 +153,10 @@ let g:vimtex_quickfix_latexlog = {
 			\ },
 			\}
 
+" let g:vimtex_quickfix_ignore_filters = [
+		  " \ 'Package mdframed',
+		  " \]
+
 " parentheses stuff (b/c it's laggy!!!)
 let g:loaded_matchparen=0
 let g:vimtex_mappings_disable = {
