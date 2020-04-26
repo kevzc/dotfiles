@@ -56,6 +56,9 @@
 \newcommand{\kq}{\mathfrak q}
 \newcommand{\ku}{\mathfrak u}
 \newcommand{\kz}{\mathfrak z}
+\newcommand{\kP}{\mathfrak P}
+\newcommand{\kQ}{\mathfrak Q}
+\newcommand{\kD}{\mathfrak D}
 
 \newcommand{\eps}{\varepsilon}
 \newcommand{\vphi}{\varphi}
@@ -90,6 +93,7 @@
 %% arrows
 \newcommand{\lto}{\longrightarrow}
 \newcommand{\xto}{\xrightarrow}
+\newcommand{\isoto}{\xrightarrow{\text{ }\sim\text{ }}}
 
 \newcommand{\from}{\leftarrow}
 \newcommand{\lfrom}{\longleftarrow}
@@ -193,6 +197,7 @@
 \newcommand{\NmF}{\Nm_{F/\mathbb Q}}
 
 \DeclareMathOperator{\Cl}{Cl}
+\newcommand{\Frob}{\mathrm{Frob}}
 
 %% MAT560
 \newcommand{\RP}{\mathbb{RP}}
@@ -534,7 +539,7 @@
 \ifkevdiagrams        
 	\RequirePackage{tikz-cd}
 	\usetikzlibrary{decorations.pathmorphing}
-	\tikzcdset{row sep/normal=4em,column sep/normal=4em}
+	% \tikzcdset{row sep/normal=4em,column sep/normal=4em}
 \fi
 
 \ifkevasy
