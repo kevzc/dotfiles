@@ -1,17 +1,8 @@
 # defining texMathZone
 global !p
-texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C', 'CS', 'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS', 'J', 'JS', 'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
-texIgnoreMathZones = ['texMathText']
-texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
-texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
-ignore = texIgnoreMathZoneIds[0]
 def math():
-	synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
-	try:
-		first = next(i for i in reversed(synstackids) if i in texIgnoreMathZoneIds or i in texMathZoneIds)
-		return first != ignore
-	except StopIteration:
-		return False
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+		
 def notMath():
 	return not math()
 endglobal
@@ -35,6 +26,7 @@ $0
 \end{document}
 endsnippet
 
+
 # testing
 snippet "rep (\d+) (\w+)" "repeat" r
 `!p snip.rv = int(match.group(1))*match.group(2)`
@@ -44,190 +36,252 @@ snippet "\\(\w+)" "command" r
 `!p snip.rv = "\\" + match.group(1)`{${1:${VISUAL}}}
 endsnippet
 
+
 # ad hoc snippets
 snippet texpdf "texorpdfstring" i
 \texorpdfstring{$$1$}{$2}
 endsnippet
 
-snippet si "si" i
-\SI{$1}{$2}
-endsnippet
 
 # greek letters
+context "math()"
 snippet ;a "\alpha" iA
 \alpha
 endsnippet
 
+context "math()"
 snippet ;b "\beta" iA
 \beta
 endsnippet
 
+context "math()"
 snippet ;c "\chi" iA
 \chi
 endsnippet
 
+context "math()"
 snippet ;d "\delta" iA
 \delta
 endsnippet
 
+context "math()"
 snippet ;e "\epsilon" iA
 \epsilon
 endsnippet
 
+context "math()"
 snippet ;f "\phi" iA
 \phi
 endsnippet
 
+context "math()"
 snippet ;g "\gamma" iA
 \gamma
 endsnippet
 
+context "math()"
 snippet ;h "\eta" iA
 \eta
 endsnippet
 
+context "math()"
 snippet ;i "\iota" iA
 \iota
 endsnippet
 
+context "math()"
 snippet ;k "\kappa" iA
 \kappa
 endsnippet
 
+context "math()"
 snippet ;l "\lambda" iA
 \lambda
 endsnippet
 
+context "math()"
 snippet ;m "\mu" iA
 \mu
 endsnippet
 
+context "math()"
 snippet ;n "\nu" iA
 \nu
 endsnippet
 
+context "math()"
 snippet ;p "\pi" iA
 \pi
 endsnippet
 
+context "math()"
 snippet ;q "\theta" iA
 \theta
 endsnippet
 
+context "math()"
 snippet ;r "\rho" iA
 \rho
 endsnippet
 
+context "math()"
 snippet ;s "\sigma" iA
 \sigma
 endsnippet
 
+context "math()"
 snippet ;t "\tau" iA
 \tau
 endsnippet
 
+context "math()"
 snippet ;y "\psi" iA
 \psi
 endsnippet
 
+context "math()"
 snippet ;u "\upsilon" iA
 \upsilon
 endsnippet
 
+context "math()"
 snippet ;w "\omega" iA
 \omega
 endsnippet
 
+context "math()"
 snippet ;z "\zeta" iA
 \zeta
 endsnippet
 
+context "math()"
 snippet ;x "\xi" iA
 \xi
 endsnippet
 
+context "math()"
 snippet ;G "\Gamma" iA
 \Gamma
 endsnippet
 
+context "math()"
 snippet ;D "\Delta" iA
 \Delta
 endsnippet
 
+context "math()"
 snippet ;F "\Phi" iA
 \Phi
 endsnippet
 
+context "math()"
 snippet ;G "\Gamma" iA
 \Gamma
 endsnippet
 
+context "math()"
 snippet ;L "\Lambda" iA
 \Lambda
 endsnippet
 
+context "math()"
 snippet ;P "\Pi" iA
 \Pi
 endsnippet
 
+context "math()"
 snippet ;Q "\Theta" iA
 \Theta
 endsnippet
 
+context "math()"
 snippet ;S "\Sigma" iA
 \Sigma
 endsnippet
 
+context "math()"
 snippet ;U "\Upsilon" iA
 \Upsilon
 endsnippet
 
+context "math()"
 snippet ;W "\Omega" iA
 \Omega
 endsnippet
 
+context "math()"
 snippet ;X "\Xi" iA
 \Xi
 endsnippet
 
+context "math()"
 snippet ;Y "\Psi" iA
 \Psi
 endsnippet
 
+context "math()"
 snippet ;ve "\varepsilon" iA
 \varepsilon
 endsnippet
 
+context "math()"
 snippet ;vf "\varphi" iA
 \varphi
 endsnippet
 
+context "math()"
 snippet ;vk "\varkappa" iA
 \varkappa
 endsnippet
 
+context "math()"
 snippet ;vq "\vartheta" iA
 \vartheta
 endsnippet
 
+context "math()"
 snippet ;vr "\varrho" iA
 \varrho
 endsnippet
 
 
 # style
+context "notMath()"
 snippet bf "bold"
 \textbf{${1:${VISUAL}}}
 endsnippet
 
-snippet it "italics"
+context "math()"
+snippet bf "bold" i
+\mathbf{${1:${VISUAL}}}
+endsnippet
+
+context "notMath()"
+snippet it "italics" i
 \textit{${1:${VISUAL}}}
 endsnippet
 
-snippet tt "text" i
+context "notMath()"
+snippet tt "teletype"
+\texttt{${1:${VISUAL}}}
+endsnippet
+
+context "math()"
+snippet tt "teletype" i
+\mathtt{${1:${VISUAL}}}
+endsnippet
+
+context "math()"
+snippet rm "roman" i
+\mathrm{${1:${VISUAL}}}
+endsnippet
+
+context "math()"
+snippet tx "text" i
 \text{${1:${VISUAL}}}
 endsnippet
 
+context "notMath()"
 snippet voc "vocab"
 \vocab{${1:${VISUAL}}}
 endsnippet
@@ -296,154 +350,253 @@ snippet $ "in-line math"
 $$1$
 endsnippet
 
-snippet ",\(\( " "big parentheses" rA
-\left( $1 \right)
+context "math()"
+snippet ",{ " "curly brackets" rA
+\\{ $1 \\}
 endsnippet
 
-snippet ",\|\| " "big absolute values" rA
-\left| $1 \right|
-endsnippet
-
-snippet ",{{ " "big brackets" rA
-\left\\{ $1 \right\\}
-endsnippet
-
-snippet ",\[\[ " "big square brackets" rA
-\left[ $1 \right]
-endsnippet
-
+context "math()"
 snippet ",< " "angle brackets" rA
 \langle $1 \rangle
 endsnippet
 
+context "math()"
+snippet ",\| " "norm" rA
+\|$1\|
+endsnippet
+
+context "math()"
+snippet ",\(\( " "big parentheses" rA
+\left( $1 \right)
+endsnippet
+
+context "math()"
+snippet ",\[\[ " "big square brackets" rA
+\left[ $1 \right]
+endsnippet
+
+context "math()"
+snippet ",\|\| " "big absolute values" rA
+\left| $1 \right|
+endsnippet
+
+context "math()"
+snippet ",\\\| " "big norm" rA
+\left\| $1 \right\|
+endsnippet
+
+context "math()"
+snippet ",{{ " "big curly brackets" rA
+\left\\{ $1 \right\\}
+endsnippet
+
+context "math()"
 snippet ",<< " "big angle brackets" rA
 \left< $1 \right>
 endsnippet
 
+context "math()"
+snippet "\.floor " "floor" rA
+\lfloor $1 \rfloor
+endsnippet
+
+context "math()"
+snippet "\.ceil " "ceiling" rA
+\lceil $1 \rceil
+endsnippet
+
+context "math()"
+snippet "\.ffloor " "floor" rA
+\left\lfloor $1 \right\rfloor
+endsnippet
+
+context "math()"
+snippet "\.cceil " "ceiling" rA
+\left\lceil $1 \right\rceil
+endsnippet
+
 
 # math symbols
+context "math()"
 snippet ;0 "\emptyset" iA
 \emptyset
 endsnippet
 
+context "math()"
 snippet ;6 "\partial" iA
 \partial
 endsnippet
 
+context "math()"
 snippet ;8 "\infty" iA
 \infty
 endsnippet
 
+context "math()"
 snippet ;= "\equiv" iA
 \equiv
 endsnippet
 
+context "math()"
 snippet ;\ "\setminus" iA
 \setminus
 endsnippet
 
+context "math()"
 snippet ;. "\cdot" iA
 \cdot
 endsnippet
 
+context "math()"
 snippet ;* "\times" iA
 \times
 endsnippet
 
+context "math()"
 snippet ;( "\subset" iA
 \subset
 endsnippet
 
+context "math()"
 snippet ;) "\supset" iA
 \supset
 endsnippet
 
+context "math()"
 snippet ;[ "\subseteq" iA
 \subseteq
 endsnippet
 
+context "math()"
 snippet ;] "\supset" iA
 \supseteq
 endsnippet
 
+context "math()"
 snippet ;{ "\subsetneq" iA
 \subsetneq
 endsnippet
 
+context "math()"
 snippet ;} "\supsetneq" iA
 \supsetneq
 endsnippet
 
+context "math()"
 snippet ;/ "fraction" iA
 \frac{$1}{$2}
 endsnippet
 
-snippet ^^ "exponent" iA
-^{$1}
-endsnippet
-
-snippet __ "subscript" iA
-_{$1}
-endsnippet
-
+context "math()"
 snippet ;| "better |" iA
 \mid
 endsnippet
 
+context "math()"
 snippet ;2 "sqrt" iA
 \sqrt{$1}
 endsnippet
 
+context "math()"
 snippet ;: "colon" iA
 \colon
 endsnippet
 
+context "math()"
 snippet ;I "integral" iA
 \int_{$1}^{$2}
 endsnippet
 
+context "math()"
 snippet ;@ "composition" iA
 \circ
 endsnippet
 
-snippet sum "sum" i
+
+# superscripts/subscripts
+context "math()"
+snippet ^^ "exponent" iA
+^{$1}
+endsnippet
+
+context "math()"
+snippet __ "subscript" iA
+_{$1}
+endsnippet
+context "math()"
+snippet ^( "superscript index" iA
+^{($1)}
+endsnippet
+
+context "math()"
+snippet ^_ "superscript/subscript index" iA
+^{($1)}_{$2}
+endsnippet
+
+
+# math operators
+context "math()"
+snippet "\.sum " "sum" rA
 \sum_{$1}^{$2}
 endsnippet
 
-snippet prod "prod" i
+context "math()"
+snippet "\.prod " "prod" rA
 \prod_{$1}^{$2}
 endsnippet
 
+context "math()"
+snippet "\.bin " "binomial" rA
+\binom\{$1\}\{$2\}
+endsnippet
+
+context "math()"
+snippet "\.der " "derivative" rA
+\frac{d$1}{d${2:x}}
+endsnippet
+
+context "math()"
+snippet "\.pder " "partial derivative" rA
+\frac{\partial$1}{\partial ${2:x}}
+endsnippet
 
 # arrows
+context "math()"
 snippet ;jj "\downarrow" iA
 \downarrow
 endsnippet
 
+context "math()"
 snippet ;jJ "\Downarrow" iA
 \Downarrow
 endsnippet
 
+context "math()"
 snippet ;jk "\uparrow" iA
 \uparrow
 endsnippet
 
+context "math()"
 snippet ;jK "\Uparrow" iA
 \Uparrow
 endsnippet
 
+context "math()"
 snippet ;jh "\leftarrow" iA
 \leftarrow
 endsnippet
 
+context "math()"
 snippet ;jH "\Leftarrow" iA
 \Leftarrow
 endsnippet
 
+context "math()"
 snippet ;jl "\rightarrow" iA
 \rightarrow
 endsnippet
 
+context "math()"
 snippet ;jL "\Rightarrow" iA
 \Rightarrow
 endsnippet
@@ -607,4 +760,16 @@ snippet cases "cases"
 \begin{cases}
 	$1
 \end{cases}
+endsnippet
+
+snippet code "code"
+\begin{lstlisting}
+$2
+\end{lstlisting}
+endsnippet
+
+snippet code[] "code with language"
+\begin{lstlisting}[language=$1]
+$2
+\end{lstlisting}
 endsnippet

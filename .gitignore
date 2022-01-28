@@ -41,3 +41,16 @@ Music/
 Pictures/
 Public/
 .Trash/
+
+.Rapp.history
+.Rhistory
+.cabal/
+.ghc/
+.ghcup/
+.local/
+.pyenv/
+.scalac/
+.stack/
+.swiftpm/
+.zsh_sessions/
+.zshrc

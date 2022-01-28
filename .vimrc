@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 
 " Commands and Snippets
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 
 " Language
@@ -23,9 +24,15 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-scripts/vim-auto-save'
 
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
+
 call plug#end()
 
 " }}}1
+
+set pythonthreedll=~/.pyenv/versions/3.8.5/bin/python
+set pythonthreehome=~/.pyenv/versions/3.8.5
 
 " {{{1 basics
 
@@ -33,6 +40,9 @@ filetype plugin indent on
 syntax on
 set number
 set wildmenu
+
+set spell
+set spelllang=en_us
 
 set tabstop=4
 set shiftwidth=4
@@ -126,8 +136,12 @@ let g:airline#extensions#tabline#formatter='unique_tail'  " remove file location
 " basic tex settings
 let g:tex_flavor="latex"
 let g:tex_conceal='abmgs'
+" autocmd FileType tex setlocal spell
+" set spelllang=en_us
+
+" Use UltiSnips for macros
 let g:vimtex_imaps_leader=';'
-let g:vimtex_imaps_enabled=0  " replace for UltiSnips
+let g:vimtex_imaps_enabled=0
 
 " folding
 let g:vimtex_fold_enabled=1
@@ -145,14 +159,21 @@ let g:vimtex_view_skim_activate=1
 let g:vimtex_view_skim_reading_bar=1
 
 " ignore warnings after compilation
-let g:vimtex_quickfix_latexlog = {
-			\ 'overfull' : 0,
-			\ 'font' : 0,
-			\ 'packages' : {
-			\   'minitoc' : 0,
-			\ },
-			\}
+let g:vimtex_quickfix_ignore_filters = [
+			\ 'Marginpar on page',
+			\ 'Overfull',
+			\ 'Font',
+			\ 'minitoc',
+			\]
 
+" vimtex_quickfix_latexlog is deprecated
+" let g:vimtex_quickfix_latexlog = {
+			" \ 'overfull' : 0,
+			" \ 'font' : 0,
+			" \ 'packages' : {
+			" \   'minitoc' : 0,
+			" \ },
+			" \}
 " let g:vimtex_quickfix_ignore_filters = [
 		  " \ 'Package mdframed',
 		  " \]
@@ -163,11 +184,17 @@ let g:vimtex_mappings_disable = {
 			\ 'i': [']]'],
 			\}
 
+" Deprecated
 " refresh status bar after compiling
-function! Callback_airline_refresh(status)
-	execute "AirlineRefresh"
-endfunction
-let g:vimtex_compiler_callback_hooks = ['Callback_airline_refresh']
+" function! Callback_airline_refresh(status)
+	" execute "AirlineRefresh"
+" endfunction
+" let g:vimtex_compiler_callback_hooks = ['Callback_airline_refresh']
+
+" Prevent \iff from indenting
+let g:vimtex_indent_conditionals = {
+			\ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse)@!',
+			\ }
 
 " }}}2
 
@@ -216,6 +243,13 @@ let g:ctrlp_cmd = 'CtrlPMRU'
 
 " let g:auto_save = 1
 let g:auto_save_events=["InsertLeave", "TextChanged", "TextChangedI", "CursorHold", "CursorHoldI", "CompleteDone"]
+
+" }}}2
+
+" {{{2 Haskell
+
+au BufRead,BufNewFile *.lhs set filetype=haskell
+" autocmd FileType lhs set filetype=haskell
 
 " }}}2
 
