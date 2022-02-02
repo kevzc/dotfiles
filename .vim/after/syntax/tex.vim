@@ -1,5 +1,7 @@
 " New Math zone
-call TexNewMathZone("Z","tikzcd",0)
+call vimtex#syntax#core#new_region_math('tikzcd')
+" TexNewMathZone was removed; use above instead
+" call TexNewMathZone("Z","tikzcd",0)
 " call TexNewMathZone("Z","align",0)
 " call TexNewMathZone("Z","align*",0)
 
