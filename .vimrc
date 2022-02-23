@@ -15,17 +15,11 @@ Plug 'lervag/vimtex'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " UI
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-" Other
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-scripts/vim-auto-save'
-
-" Haskell
-Plug 'neovimhaskell/haskell-vim'
 
 call plug#end()
 
@@ -236,20 +230,6 @@ let NERDTreeAutoDeleteBuffer=1
 " {{{2
 
 let g:ctrlp_cmd = 'CtrlPMRU'
-
-" }}}2
-
-" {{{2 AutoSave
-
-" let g:auto_save = 1
-let g:auto_save_events=["InsertLeave", "TextChanged", "TextChangedI", "CursorHold", "CursorHoldI", "CompleteDone"]
-
-" }}}2
-
-" {{{2 Haskell
-
-au BufRead,BufNewFile *.lhs set filetype=haskell
-" autocmd FileType lhs set filetype=haskell
 
 " }}}2
 
