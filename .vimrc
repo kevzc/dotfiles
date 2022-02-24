@@ -2,10 +2,11 @@
 
 call plug#begin('~/.vim/plugged')
 
-" Commands and Snippets
+" Completion
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
+Plug 'valloric/youcompleteme'
 
 " Language
 Plug 'preservim/nerdcommenter'
@@ -126,7 +127,10 @@ let g:airline#extensions#tabline#formatter='unique_tail'  " remove file location
 
 " }}}2
 
+
+
 " {{{2 vimtex
+
 " basic tex settings
 let g:tex_flavor="latex"
 let g:tex_conceal='abmgs'
@@ -192,6 +196,42 @@ let g:vimtex_indent_conditionals = {
 
 " }}}2
 
+
+
+" {{{2 YouCompleteMe
+
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar': 1,
+      \ 'notes': 1,
+      \ 'markdown': 1,
+      \ 'netrw': 1,
+      \ 'unite': 1,
+      \ 'text': 1,
+      \ 'vimwiki': 1,
+      \ 'pandoc': 1,
+      \ 'infolog': 1,
+      \ 'leaderf': 1,
+      \ 'mail': 1,
+	  \ 'tex': 1
+      \}
+
+" }}}2
+
+
+
+" {{{2 Ultisnips
+
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<C-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+
+" }}}2
+
+
+
 " {{{2 Surround
 
 autocmd FileType tex let b:surround_109 = "\\[ \r \\]"
@@ -199,11 +239,15 @@ autocmd FileType tex let b:surroundd_108 = "\\begin{\1environment: \1}\r\\end{\1
 
 " }}}2
 
+
+
 " {{{2 NERDCommenter
 
 let NERDSpaceDelims=1
 
 " }}}2
+
+
 
 " {{{2 NERDTree
 
@@ -227,7 +271,9 @@ let NERDTreeAutoDeleteBuffer=1
 
 " }}}2
 
-" {{{2
+
+
+" {{{2 ctrlp
 
 let g:ctrlp_cmd = 'CtrlPMRU'
 
