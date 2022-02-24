@@ -54,3 +54,5 @@ Public/
 .swiftpm/
 .zsh_sessions/
 .zshrc
+
+.npm
