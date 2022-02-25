@@ -217,6 +217,7 @@ let g:ycm_filetype_blacklist = {
       \ 'mail': 1,
 	  \ 'tex': 1
       \}
+set completeopt-=preview
 
 " }}}2
 
