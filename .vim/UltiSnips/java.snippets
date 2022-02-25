@@ -1,31 +1,32 @@
 # templates
-snippet templ "template"
-/*
- * ${1:description}
- *
- * Kevin Chen
- * ${2:date}
- * 1.8
- */
+snippet templ "template" b
+public class ${3:name} {
+	public static void main(String[] args) {
+		$0
+	}
+}
+endsnippet
 
+snippet templ-class "template for classes" b
 public class ${3:name} {
 	$0
 }
 endsnippet
 
-# useful functions
-snippet print "print statement"
-System.out.println($1);
-endsnippet
-
-snippet for "for loop"
-for (int ${1:i}=${2:0}; $1${3:<}${4:n}; $1++) {
+snippet unit "unit" b
+public static void main(String[] args) {
 	$0
 }
 endsnippet
 
-snippet unit "unit"
-public static void main(String[] args) {
+
+# useful functions
+snippet print "print statement"
+System.out.println($0);
+endsnippet
+
+snippet for "for loop"
+for (int ${1:i}=${2:0}; $1${3:<}${4:n}; $1++) {
 	$0
 }
 endsnippet
