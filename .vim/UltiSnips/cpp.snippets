@@ -34,14 +34,34 @@ int main() {
 }
 endsnippet
 
-snippet FOR "for loop"
+snippet for "for loop"
 for (int ${1:i}=${2:0}; $1${3:<}${4:n}; $1${5:++}) {
 	$0
 }
 endsnippet
 
-snippet F0R "F0R loop starting at 0"
-for (int $1=0; $1<${2:n}; $1++) {
+snippet f0r "for loop starting at 0"
+for (int ${1:i}=0; $1<${2:n}; $1++) {
 	$0
 }
+endsnippet
+
+snippet forr "for loop"
+for (int ${1:i}=${2:0}; $1${3:<}${4:n}; $1${5:++}) $0
+endsnippet
+
+snippet f0rr "for loop starting at 0"
+for (int ${1:i}=0; $1<${2:n}; $1++) $0
+endsnippet
+
+snippet vi "integer vector"
+vector<int>
+endsnippet
+
+snippet vvi "vector<vi>"
+vector<vector<int>
+endsnippet
+
+snippet pi "integer pair"
+pair<int,int>
 endsnippet
