@@ -218,6 +218,7 @@ let g:ycm_filetype_blacklist = {
 	  \ 'tex': 1
       \}
 set completeopt-=preview
+highlight SignColumn guibg=#006678
 
 " }}}2
 
