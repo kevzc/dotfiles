@@ -26,8 +26,7 @@ call plug#end()
 
 " }}}1
 
-set pythonthreedll=~/.pyenv/versions/3.8.5/bin/python
-set pythonthreehome=~/.pyenv/versions/3.8.5
+
 
 " {{{1 basics
 
@@ -36,15 +35,12 @@ syntax on
 set number
 set wildmenu
 
-set spell
-set spelllang=en_us
-
 set tabstop=4
 set shiftwidth=4
 
 set guifont=Hack
 
-" puts cursor where left off after reopening
+" puts cursor at previous location before closing
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
@@ -89,7 +85,13 @@ if has("gui_macvim")
 	inoremap <D-9> <Esc>:tablast<CR>
 endif
 
+" if no python support, use pyenv
+" set pythonthreedll=~/.pyenv/versions/3.8.5/bin/python
+" set pythonthreehome=~/.pyenv/versions/3.8.5
+
 " }}}1
+
+
 
 " {{{1 configure plugins
 
@@ -134,8 +136,6 @@ let g:airline#extensions#tabline#formatter='unique_tail'  " remove file location
 " basic tex settings
 let g:tex_flavor="latex"
 let g:tex_conceal='abmgs'
-" autocmd FileType tex setlocal spell
-" set spelllang=en_us
 
 " Use UltiSnips for macros
 let g:vimtex_imaps_leader=';'
