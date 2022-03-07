@@ -40,6 +40,8 @@ set shiftwidth=4
 
 set guifont=Hack
 
+set shellcmdflag=-ic
+
 " puts cursor at previous location before closing
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
