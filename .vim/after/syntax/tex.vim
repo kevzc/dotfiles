@@ -21,11 +21,11 @@ set conceallevel=2
 
 if has("gui_running")
 	" greek letters
-	fun! s:Greek(group,pat,cchar)
-		exe 'syn match '.a:group." '".a:pat."' contained conceal cchar=".a:cchar
-	endfun
-	call s:Greek('texGreek','\\varphi\>','φ')
-	call s:Greek('texGreek','\\phi\>','ϕ')
+	" fun! s:Greek(group,pat,cchar)
+		" exe 'syn match '.a:group." '".a:pat."' contained conceal cchar=".a:cchar
+	" endfun
+	" call s:Greek('texGreek','\\varphi\>','φ')
+	" call s:Greek('texGreek','\\phi\>','ϕ')
 	syntax match texMathSymbol "\\eps\>" contained conceal cchar=ε
 	
 	" sets

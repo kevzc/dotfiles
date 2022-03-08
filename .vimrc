@@ -135,9 +135,24 @@ let g:airline#extensions#tabline#formatter='unique_tail'  " remove file location
 
 " {{{2 vimtex
 
-" basic tex settings
+" set default ft for *.tex
 let g:tex_flavor="latex"
+
+" conceal
 let g:tex_conceal='abmgs'
+let g:vimtex_syntax_conceal = {
+			\ 'accents': 1,
+			\ 'cites': 1,
+			\ 'fancy': 1,
+			\ 'greek': 1,
+			\ 'math_bounds': 0,
+			\ 'math_delimiters': 1,
+			\ 'math_fracs': 1,
+			\ 'math_super_sub': 1,
+			\ 'math_symbols': 1,
+			\ 'sections': 0,
+			\ 'styles': 1,
+			\}
 
 " Use UltiSnips for macros
 let g:vimtex_imaps_leader=';'
