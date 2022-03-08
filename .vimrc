@@ -139,7 +139,7 @@ let g:airline#extensions#tabline#formatter='unique_tail'  " remove file location
 let g:tex_flavor="latex"
 
 " conceal
-let g:tex_conceal='abmgs'
+" let g:tex_conceal='abmgs'
 let g:vimtex_syntax_conceal = {
 			\ 'accents': 1,
 			\ 'cites': 1,
@@ -199,17 +199,18 @@ let g:vimtex_mappings_disable = {
 			\ 'i': [']]'],
 			\}
 
+" Prevent indenting \iff and &
+let g:vimtex_indent_conditionals = {
+			\ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse)@!',
+			\ }
+let g:vimtex_indent_on_ampersands=0
+
 " Deprecated
 " refresh status bar after compiling
 " function! Callback_airline_refresh(status)
 	" execute "AirlineRefresh"
 " endfunction
 " let g:vimtex_compiler_callback_hooks = ['Callback_airline_refresh']
-
-" Prevent \iff from indenting
-let g:vimtex_indent_conditionals = {
-			\ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse)@!',
-			\ }
 
 " }}}2
 
