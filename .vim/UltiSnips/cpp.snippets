@@ -45,8 +45,8 @@ int main() {
 }
 endsnippet
 
-snippet main.arg "in case you forget" i
-int argc, char *argv[]
+snippet main.arg "main args" i
+int argc, char* argv[]
 endsnippet
 
 
@@ -63,11 +63,11 @@ endsnippet
 
 
 # pair stuff
-snippet pair "pair"
+snippet pair "pair" i
 pair<${1:int},${2:int}>
 endsnippet
 
-snippet pi "integer pair"
+snippet pii "integer pair" i
 pair<int,int>
 endsnippet
 
@@ -85,11 +85,11 @@ endsnippet
 
 
 # vector stuff
-snippet vec "vector"
+snippet vec "vector" i
 vector<${1:int}>
 endsnippet
 
-snippet vi "integer vector"
+snippet vi "integer vector" i
 vector<int>
 endsnippet
 
@@ -114,43 +114,53 @@ upper_bound($1)
 endsnippet
 
 
-# for loops
+# loops
 snippet for "for loop"
-for (int ${1:i}=${2:0}; $1<${3:n}; $1++) $0
+for (int ${1:i}=${2:0}; $1<${3:n}; $1++)$0
 endsnippet
 
 snippet f0r "for loop starting at 0"
-for (int ${1:i}=0; $1<${2:n}; $1++) $0
+for (int ${1:i}=0; $1<${2:n}; $1++)$0
 endsnippet
 
 snippet for= "for loop with <="
-for (int ${1:i}=${2:0}; $1<=${3:n}; $1++) $0
+for (int ${1:i}=${2:0}; $1<=${3:n}; $1++)$0
 endsnippet
 
 snippet f0r= "for loop starting at 0 with <="
-for (int ${1:i}=0; $1<=${2:n}; $1++) $0
+for (int ${1:i}=0; $1<=${2:n}; $1++)$0
 endsnippet
 
 snippet rof "reverse for loop"
-for (int ${1:i}=${2:n}; $1>=${3:0}; $1--) $0
+for (int ${1:i}=${2:n}; $1>=${3:0}; $1--)$0
 endsnippet
 
 snippet r0f "reverse for loop ending at 0"
-for (int ${1:i}=${2:n}; $1>=0; $1--) $0
+for (int ${1:i}=${2:n}; $1>=0; $1--)$0
 endsnippet
 
 snippet rof> "reverse for loop with >"
-for (int ${1:i}=${2:n}; $1>=${3:0}; $1--) $0
+for (int ${1:i}=${2:n}; $1>=${3:0}; $1--)$0
 endsnippet
 
 snippet r0f> "reverse for loop ending at 0 with >"
-for (int ${1:i}=${2:n}; $1>0; $1--) $0
+for (int ${1:i}=${2:n}; $1>0; $1--)$0
 endsnippet
 
 snippet for* "for loop for pointers"
-for (${1:int} *${2:i}=${3:p}; *$2 != ${4:n}; $2++) $0
+for (${1:int} *${2:i}=${3:p}; *$2 != ${4:n}; $2++)$0
 endsnippet
 
 snippet trav "traverse"
-for (auto& ${1:x} : $2) $0
+for (auto& ${1:x} : $2)$0
+endsnippet
+
+snippet wh "while"
+while (${1:/* condition */})$0
+endsnippet
+
+snippet do-wh "do-while"
+do {
+	${2:/* body */${VISUAL}}
+} while (${1:/* condition */});$0
 endsnippet
