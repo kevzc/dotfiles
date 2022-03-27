@@ -8,6 +8,7 @@
 !.gitignore_global
 !.latexmkrc
 !.vimrc
+!.zshrc
 
 
 # Ignore these
