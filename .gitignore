@@ -4,6 +4,7 @@
 !.texmf
 !.vim
 
+!README.md
 !.gitignore
 !.gitignore_global
 !.latexmkrc
