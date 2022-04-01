@@ -4,12 +4,12 @@
 !.texmf
 !.vim
 
-!README.md
 !.gitignore
 !.gitignore_global
 !.latexmkrc
 !.vimrc
 !.zshrc
+!README.md
 
 
 # Ignore these
