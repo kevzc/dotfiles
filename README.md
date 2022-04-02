@@ -10,7 +10,8 @@ Sections that are marked with stars (\*) are optional and may be outdated.
 Homebrew
 --------
 
-This step is optional, but I'm too lazy to do anything else.
+There are probably ways other than HomeBrew to achieve the same thing,
+but I'm too lazy to do anything else.
 
 1. Install [HomeBrew](https://brew.sh/).
 2. Use HomeBrew to install a bunch of stuff that macOS does not have for some reason:
