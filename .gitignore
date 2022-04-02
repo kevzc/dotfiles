@@ -1,6 +1,7 @@
 /*
 
 # Don't ignore these
+!.github
 !.texmf
 !.vim
 
@@ -9,7 +10,7 @@
 !.latexmkrc
 !.vimrc
 !.zshrc
-!README.md
+!.README.md
 
 
 # Ignore these
