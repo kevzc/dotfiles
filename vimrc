@@ -7,7 +7,6 @@ call plug#begin('~/.vim/plugged')
 
 " Completion
 Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'valloric/youcompleteme'
 
@@ -212,15 +211,15 @@ let g:vimtex_indent_on_ampersands=0
 " let g:vimtex_compiler_callback_hooks = ['Callback_airline_refresh']
 
 
-" ---------
-" |  YCM  |
-" ---------
+" -------------------
+" |  OTHER PLUGINS  |
+" -------------------
 
 
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-
-let g:ycm_filetype_blacklist = {
+" YCM
+let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+let g:ycm_filetype_blacklist={
       \ 'tagbar': 1,
       \ 'notes': 1,
       \ 'markdown': 1,
@@ -238,26 +237,6 @@ set completeopt-=preview
 highlight SignColumn guibg=#006678
 
 
-" -------------------
-" |  OTHER PLUGINS  |
-" -------------------
-
-
-" Ultisnips
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<C-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
-
-
-" Surround
-autocmd FileType tex let b:surround_109="\\[ \r \\]"
-autocmd FileType tex let b:surroundd_108="\\begin{\1environment: \1}\r\\end{\1\1}"
-
-
-" NERDCommenter
-let NERDSpaceDelims=1
-
-
 " NERDTree
 nnoremap <silent> <C-n><C-n> :NERDTreeToggle<CR>
 nnoremap <silent> <C-n><C-f> :NERDTreeFind<CR>
@@ -265,9 +244,24 @@ nnoremap <silent> <C-n><C-s> :NERDTreeFocus<CR>
 
 let NERDTreeMinimalUI=1						" appearance
 let NERDTreeDirArrows=1						" arrows
-let NERDTreeIgnore=['\~$', '\.DS_Store$']	" files to ignore
+let NERDTreeIgnore=['\~$','\.DS_Store$']	" files to ignore
 let NERDTreeQuitOnOpen=1					" quit when opening a file
 let NERDTreeAutoDeleteBuffer=1				" Delete buffer if file deleted
+
+
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+
+
+" vim-surround
+autocmd FileType tex let b:surroundd_108="\\begin{\1environment: \1}\r\\end{\1\1}"		" 108 = l
+autocmd FileType tex let b:surround_109="\\[ \r \\]"									" 109 = m
+
+
+" NERDCommenter
+let NERDSpaceDelims=1
 
 
 " ctrlp
