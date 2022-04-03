@@ -54,7 +54,6 @@ answer_is_yes() {
 
 main() {
 	local dotfiles=$(find . -maxdepth 1 -not -name '.*' -not -name '*.sh' -not -name '*.md' | sed 's/^\.\///g' | sort)
-	dotfiles="$dotfiles .gitignore_global"
 
 	local i=""
 	local sourceFile=""
