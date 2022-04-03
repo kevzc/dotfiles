@@ -44,7 +44,7 @@ set shellcmdflag=-ic	" use stuff from .zshrc
 
 " puts cursor at previous location before closing
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
 
 " because this is annoying
