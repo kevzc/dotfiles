@@ -45,7 +45,7 @@ rm -rf fonts
     ```
     2. Compile YCM in terminal:
     ```
-    cd ~/.vim/bundle/YouCompleteMe
+    cd ~/.vim/plugged/YouCompleteMe
     python3 install.py --all
     ```
 
