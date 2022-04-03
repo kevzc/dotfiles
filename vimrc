@@ -110,24 +110,26 @@ endif
 
 inoremap <C-j> <Nop>
 
-" font for arrows
-let g:airline_powerline_fonts=1
+if has("gui_running")
+	" font for arrows
+	let g:airline_powerline_fonts=1
 
-" status line
-let g:airline#extensions#wordcount#enabled=0  " no word count
-let g:airline_section_y=''  " no utf-8 stuff
-let g:airline_section_error='' " remove error messages
-let g:airline_section_warning=''  " remove warnings
-let g:airline_detect_spell=0  " remove spell
+	" status line
+	let g:airline#extensions#wordcount#enabled=0  " no word count
+	let g:airline_section_y=''  " no utf-8 stuff
+	let g:airline_section_error='' " remove error messages
+	let g:airline_section_warning=''  " remove warnings
+	let g:airline_detect_spell=0  " remove spell
 
-" tabline
-let g:airline#extensions#tabline#enabled=1  " enable
-let g:airline#extensions#tabline#show_tab_type=0  " remove tab/buffer labels
-let g:airline#extensions#tabline#show_close_button=0  " remove x
-let g:airline#extensions#tabline#overflow_marker='…'  " overflow marker
-let airline#extensions#tabline#show_splits=0  " remove double naming
-let g:airline#extensions#tabline#show_buffers=0  " don't show open buffers
-let g:airline#extensions#tabline#formatter='unique_tail'  " remove file location in tab name
+	" tabline
+	let g:airline#extensions#tabline#enabled=1  " enable
+	let g:airline#extensions#tabline#show_tab_type=0  " remove tab/buffer labels
+	let g:airline#extensions#tabline#show_close_button=0  " remove x
+	let g:airline#extensions#tabline#overflow_marker='…'  " overflow marker
+	let airline#extensions#tabline#show_splits=0  " remove double naming
+	let g:airline#extensions#tabline#show_buffers=0  " don't show open buffers
+	let g:airline#extensions#tabline#formatter='unique_tail'  " remove file location in tab name
+endif
 
 " }}}2
 
