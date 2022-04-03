@@ -1,23 +1,4 @@
-/*
-
-# Don't ignore these
-!.github
-!.texmf
-!.vim
-
-!.gitignore
-!.gitignore_global
-!.latexmkrc
-!.vimrc
-!.zshrc
-!.README.md
-
-
-# Ignore these
-.DS_Store
-*.swp
-
-.vim/plugged/
-.vim/spell/
-.vim/view/
-.vim/.netrwhist
+vim/plugged
+vim/spell
+vim/view
+vim/.netrwhist
