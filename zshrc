@@ -7,7 +7,7 @@ if [ -d ~/.texmf ]; then
 fi
 
 alias python='python3'
-alias g++17='g++ -O2 -Wall -std=c++17'
-alias g++14='g++ -O2 -Wall -std=c++14'
-alias g++11='g++ -O2 -Wall -std=c++11'
-alias g++98='g++ -O2 -Wall -std=c++98'
+alias g++17='g++ -std=c++17 -O2 -Wall'
+alias g++14='g++ -std=c++14 -O2 -Wall'
+alias g++11='g++ -std=c++11 -O2 -Wall'
+alias g++98='g++ -std=c++98 -O2 -Wall'
