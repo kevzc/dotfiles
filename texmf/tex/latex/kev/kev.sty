@@ -167,8 +167,17 @@
 %% style
 % \newcommand{\QED}{\hfill\qed}
 \newcommand{\QED}{\pushQED{\qed}\qedhere}
-\newcommand{\aand}{\qquad\text{and}\qquad}
 \newcommand{\ii}{\item}
+\newcommand{\ens}{\enspace}		% 0.5em space
+
+\newcommand{\tand}{\enspace\text{and}\enspace}
+\newcommand{\qand}{\quad\text{and}\quad}
+\newcommand{\qqand}{\qquad\text{and}\qquad}
+\newcommand{\aand}{\qquad\text{and}\qquad}	% keep for older TeX files
+
+\newcommand{\tor}{\enspace\text{or}\enspace}
+\newcommand{\qor}{\quad\text{or}\quad}
+\newcommand{\qqor}{\qquad\text{or}\qquad}
 
 \newcommand{\bigmid}{~\big\vert~}
 \newcommand{\biggmid}{~\bigg\vert~}
