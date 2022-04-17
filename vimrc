@@ -177,6 +177,7 @@ let g:vimtex_quickfix_ignore_filters=[
 			\ 'Overfull',
 			\ 'Font',
 			\ 'minitoc',
+			\ 'mdframed',
 			\]
 
 " parentheses stuff (b/c it's laggy!!!)
@@ -199,9 +200,6 @@ let g:vimtex_indent_on_ampersands=0
 			" \   'minitoc' : 0,
 			" \ },
 			" \}
-" let g:vimtex_quickfix_ignore_filters = [
-		  " \ 'Package mdframed',
-		  " \]
 
 " Deprecated
 " refresh status bar after compiling
