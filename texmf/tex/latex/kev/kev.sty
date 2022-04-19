@@ -15,6 +15,7 @@
 \RequirePackage{cleveref}
 \RequirePackage{verbatim}
 \RequirePackage[dvipsnames]{xcolor}
+\RequirePackage[colorinlistoftodos,prependcaption,textsize=tiny,linecolor=blue,backgroundcolor=blue!25,bordercolor=blue]{todonotes}
 \RequirePackage{listings}
 \lstset{
 	backgroundcolor=\color[rgb]{0.95,0.95,0.92},
@@ -39,7 +40,6 @@
 \RequirePackage{stmaryrd}
 \RequirePackage{bm}
 \RequirePackage{bbm}
-
 
 % Fakesection Macros
 
@@ -326,7 +326,6 @@
 %% declaration warning (put directly after declarations)
 \DeclareOption*{\PackageWarning{kev}{Unknown ‘\CurrentOption’}}
 \ProcessOptions\relax
-
 
 % Fakesection Setup
 \ifkevsetup
