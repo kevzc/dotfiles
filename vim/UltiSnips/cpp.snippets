@@ -55,7 +55,7 @@ snippet ll "long long"
 long long
 endsnippet
 
-snippet ",{{ " "brackets" rA
+snippet "{{ " "brackets" rA
 {
 	${1:${VISUAL}}
 }
@@ -63,104 +63,104 @@ endsnippet
 
 
 # pair stuff
-snippet pair "pair" i
+snippet "(?<!\w)pair" "pair" r
 pair<${1:int},${2:int}>
 endsnippet
 
-snippet pii "integer pair" i
+snippet "(?<!\w)pii" "integer pair" r
 pair<int,int>
 endsnippet
 
-snippet mp "make_pair" i
+snippet "(?<!\w)mp" "make_pair" r
 make_pair(${1:x},${2:y})
 endsnippet
 
-snippet .f "first" i
+snippet "(?<=\w)\.f" "first" r
 .first
 endsnippet
 
-snippet .s "second" i
+snippet "(?<=\w)\.s" "second" r
 .second
 endsnippet
 
 
 # vector stuff
-snippet vec "vector" i
+snippet "(?<!\w)vec" "vector" r
 vector<${1:int}>
 endsnippet
 
-snippet vi "integer vector" i
+snippet "(?<!\w)vi" "integer vector" r
 vector<int>
 endsnippet
 
-snippet .pb "push_back" i
+snippet "(?<=\w)\.pb" "push_back" r
 .push_back($1)
 endsnippet
 
-snippet vall "begin, end" i
-${1:v}.begin(), $1.end()
+snippet "(?<=\w\()vall" "begin, end" r
+${1:v}.begin(), $1.end())
 endsnippet
 
-snippet vrall "begin, end" i
-${1:v}.rbegin(), $1.rend()
+snippet "(?<=\w\()vrall" "begin, end" r
+${1:v}.rbegin(), $1.rend())
 endsnippet
 
-snippet .lb "lower_bound"
-lower_bound($1)
+snippet "(?<=\w)\.lb" "lower_bound" r
+.lower_bound($1)
 endsnippet
 
-snippet .ub "upper_bound"
-upper_bound($1)
+snippet "(?<=\w)\.ub" "upper_bound" r
+.upper_bound($1)
 endsnippet
 
 
 # loops
 snippet for "for loop"
-for (int ${1:i}=${2:0}; $1<${3:n}; $1++)$0
+for (int ${1:i}=${2:0}; $1<${3:n}; $1++)
 endsnippet
 
 snippet f0r "for loop starting at 0"
-for (int ${1:i}=0; $1<${2:n}; $1++)$0
+for (int ${1:i}=0; $1<${2:n}; $1++)
 endsnippet
 
 snippet for= "for loop with <="
-for (int ${1:i}=${2:0}; $1<=${3:n}; $1++)$0
+for (int ${1:i}=${2:0}; $1<=${3:n}; $1++)
 endsnippet
 
 snippet f0r= "for loop starting at 0 with <="
-for (int ${1:i}=0; $1<=${2:n}; $1++)$0
+for (int ${1:i}=0; $1<=${2:n}; $1++)
 endsnippet
 
 snippet rof "reverse for loop"
-for (int ${1:i}=${2:n}; $1>=${3:0}; $1--)$0
+for (int ${1:i}=${2:n}; $1>=${3:0}; $1--)
 endsnippet
 
 snippet r0f "reverse for loop ending at 0"
-for (int ${1:i}=${2:n}; $1>=0; $1--)$0
+for (int ${1:i}=${2:n}; $1>=0; $1--)
 endsnippet
 
 snippet rof> "reverse for loop with >"
-for (int ${1:i}=${2:n}; $1>=${3:0}; $1--)$0
+for (int ${1:i}=${2:n}; $1>=${3:0}; $1--)
 endsnippet
 
 snippet r0f> "reverse for loop ending at 0 with >"
-for (int ${1:i}=${2:n}; $1>0; $1--)$0
+for (int ${1:i}=${2:n}; $1>0; $1--)
 endsnippet
 
 snippet for* "for loop for pointers"
-for (${1:int} *${2:i}=${3:p}; *$2 != ${4:n}; $2++)$0
+for (${1:int}* ${2:i}=${3:p}; *$2 != ${4:n}; $2++)
 endsnippet
 
 snippet trav "traverse"
-for (auto& ${1:x} : $2)$0
+for (auto& ${1:x} : $2)
 endsnippet
 
 snippet wh "while"
-while (${1:/* condition */})$0
+while (${1:/* condition */})
 endsnippet
 
 snippet do-wh "do-while"
 do {
-	${2:/* body */${VISUAL}}
-} while (${1:/* condition */});$0
+	${2:${VISUAL}/* body */}
+} while (${1:/* condition */});
 endsnippet
