@@ -1,0 +1,89 @@
+# defining texMathZone
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+		
+def notMath():
+	return not math()
+endglobal
+
+context "notMath()"
+snippet "d\[ " "display math" rbA
+\[ ${1:${VISUAL}} \]
+endsnippet
+
+context "notMath()"
+snippet "dd " "multi-line math display" rbA
+\[
+	${1:${VISUAL}}
+\]
+endsnippet
+
+snippet $ "in-line math"
+$$1$
+endsnippet
+
+context "math()"
+snippet ",{ " "curly brackets" rA
+\\{ $1 \\}
+endsnippet
+
+context "math()"
+snippet ",< " "angle brackets" rA
+\langle $1 \rangle
+endsnippet
+
+context "math()"
+snippet ",\| " "norm" rA
+\|$1\|
+endsnippet
+
+context "math()"
+snippet ",\(\( " "big parentheses" rA
+\left( $1 \right)
+endsnippet
+
+context "math()"
+snippet ",\[\[ " "big square brackets" rA
+\left[ $1 \right]
+endsnippet
+
+context "math()"
+snippet ",\|\| " "big absolute values" rA
+\left| $1 \right|
+endsnippet
+
+context "math()"
+snippet ",\\\| " "big norm" rA
+\left\| $1 \right\|
+endsnippet
+
+context "math()"
+snippet ",{{ " "big curly brackets" rA
+\left\\{ $1 \right\\}
+endsnippet
+
+context "math()"
+snippet ",<< " "big angle brackets" rA
+\left< $1 \right>
+endsnippet
+
+context "math()"
+snippet "\.floor " "floor" rA
+\lfloor $1 \rfloor
+endsnippet
+
+context "math()"
+snippet "\.ceil " "ceiling" rA
+\lceil $1 \rceil
+endsnippet
+
+context "math()"
+snippet "\.ffloor " "floor" rA
+\left\lfloor $1 \right\rfloor
+endsnippet
+
+context "math()"
+snippet "\.cceil " "ceiling" rA
+\left\lceil $1 \right\rceil
+endsnippet

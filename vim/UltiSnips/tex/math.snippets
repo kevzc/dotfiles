@@ -1,0 +1,201 @@
+# defining texMathZone
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+		
+def notMath():
+	return not math()
+endglobal
+
+context "math()"
+snippet ;0 "\emptyset" iA
+\emptyset
+endsnippet
+
+context "math()"
+snippet ;6 "\partial" iA
+\partial
+endsnippet
+
+context "math()"
+snippet ;8 "\infty" iA
+\infty
+endsnippet
+
+context "math()"
+snippet ;= "\equiv" iA
+\equiv
+endsnippet
+
+context "math()"
+snippet ;\ "\setminus" iA
+\setminus
+endsnippet
+
+context "math()"
+snippet ;. "\cdot" iA
+\cdot
+endsnippet
+
+context "math()"
+snippet ;* "\times" iA
+\times
+endsnippet
+
+context "math()"
+snippet ;( "\subset" iA
+\subset
+endsnippet
+
+context "math()"
+snippet ;) "\supset" iA
+\supset
+endsnippet
+
+context "math()"
+snippet ;[ "\subseteq" iA
+\subseteq
+endsnippet
+
+context "math()"
+snippet ;] "\supset" iA
+\supseteq
+endsnippet
+
+context "math()"
+snippet ;{ "\subsetneq" iA
+\subsetneq
+endsnippet
+
+context "math()"
+snippet ;} "\supsetneq" iA
+\supsetneq
+endsnippet
+
+context "math()"
+snippet ;/ "fraction" iA
+\frac{$1}{$2}
+endsnippet
+
+context "math()"
+snippet ;| "better |" iA
+\mid
+endsnippet
+
+context "math()"
+snippet ;2 "sqrt" iA
+\sqrt{$1}
+endsnippet
+
+context "math()"
+snippet ;: "colon" iA
+\colon
+endsnippet
+
+context "math()"
+snippet ;I "integral" iA
+\int_{$1}^{$2}
+endsnippet
+
+context "math()"
+snippet ;@ "composition" iA
+\circ
+endsnippet
+
+
+# superscripts/subscripts
+context "math()"
+snippet ^^ "exponent" iA
+^{$1}
+endsnippet
+
+context "math()"
+snippet __ "subscript" iA
+_{$1}
+endsnippet
+context "math()"
+snippet ^( "superscript index" iA
+^{($1)}
+endsnippet
+
+context "math()"
+snippet ^_ "superscript/subscript index" iA
+^{($1)}_{$2}
+endsnippet
+
+
+# math operators
+context "math()"
+snippet "\.sum " "sum" rA
+\sum_{$1}^{$2}
+endsnippet
+
+context "math()"
+snippet "\.prod " "prod" rA
+\prod_{$1}^{$2}
+endsnippet
+
+context "math()"
+snippet "\.bin " "binomial" rA
+\binom\{$1\}\{$2\}
+endsnippet
+
+context "math()"
+snippet "\.der " "derivative" rA
+\frac{d$1}{d${2:x}}
+endsnippet
+
+context "math()"
+snippet "\.pder " "partial derivative" rA
+\frac{\partial$1}{\partial ${2:x}}
+endsnippet
+
+# arrows
+context "math()"
+snippet ;jj "\downarrow" iA
+\downarrow
+endsnippet
+
+context "math()"
+snippet ;jJ "\Downarrow" iA
+\Downarrow
+endsnippet
+
+context "math()"
+snippet ;jk "\uparrow" iA
+\uparrow
+endsnippet
+
+context "math()"
+snippet ;jK "\Uparrow" iA
+\Uparrow
+endsnippet
+
+context "math()"
+snippet ;jh "\leftarrow" iA
+\leftarrow
+endsnippet
+
+context "math()"
+snippet ;jH "\Leftarrow" iA
+\Leftarrow
+endsnippet
+
+context "math()"
+snippet ;jl "\rightarrow" iA
+\rightarrow
+endsnippet
+
+context "math()"
+snippet ;jL "\Rightarrow" iA
+\Rightarrow
+endsnippet
+
+# dots
+snippet ... "dots" iA
+\ldots
+endsnippet
+
+snippet ::: "cdots" iA
+\cdots
+endsnippet

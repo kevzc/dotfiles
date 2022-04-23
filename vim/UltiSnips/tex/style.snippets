@@ -1,0 +1,120 @@
+# defining texMathZone
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+		
+def notMath():
+	return not math()
+endglobal
+
+# template
+context "notMath()"
+snippet templ "normal template" b
+\documentclass{scrartcl}
+\usepackage[fancy]{kev}
+
+\title{$1}
+\author{Kevin Chen}
+\date{$2}
+
+\begin{document}
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
+
+context "notMath()"
+snippet bf "bold"
+\textbf{${1:${VISUAL}}}
+endsnippet
+
+context "math()"
+snippet bf "bold" i
+\mathbf{${1:${VISUAL}}}
+endsnippet
+
+context "notMath()"
+snippet it "italics" i
+\textit{${1:${VISUAL}}}
+endsnippet
+
+context "notMath()"
+snippet tt "teletype"
+\texttt{${1:${VISUAL}}}
+endsnippet
+
+context "math()"
+snippet tt "teletype" i
+\mathtt{${1:${VISUAL}}}
+endsnippet
+
+context "math()"
+snippet rm "roman" i
+\mathrm{${1:${VISUAL}}}
+endsnippet
+
+context "math()"
+snippet tx "text" i
+\text{${1:${VISUAL}}}
+endsnippet
+
+context "notMath()"
+snippet voc "vocab"
+\vocab{${1:${VISUAL}}}
+endsnippet
+
+# sections
+snippet sec "section"
+\section{$1}
+
+${0:${VISUAL:%% text here}}
+endsnippet
+
+snippet sub "subsection"
+\subsection{$1}
+
+${0:${VISUAL:%% text here}}
+endsnippet
+
+snippet subsub "subsubsection"
+\subsubsection{$1}
+
+${0:${VISUAL:%% text here}}
+endsnippet
+
+snippet sec* "section"
+\section*{$1}
+
+${0:${VISUAL:%% text here}}
+endsnippet
+
+snippet sub* "subsection"
+\subsection*{$1}
+
+${0:${VISUAL:%% text here}}
+endsnippet
+
+snippet subsub* "subsubsection"
+\subsubsection*{$1}
+
+${0:${VISUAL:%% text here}}
+endsnippet
+
+snippet "sp(\d+)" "sec-prob" br
+`!p snip.rv = "\\section{Problem " + match.group(1) + "}"`
+
+${0:${VISUAL:%% text here}}
+endsnippet
+
+snippet "ssp(\d+)" "subsec-prob" br
+`!p snip.rv = "\\subsection{Problem " + match.group(1) + "}"`
+
+${0:${VISUAL:%% text here}}
+endsnippet
+
+# ad hoc snippets
+snippet texpdf "texorpdfstring" i
+\texorpdfstring{$$1$}{$2}
+endsnippet
