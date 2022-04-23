@@ -18,10 +18,12 @@ snippet "(?<!\\)\$(\d+)?v" "visual placeholder" rA
 ${${1:`!p snip.rv = match.group(1) if match.group(1) != None else "1"`}:\${VISUAL:${2:text}}}
 endsnippet
 
-snippet `p "python interpolation" i
+# trigger: `p
+snippet "(?<!\\)`p" "python interpolation" r
 \`!p snip.rv = ${1:code}\`
 endsnippet
 
-snippet mg "match.group" i
+# trigger: mg
+snippet "(?<![a-zA-Z])mg" "match.group" r
 match.group(${1:1})
 endsnippet
