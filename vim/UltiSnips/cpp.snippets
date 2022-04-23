@@ -45,7 +45,7 @@ int main() {
 }
 endsnippet
 
-snippet main.arg "main args" i
+snippet "(?<=int main\()argcv" "main args" rA
 int argc, char* argv[]
 endsnippet
 
@@ -55,7 +55,7 @@ snippet ll "long long"
 long long
 endsnippet
 
-snippet "{{ " "brackets" rA
+snippet ",{{ " "brackets" rA
 {
 	${1:${VISUAL}}
 }
@@ -75,11 +75,11 @@ snippet "(?<!\w)mp" "make_pair" r
 make_pair(${1:x},${2:y})
 endsnippet
 
-snippet "(?<=\w)\.f" "first" r
+snippet "(?<=\w)\.f " "first" rA
 .first
 endsnippet
 
-snippet "(?<=\w)\.s" "second" r
+snippet "(?<=\w)\.s " "second" rA
 .second
 endsnippet
 
@@ -93,23 +93,23 @@ snippet "(?<!\w)vi" "integer vector" r
 vector<int>
 endsnippet
 
-snippet "(?<=\w)\.pb" "push_back" r
+snippet "(?<=\w)\.pb " "push_back" rA
 .push_back($1)
 endsnippet
 
-snippet "(?<=\w\()vall" "begin, end" r
+snippet "(?<=\w\()vall " "begin, end" rA
 ${1:v}.begin(), $1.end())
 endsnippet
 
-snippet "(?<=\w\()vrall" "begin, end" r
+snippet "(?<=\w\()vrall " "begin, end" rA
 ${1:v}.rbegin(), $1.rend())
 endsnippet
 
-snippet "(?<=\w)\.lb" "lower_bound" r
+snippet "(?<=\w)\.lb " "lower_bound" rA
 .lower_bound($1)
 endsnippet
 
-snippet "(?<=\w)\.ub" "upper_bound" r
+snippet "(?<=\w)\.ub " "upper_bound" rA
 .upper_bound($1)
 endsnippet
 
@@ -152,7 +152,7 @@ for (${1:int}* ${2:i}=${3:p}; *$2 != ${4:n}; $2++)
 endsnippet
 
 snippet trav "traverse"
-for (auto& ${1:x} : $2)
+for (auto& ${1:x} : ${2:range})
 endsnippet
 
 snippet wh "while"
@@ -161,6 +161,6 @@ endsnippet
 
 snippet do-wh "do-while"
 do {
-	${2:${VISUAL}/* body */}
+	${2:${VISUAL}}
 } while (${1:/* condition */});
 endsnippet
