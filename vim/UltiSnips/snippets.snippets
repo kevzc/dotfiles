@@ -9,20 +9,13 @@ snippet ### "commented line" bA
 endsnippet
 
 # `$1p` -> `${1:text}`
-snippet "([^\\]|^)\$(\d+)?p" "placeholder" r
-`!p snip.rv = match.group(1)`\${${1:`!p
-snip.rv = match.group(2) if match.group(2) != None else "1"`}:${2:text}}
+snippet "(?<!\\)\$(\d+)?p" "placeholder" rA
+${${1:`!p snip.rv = match.group(1) if match.group(1) != None else "1"`}:${2:text}}
 endsnippet
 
 # `$1v` -> `${1:${VISUAL}}`
-snippet "([^\\]|^)\$(\d+)?v" "visual placeholder" r
-`!p snip.rv = match.group(1)`\${${1:`!p
-snip.rv = match.group(2) if match.group(2) != None else "1"`}:\${VISUAL}}
-endsnippet
-
-# `$1vp` -> `${1:${VISUAL}}`
-snippet "([^\\]|^)\$(\d+)?vp" "visual placeholder with default text" r
-`!p snip.rv = match.group(1)`\${${1:`!p snip.rv = match.group(2)`}:\${VISUAL:${1:text}}}
+snippet "(?<!\\)\$(\d+)?v" "visual placeholder" rA
+${${1:`!p snip.rv = match.group(1) if match.group(1) != None else "1"`}:\${VISUAL:${2:text}}}
 endsnippet
 
 snippet `p "python interpolation" i
