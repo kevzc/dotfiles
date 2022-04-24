@@ -2,9 +2,6 @@
 global !p
 def math():
 	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
-		
-def notMath():
-	return not math()
 endglobal
 
 context "math()"
