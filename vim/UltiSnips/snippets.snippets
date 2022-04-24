@@ -4,8 +4,15 @@ $4
 endsnippet$0
 endsnippet
 
-snippet ### "commented line" bA
-# --------------------------------------------- #
+# snip: ### hello
+# snap:
+#	#########
+#	# hello #
+#	#########
+snippet "(?<=^)#{3,}( (.+))?" "commented box" r
+#`!p snip.rv = (2+len(t[1]))*'#'`#
+# ${1:`!p snip.rv = match.group(2) if match.group(2) != None else "text"`} #
+#`!p snip.rv = (2+len(t[1]))*'#'`#
 endsnippet
 
 # snip: $p
