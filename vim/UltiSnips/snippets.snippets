@@ -39,6 +39,12 @@ snippet "(?<![a-zA-Z])mg" "match.group" r
 match.group(${1:1})
 endsnippet
 
+# snip: pmg
+# snap: `!p snip.rv = match.group(1)`
+snippet "(?<![a-zA-Z])pmg" "match.group" r
+\`!p snip.rv = match.group(${1:1})\`
+endsnippet
+
 # snip: mgif
 # snap: match.group(1) if match.group(1) != None else "text"
 snippet "(?<![a-zA-Z])(\()?mgif" "match.group" r
