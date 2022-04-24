@@ -61,24 +61,37 @@ snippet "(?<![a-zA-Z])mg" "match.group" r
 match.group(${1:1})
 endsnippet
 
-# snip: pmg
-# snap: `!p snip.rv = match.group(1)`
-snippet "(?<![a-zA-Z])pmg" "match.group" r
+# same as one before but wrapped in py
+snippet "(?<![a-zA-Z])pmg" "mg wrapped in py" r
 \`!p snip.rv = match.group(${1:1})\`
 endsnippet
 
 # snip: mgif
 # snap: match.group(1) if match.group(1) != None else "text"
-snippet "(?<![a-zA-Z])mgif(\d+)?" "match.group" r
+snippet "(?<![a-zA-Z])mgif(\d+)?" "mg if mg exists" r
 match.group(${1:`!p
 snip.rv = match.group(1) if match.group(1) != None else "1"
 `}) if match.group($1) != None else "${2:text}"
 endsnippet
 
+# same as one before but wrapped in py
+snippet "(?<![a-zA-Z])pmgif(\d+)?" "mg if mg exists wrapped in py" r
+\`!p snip.rv = match.group(${1:`!p
+snip.rv = match.group(1) if match.group(1) != None else "1"
+`}) if match.group($1) != None else "${2:text}"\`
+endsnippet
+
 # snip: ifmg
 # snap: rv1 if match.group(1) != None else rv2
-snippet "(?<![a-zA-Z])ifmg(\d+)?" "description" r
+snippet "(?<![a-zA-Z])ifmg(\d+)?" "rv if mg exists" r
 ${1:rv1} if match.group(${2:`!p
 snip.rv = match.group(1) if match.group(1) != None else "1"
 `}) != None else ${3:rv2}
+endsnippet
+
+# same as one before but wrapped in py
+snippet "(?<![a-zA-Z])pifmg(\d+)?" "rv if mg exists wrapped in py" r
+\`!p snip.rv = ${1:rv1} if match.group(${2:`!p
+snip.rv = match.group(1) if match.group(1) != None else "1"
+`}) != None else ${3:rv2}\`
 endsnippet
