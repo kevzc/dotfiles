@@ -20,7 +20,7 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ctrlpvim/ctrlp.vim'
 
-" UI
+" Appearance
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -263,4 +263,4 @@ let NERDSpaceDelims=1
 
 
 " ctrlp
-let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_cmd='CtrlPMRU'
