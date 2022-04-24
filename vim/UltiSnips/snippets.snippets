@@ -12,7 +12,7 @@ endsnippet
 # snippet w/ regex
 snippet "(?<=^)snip r([biwtsmeA]+)?" "new snippet w/ regex" r
 snippet "${1:regex}" "${2:description}" r${3:`!p
-snip.rv = match.group(1) if match.group(1) != None else " b"`}
+snip.rv = match.group(1) if match.group(1) != None else ""`}
 $4
 endsnippet$0
 endsnippet
