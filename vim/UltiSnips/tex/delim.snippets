@@ -18,9 +18,14 @@ snippet "(?<=^)(\s*)dd " "multi-line display math" rA
 `!p snip.rv = match.group(1)`\]
 endsnippet
 
-context "math()"
-snippet $ "in-line math" A
-$$1$
+# context "math()"
+# snippet $ "in-line math" A
+# $$1$
+# endsnippet
+
+context "not math()"
+snippet $ "end in-line math" i
+$1$
 endsnippet
 
 context "math()"
