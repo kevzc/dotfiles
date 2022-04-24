@@ -57,3 +57,9 @@ snip.rv = match.group(1) if match.group(1) != None else ""
 snip.rv = match.group(2) if match.group(2) != None else "1"`}) != None else ${3:rv2}`!p
 snip.rv = ")" if match.group(1) != None else ""`
 endsnippet
+
+# snip: con
+# snap: context "math()"
+snippet con "context" b
+context "${1:math()}"
+endsnippet
