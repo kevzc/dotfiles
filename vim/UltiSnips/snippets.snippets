@@ -8,22 +8,45 @@ snippet ### "commented line" bA
 # --------------------------------------------- #
 endsnippet
 
-# `$1p` -> `${1:text}`
-snippet "(?<!\\)\$(\d+)?p" "placeholder" rA
-${${1:`!p snip.rv = match.group(1) if match.group(1) != None else "1"`}:${2:text}}
+# snip: $p
+# snap: ${1:text}
+snippet "(?<!\\)\$p" "placeholder" rA
+${${1:1}:${2:text}}
 endsnippet
 
-# `$1v` -> `${1:${VISUAL}}`
-snippet "(?<!\\)\$(\d+)?v" "visual placeholder" rA
-${${1:`!p snip.rv = match.group(1) if match.group(1) != None else "1"`}:\${VISUAL:${2:text}}}
+# snip: $v
+# snap: ${1:${VISUAL:text}}
+snippet "(?<!\\)\$v" "visual placeholder" rA
+${${1:1}:\${VISUAL:${2:text}}}
 endsnippet
 
-# trigger: `p
+# snip: `p
+# snap: `!p snip.rv = code`
 snippet "(?<!\\)`p" "python interpolation" r
 \`!p snip.rv = ${1:code}\`
 endsnippet
 
-# trigger: mg
+# snip: mg
+# snap: match.group(1)
 snippet "(?<![a-zA-Z])mg" "match.group" r
 match.group(${1:1})
+endsnippet
+
+# snip: mgif
+# snap: match.group(1) if match.group(1) != None else "text"
+snippet "(?<![a-zA-Z])(\()?mgif" "match.group" r
+`!p
+snip.rv = match.group(1) if match.group(1) != None else ""
+`match.group(${1:1}) if match.group($1) != None else "${2:text}"`!p
+snip.rv = ")" if match.group(1) != None else ""`
+endsnippet
+
+# snip: ifmg
+# snap: rv1 if match.group(1) != None else rv2
+snippet "(?<![a-zA-Z])(\()?ifmg(\d+)?" "description" r
+`!p
+snip.rv = match.group(1) if match.group(1) != None else ""
+`${1:rv1} if match.group(${2:`!p
+snip.rv = match.group(2) if match.group(2) != None else "1"`}) != None else ${3:rv2}`!p
+snip.rv = ")" if match.group(1) != None else ""`
 endsnippet
