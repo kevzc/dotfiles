@@ -4,6 +4,10 @@ def math():
 	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
 endglobal
 
+
+###########
+# symbols #
+###########
 context "math()"
 snippet ;0 "\emptyset" iA
 \emptyset
@@ -21,7 +25,7 @@ endsnippet
 
 context "math()"
 snippet ;= "\equiv" iA
-\equiv
+\cong
 endsnippet
 
 context "math()"
@@ -70,18 +74,8 @@ snippet ;} "\supsetneq" iA
 endsnippet
 
 context "math()"
-snippet ;/ "fraction" iA
-\frac{$1}{$2}
-endsnippet
-
-context "math()"
 snippet ;| "better |" iA
 \mid
-endsnippet
-
-context "math()"
-snippet ;2 "sqrt" iA
-\sqrt{$1}
 endsnippet
 
 context "math()"
@@ -90,19 +84,24 @@ snippet ;: "colon" iA
 endsnippet
 
 context "math()"
-snippet ;I "integral" iA
-\int_{$1}^{$2}
-endsnippet
-
-context "math()"
 snippet ;@ "composition" iA
 \circ
 endsnippet
 
+snippet ... "dots" iA
+\ldots
+endsnippet
 
-# superscripts/subscripts
+snippet ::: "cdots" iA
+\cdots
+endsnippet
+
+
+###############################
+# superscripts and subscripts #
+###############################
 context "math()"
-snippet ^^ "exponent" iA
+snippet ^^ "superscript" iA
 ^{$1}
 endsnippet
 
@@ -110,89 +109,166 @@ context "math()"
 snippet __ "subscript" iA
 _{$1}
 endsnippet
+
 context "math()"
 snippet ^( "superscript index" iA
 ^{($1)}
 endsnippet
 
 context "math()"
-snippet ^_ "superscript/subscript index" iA
+snippet ^_ "super+subscript index" iA
 ^{($1)}_{$2}
 endsnippet
 
-
-# math operators
 context "math()"
-snippet "\.sum " "sum" rA
+snippet "(?<=[a-zA-Z0-9])(\^|_)tx" "text super/subscript" rA
+`!p snip.rv = match.group(1)`{\mathrm{$1}}
+endsnippet
+
+# a-- -> a^{-1}
+context "math()"
+snippet "(?<=[a-zA-Z0-9]|[\)\]\}\}])--" "^{-1}" rA
+^{-1}
+endsnippet
+
+# a^100 -> a^{100}, a_-2 -> a_{-2}
+context "math()"
+snippet "(?<=[a-zA-Z0-9]|[\)\]\}\|])(\^|_)(-[0-9]+|[0-9]{2,}) " "numerical super/subscript" rA
+`!p snip.rv = match.group(1)`{`!p snip.rv = match.group(2)`} $0
+endsnippet
+
+
+##########################
+# general math operators #
+##########################
+context "math()"
+snippet "\.ff " "fraction" rA
+\frac{$1}{$2}
+endsnippet
+
+context "math()"
+snippet "\.sq([a-zA-Z0-9]+)? " "sqrt" rA
+\sqrt`!p
+snip.rv = "["+match.group(1)+"]" if match.group(1) != None else ""
+`{$1}
+endsnippet
+
+context "math()"
+snippet "\.bin? " "binomial coefficient" rA
+\binom{$1}{$2}
+endsnippet
+
+
+########
+# sums #
+########
+context "math()"
+snippet "\.su?m " "sum" rA
 \sum_{$1}^{$2}
 endsnippet
 
 context "math()"
-snippet "\.prod " "prod" rA
+snippet "\.su?ml " "sum w/ only lower limit" rA
+\sum_{$1}
+endsnippet
+
+context "math()"
+snippet "\.su?mf(\d+)? " "infinite sum" rA
+\sum_{${1:k}=`!p snip.rv = match.group(1) if match.group(1) != None else "0"`}^{\infty}
+endsnippet
+
+context "math()"
+snippet "\.su?mff " "sum from -\infty to +\infty" rA
+\sum_{-\infty}^{\infty}
+endsnippet
+
+
+############
+# products #
+############
+context "math()"
+snippet "\.pr(od)? " "product" rA
 \prod_{$1}^{$2}
 endsnippet
 
 context "math()"
-snippet "\.bin " "binomial" rA
-\binom\{$1\}\{$2\}
+snippet "\.pr(od)?l " "product w/ only lower limit" rA
+\prod_{$1}
 endsnippet
 
 context "math()"
-snippet "\.der " "derivative" rA
+snippet "\.pr(od)?f(\d+)? " "infinite product" rA
+\prod_{${1:k}=`!p snip.rv = match.group(1) if match.group(1) != None else "0"`}^{\infty}
+endsnippet
+
+
+##########
+# limits #
+##########
+context "math()"
+snippet "\.li?m " "limit" rA
+\lim_{${1:x} \to ${2:a}}
+endsnippet
+
+context "math()"
+snippet "\.li?mf " "limit to \infty" rA
+\lim_{${1:x} \to \infty}
+endsnippet
+
+context "math()"
+snippet "\.li?mnf " "limit to -\infty" rA
+\lim_{${1:x} \to -\infty}
+endsnippet
+
+
+###############
+# derivatives #
+###############
+context "math()"
+snippet "\.der? " "derivative" rA
 \frac{d$1}{d${2:x}}
 endsnippet
 
 context "math()"
-snippet "\.pder " "partial derivative" rA
+snippet "\.pder? " "partial derivative" rA
 \frac{\partial$1}{\partial ${2:x}}
 endsnippet
 
-# arrows
 context "math()"
-snippet ;jj "\downarrow" iA
-\downarrow
-endsnippet
-
-context "math()"
-snippet ;jJ "\Downarrow" iA
-\Downarrow
+snippet "\.mder? " "multiple derivatives" rA
+\frac{d^{${1:n}}$2}{d${3:x}^{$1}}
 endsnippet
 
 context "math()"
-snippet ;jk "\uparrow" iA
-\uparrow
+snippet "\.mpder? " "partial derivative" rA
+\frac{\partial^{${1:n}}$2}{\partial ${4:${3:x}^{$1}}}
+endsnippet
+
+
+#############
+# integrals #
+#############
+context "math()"
+snippet "\.int? " "integral" rA
+\int_{$1}^{$2}
 endsnippet
 
 context "math()"
-snippet ;jK "\Uparrow" iA
-\Uparrow
+snippet "\.int?l " "integral w/ only lower limit" rA
+\int_{$1}
 endsnippet
 
 context "math()"
-snippet ;jh "\leftarrow" iA
-\leftarrow
+snippet "\.int?ff " "integral from -\infty to +\infty" rA
+\int_{-\infty}^{\infty}
 endsnippet
 
 context "math()"
-snippet ;jH "\Leftarrow" iA
-\Leftarrow
+snippet "\.int?p " "integral from 0 to 2\pi" rA
+\int_{0}^{2\pi}
 endsnippet
 
 context "math()"
-snippet ;jl "\rightarrow" iA
-\rightarrow
-endsnippet
-
-context "math()"
-snippet ;jL "\Rightarrow" iA
-\Rightarrow
-endsnippet
-
-# dots
-snippet ... "dots" iA
-\ldots
-endsnippet
-
-snippet ::: "cdots" iA
-\cdots
+snippet "\.int?pp " "integral from -\pi to \pi" rA
+\int_{-\pi}^{\pi}
 endsnippet
