@@ -254,7 +254,7 @@ let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
 
 " vim-surround
-autocmd FileType tex let b:surroundd_108="\\begin{\1environment: \1}\r\\end{\1\1}"		" 108 = l
+autocmd FileType tex let b:surround_108="\\begin{\1environment: \1}\r\\end{\1\1}"		" 108 = l
 autocmd FileType tex let b:surround_109="\\[ \r \\]"									" 109 = m
 
 
