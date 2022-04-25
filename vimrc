@@ -159,12 +159,14 @@ let g:vimtex_imaps_enabled=0
 " folding
 let g:vimtex_fold_enabled=1
 let g:vimtex_fold_types={
-			\ 'envs' : {
-			\	'whitelist' : ['asy', 'comment', 'abstract', 'abstract*'],
-			\ },
-			\ 'markers' : {'enabled': 0},
-			\ 'sections' : {'parse_levels': 1},
-			\}
+	\ 'envs' : {
+	\	'whitelist' : ['asy', 'comment', 'abstract', 'abstract*', 'proof', 'subproof'],
+	\ },
+	\ 'markers' : {'enabled' : 0},
+	\ 'sections' : {'parse_levels' : 1},
+	\ 'cmd_single' : {'enabled' : 0},
+	\ 'cmd_multi' : {'enabled' : 0},
+	\}
 
 " skim pdf stuff
 let g:vimtex_view_method='skim'
