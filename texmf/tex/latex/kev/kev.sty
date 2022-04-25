@@ -1,8 +1,6 @@
 % Fakesection Essentials
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{kev}[2020/05/22 @ 22:10 Custom Package]
-\RequirePackage{silence}
-\WarningFilter{remreset}{The remreset package}
+\ProvidesPackage{kev}[2022/04/24 @ 21:00 Custom Package]
 
 % Basic Packages
 \RequirePackage{amsmath, amssymb}
@@ -10,12 +8,7 @@
 \RequirePackage{textcomp}
 \RequirePackage{enumerate}
 \RequirePackage[shortlabels]{enumitem}
-\RequirePackage[hidelinks,colorlinks=true]{hyperref}
-\hypersetup{urlcolor=RubineRed,linkcolor=RoyalBlue,citecolor=ForestGreen}
-\RequirePackage{cleveref}
 \RequirePackage{verbatim}
-\RequirePackage[dvipsnames]{xcolor}
-\RequirePackage[colorinlistoftodos,prependcaption,textsize=tiny,linecolor=blue,backgroundcolor=blue!25,bordercolor=blue]{todonotes}
 \RequirePackage{listings}
 \lstset{
 	backgroundcolor=\color[rgb]{0.95,0.95,0.92},
@@ -143,7 +136,7 @@
 %% arrows
 \newcommand{\lto}{\longrightarrow}
 \newcommand{\xto}{\xrightarrow}
-\newcommand{\isoto}{\xrightarrow{\text{ }\sim\text{ }}}
+\newcommand{\isoto}{\xrightarrow{~\sim~}}
 
 \newcommand{\from}{\leftarrow}
 \newcommand{\lfrom}{\longleftarrow}
@@ -286,12 +279,13 @@
 \newif\ifkevthmsec\kevthmsecfalse
 \newif\ifkevthmsub\kevthmsubfalse
 
-\newif\ifkevasy\kevasytrue
 \newif\ifkevdiagrams\kevdiagramstrue
+\newif\ifkevasy\kevasytrue
 
 \DeclareOption{fancy}{\kevfancytitletrue\kevcolorsectrue\kevthmmdtrue\kevthmsectrue}
 \DeclareOption{pset}{\kevshorttitletrue\kevthmsectrue}
 \DeclareOption{book}{\kevbooktitletrue\kevcolorsectrue\kevthmmdtrue\kevthmsectrue}
+\DeclareOption{beamer}{\kevsetupfalse\kevasyfalse}
 
 \DeclareOption{setup}{\kevsetuptrue}
 \DeclareOption{nosetup}{\kevsetupfalse}
@@ -323,29 +317,34 @@
 \DeclareOption{asy}{\kevasytrue}
 \DeclareOption{noasy}{\kevasyfalse}
 
-%% declaration warning (put directly after declarations)
-\DeclareOption*{\PackageWarning{kev}{Unknown ‘\CurrentOption’}}
 \ProcessOptions\relax
 
 % Fakesection Setup
 \ifkevsetup
-    
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %% Basics
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-    %% margins
-    \usepackage[margin=1in]{geometry}
+	\RequirePackage[margin=1in]{geometry}
+	\RequirePackage[dvipsnames]{xcolor}
+	\RequirePackage[hidelinks,colorlinks=true]{hyperref}
+	\hypersetup{
+		urlcolor=RubineRed,
+		linkcolor=RoyalBlue,
+		citecolor=ForestGreen
+	}
+	\RequirePackage{cleveref} % required to be put after hyperref
+	\RequirePackage[
+		colorinlistoftodos,
+		prependcaption,
+		textsize=tiny,
+		linecolor=blue,
+		backgroundcolor=blue!25,
+		bordercolor=blue
+	]{todonotes}
     
     %% title, ...
 	\providecommand{\thetitle}{\@title}
 	\providecommand{\theauthor}{\@author}
 	\providecommand{\thedate}{\@date}
     
-    
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %% title
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Fakesubsection Title options
     \ifkevtitle
         %% setting font with no hdr errors (for font size)
         \newcommand{\addtotitlefont}[1]{
@@ -385,9 +384,7 @@
         }
     \fi
 
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %% header
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Fakesubsection Fancy header
     \ifkevhdr
         \RequirePackage{fancyhdr, lastpage}
         \pagestyle{fancy}
@@ -404,9 +401,7 @@
     \fi
     
     
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %% sections
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+	% Fakesubsection Fancy section titles
     \ifkevcolorsec
         \@ifundefined{KOMAClassName}{
             \sectionfont{\sffamily}
@@ -460,9 +455,7 @@
     \fi
     
     
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %% theorems
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Fakesubsection Fancy theorem boxes
     \ifkevthm
         \RequirePackage{amsthm}
         \RequirePackage{thmtools}
@@ -598,9 +591,9 @@
     \fi
 \fi
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Diagrams and Asymptote
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fakesection Diagrams
+% for some reason, putting tik-cd before xcolor causes errors
+% TODO: find out why
 \ifkevdiagrams        
 	\RequirePackage{tikz-cd}
 	\usetikzlibrary{decorations.pathmorphing}
