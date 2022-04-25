@@ -29,14 +29,13 @@
 	tabsize=4
 }
 
-%% more symbols
+% more symbols
 \RequirePackage{stmaryrd}
 \RequirePackage{bm}
 \RequirePackage{bbm}
 
 % Fakesection Macros
-
-%% letters
+% letters
 \newcommand{\CC}{\mathbb C}
 \newcommand{\EE}{\mathbb E}
 \newcommand{\FF}{\mathbb F}
@@ -103,7 +102,7 @@
 \newcommand{\vphi}{\varphi}
 \newcommand{\one}{\mathbbm 1}
 
-%% math operations
+% math operations
 \newcommand{\cbrt}[1]{\sqrt[3]{#1}}
 \newcommand{\inv}{^{-1}}
 \newcommand{\half}{\frac{1}{2}}
@@ -124,16 +123,16 @@
 \let\Im\relax
 \DeclareMathOperator{\Im}{Im}
 
-%% needless commands because I'm that lazy
+% needless commands because I'm that lazy
 \newcommand{\pii}{\pi i}
 
-%% delimiters
+% delimiters
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\norm}[1]{\left\| #1 \right\|}
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
 
-%% arrows
+% arrows
 \newcommand{\lto}{\longrightarrow}
 \newcommand{\xto}{\xrightarrow}
 \newcommand{\isoto}{\xrightarrow{~\sim~}}
@@ -157,16 +156,16 @@
 \newcommand{\lmapsto}{\longmapsto}
 \newcommand{\lmapsfrom}{\longmapsfrom}
 
-%% style
+% style
 % \newcommand{\QED}{\hfill\qed}
 \newcommand{\QED}{\pushQED{\qed}\qedhere}
 \newcommand{\ii}{\item}
-\newcommand{\ens}{\enspace}		% 0.5em space
+\newcommand{\ens}{\enspace}  % 0.5em space
 
 \newcommand{\tand}{\enspace\text{and}\enspace}
 \newcommand{\qand}{\quad\text{and}\quad}
 \newcommand{\qqand}{\qquad\text{and}\qquad}
-\newcommand{\aand}{\qquad\text{and}\qquad}	% keep for older TeX files
+\newcommand{\aand}{\qquad\text{and}\qquad}  % keep for older TeX files
 
 \newcommand{\tor}{\enspace\text{or}\enspace}
 \newcommand{\qor}{\quad\text{or}\quad}
@@ -185,7 +184,7 @@
 
 \newcommand{\vocab}[1]{\textbf{\color{blue} #1}}
 
-%% environments
+% environments
 \newenvironment{abstract*}%
     {\renewcommand{\abstractname}{\vspace{-\baselineskip}}\begin{abstract}}%
     {\end{abstract}}
@@ -196,7 +195,7 @@
     {\begin{enumerate} [label=\textbf{(\alph*)}, wide,labelindent=0pt, parsep=0em, itemsep=1em]}%
     {\end{enumerate}}
 
-%% MAT218
+% MAT218
 \newcommand{\limit}[3]{\lim_{#1 \to #2}#3}
 \newcommand{\deriv}[2]{\frac{d#1}{d#2}}
 \newcommand{\mderiv}[3]{\frac{d^{#3}#1}{d#2^{#3}}}
@@ -213,7 +212,7 @@
 \newcommand{\btrans}[1]{\prescript{t}{}{#1}}
 \newcommand{\sm}{\setminus}
 
-%% MAT345
+% MAT345
 \newcommand{\zmod}[1]{\mathbb Z/#1\mathbb Z}
 \newcommand{\tmod}[1]{(\mathbb Z/#1\mathbb Z)^\times}
 \newcommand{\mmod}{~\mathrm{mod}~}
@@ -232,13 +231,13 @@
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Hom}{Hom}
 
-%% MAT365
+% MAT365
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\Id}{Id}
 \DeclareMathOperator{\inter}{int}
 \DeclareMathOperator{\clo}{clo}
 
-%% MAT419
+% MAT419
 \DeclareMathOperator{\charof}{char}
 \DeclareMathOperator{\Emb}{Emb}
 \DeclareMathOperator{\trace}{trace}
@@ -258,7 +257,7 @@
 \DeclareMathOperator{\Cl}{Cl}
 \newcommand{\Frob}{\mathrm{Frob}}
 
-%% MAT560
+% MAT560
 \newcommand{\RP}{\mathbb{RP}}
 \newcommand{\CP}{\mathbb{CP}}
 
@@ -321,6 +320,7 @@
 
 % Fakesection Setup
 \ifkevsetup
+	% more packages
 	\RequirePackage[margin=1in]{geometry}
 	\RequirePackage[dvipsnames]{xcolor}
 	\RequirePackage[hidelinks,colorlinks=true]{hyperref}
@@ -329,7 +329,8 @@
 		linkcolor=RoyalBlue,
 		citecolor=ForestGreen
 	}
-	\RequirePackage{cleveref} % required to be put after hyperref
+	% required to be put after hyperref
+	\RequirePackage{cleveref}
 	\RequirePackage[
 		colorinlistoftodos,
 		prependcaption,
@@ -339,21 +340,21 @@
 		bordercolor=blue
 	]{todonotes}
     
-    %% title, ...
+    % make commands for title, author, date for easy access
 	\providecommand{\thetitle}{\@title}
 	\providecommand{\theauthor}{\@author}
 	\providecommand{\thedate}{\@date}
     
 	% Fakesubsection Title options
     \ifkevtitle
-        %% setting font with no hdr errors (for font size)
+        % setting font with no hdr errors (for font size)
         \newcommand{\addtotitlefont}[1]{
             \let\oldtitlefont\title
             \renewcommand{\title}[1]{\oldtitlefont{#1 ##1} \renewcommand{\thetitle}{##1}}
         }
         
         \@ifundefined{KOMAClassName}{}{
-            %% fancy title
+            % fancy title
             \ifkevfancytitle
                 \addtotitlefont{\LARGE}
         		\addtokomafont{subtitle}{\Large}
@@ -361,7 +362,7 @@
         		\setkomafont{date}{\normalsize}
     		\fi
     
-            %% short title
+            % short title
             \ifkevshorttitle
                 \addtotitlefont{\vspace{-2em}\LARGE\rmfamily}
                 \addtokomafont{author}{\vspace{-.5em}\normalsize\scshape}
@@ -395,7 +396,7 @@
         \cfoot{}
         \rfoot{}
         
-        %% no page numbers on title page
+        % no page numbers on title page
         \let\maketitlenopagenum\maketitle
         \renewcommand{\maketitle}{\maketitlenopagenum\thispagestyle{empty}}
     \fi
@@ -419,13 +420,13 @@
             \makeatletter
         }
         {
-            %% section style
+            % section style
             \renewcommand*{\sectionformat}{\color{purple}\S\thesection\enskip}
 			\renewcommand*{\subsectionformat}{\color{purple}\S\thesubsection\enskip}
 			\renewcommand*{\subsubsectionformat}{\color{purple}\S\thesubsubsection\enskip}
 			\KOMAoptions{numbers=noenddot}
 			
-			%% chapter style
+			% chapter style
 			\@ifundefined{chapter}{}{
 				\addtokomafont{partprefix}{\rmfamily}
 				\renewcommand*{\partformat}{\color{purple}
@@ -435,10 +436,10 @@
 				\renewcommand*{\chapterformat}{\mbox{%
 					\scalebox{1.5}{\chapappifchapterprefix{\nobreakspace}}%
 					\scalebox{2.718}{\color{purple}\thechapter}\enskip}}
-				%% unstretched
+				% unstretched
 				\raggedbottom
 				
-				%% no page number
+				% no page number
                 \fancypagestyle{plain}{%
                   \renewcommand{\headrulewidth}{0pt}%
                   \fancyhf{}%
@@ -461,10 +462,10 @@
         \RequirePackage{thmtools}
         \RequirePackage[framemethod=TikZ]{mdframed}
         
-        %% for enumerate/itemize in theorem environment
+        % for enumerate/itemize in theorem environment
         \newcommand{\listhack}{$\empty$\vspace{-2em}}
     
-        %% md thm
+        % md thm
         \ifkevthmmd
             \theoremstyle{definition}
             \mdfdefinestyle{mdbluebox}{%
@@ -541,7 +542,7 @@
             	mdframed={style=mdblackbox}
             ]{thmblackbox}
     		
-            %% section theorem numbering
+            % section theorem numbering
     		\ifkevthmsec
                 \declaretheorem[style=thmbluebox,name=Theorem,numberwithin=section]{theorem}
             \else
@@ -552,7 +553,7 @@
                 \fi
     	    \fi
     	    
-    	    %% other thm environments
+    	    % other thm environments
     	    \declaretheorem[style=thmbluebox,name=Lemma,sibling=theorem]{lemma}
     		\declaretheorem[style=thmbluebox,name=Proposition,sibling=theorem]{proposition}
     		\declaretheorem[style=thmbluebox,name=Corollary,sibling=theorem]{corollary}
@@ -560,7 +561,7 @@
     		\declaretheorem[style=thmredbox,name=Example,sibling=theorem]{example}
     		\declaretheorem[style=definition,name=Definition,sibling=theorem]{definition}
     		
-    		%% no numbering
+    		% no numbering
     		\declaretheorem[style=thmbluebox,name=Theorem,numbered=no]{theorem*}
     		\declaretheorem[style=thmbluebox,name=Lemma,numbered=no]{lemma*}
     		\declaretheorem[style=thmbluebox,name=Proposition,numbered=no]{proposition*}
@@ -568,7 +569,7 @@
     		\declaretheorem[style=thmgreenbox,name=Remark,numbered=no]{remark*}
     	
     	\else
-    	    %% no italics inside thm environment
+    	    % no italics inside thm environment
     	    \theoremstyle{definition}
     	    
 			\ifkevthmsec
