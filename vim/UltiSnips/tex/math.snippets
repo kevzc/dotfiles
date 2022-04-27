@@ -134,7 +134,7 @@ endsnippet
 # a^100 -> a^{100}, a_-2 -> a_{-2}
 context "math()"
 snippet "(?<=[a-zA-Z0-9]|[\)\]\}\|])(\^|_)(-[0-9]+|[0-9]{2,}) " "numerical super/subscript" rA
-`!p snip.rv = match.group(1)`{`!p snip.rv = match.group(2)`} $0
+`!p snip.rv = match.group(1)`{`!p snip.rv = match.group(2)`}
 endsnippet
 
 
@@ -144,6 +144,11 @@ endsnippet
 context "math()"
 snippet "\.ff " "fraction" rA
 \frac{$1}{$2}
+endsnippet
+
+context "math()"
+snippet "\.ffi " "inverse" rA
+\frac{1}{$1}
 endsnippet
 
 context "math()"
@@ -225,22 +230,22 @@ endsnippet
 # derivatives #
 ###############
 context "math()"
-snippet "\.der? " "derivative" rA
+snippet "\.d(er)? " "derivative" rA
 \frac{d$1}{d${2:x}}
 endsnippet
 
 context "math()"
-snippet "\.pder? " "partial derivative" rA
+snippet "\.d(er)?p " "partial derivative" rA
 \frac{\partial$1}{\partial ${2:x}}
 endsnippet
 
 context "math()"
-snippet "\.mder? " "multiple derivatives" rA
+snippet "\.d(er)?m " "multiple derivatives" rA
 \frac{d^{${1:n}}$2}{d${3:x}^{$1}}
 endsnippet
 
 context "math()"
-snippet "\.mpder? " "partial derivative" rA
+snippet "\.d(er)?pm " "partial derivative" rA
 \frac{\partial^{${1:n}}$2}{\partial ${4:${3:x}^{$1}}}
 endsnippet
 
@@ -249,26 +254,26 @@ endsnippet
 # integrals #
 #############
 context "math()"
-snippet "\.int? " "integral" rA
+snippet "\.i(nt)? " "integral" rA
 \int_{$1}^{$2}
 endsnippet
 
 context "math()"
-snippet "\.int?l " "integral w/ only lower limit" rA
+snippet "\.i(nt)?l " "integral w/ only lower limit" rA
 \int_{$1}
 endsnippet
 
 context "math()"
-snippet "\.int?ff " "integral from -\infty to +\infty" rA
+snippet "\.i(nt)?ff " "integral from -\infty to +\infty" rA
 \int_{-\infty}^{\infty}
 endsnippet
 
 context "math()"
-snippet "\.int?p " "integral from 0 to 2\pi" rA
+snippet "\.i(nt)?p " "integral from 0 to 2\pi" rA
 \int_{0}^{2\pi}
 endsnippet
 
 context "math()"
-snippet "\.int?pp " "integral from -\pi to \pi" rA
+snippet "\.i(nt)?pp " "integral from -\pi to \pi" rA
 \int_{-\pi}^{\pi}
 endsnippet
