@@ -230,22 +230,22 @@ endsnippet
 # derivatives #
 ###############
 context "math()"
-snippet "\.d(er)? " "derivative" rA
+snippet "\.der? " "derivative" rA
 \frac{d$1}{d${2:x}}
 endsnippet
 
 context "math()"
-snippet "\.d(er)?p " "partial derivative" rA
+snippet "\.der?p " "partial derivative" rA
 \frac{\partial$1}{\partial ${2:x}}
 endsnippet
 
 context "math()"
-snippet "\.d(er)?m " "multiple derivatives" rA
+snippet "\.der?m " "multiple derivatives" rA
 \frac{d^{${1:n}}$2}{d${3:x}^{$1}}
 endsnippet
 
 context "math()"
-snippet "\.d(er)?pm " "partial derivative" rA
+snippet "\.der?pm " "partial derivative" rA
 \frac{\partial^{${1:n}}$2}{\partial ${4:${3:x}^{$1}}}
 endsnippet
 
@@ -254,26 +254,26 @@ endsnippet
 # integrals #
 #############
 context "math()"
-snippet "\.i(nt)? " "integral" rA
+snippet "\.int? " "integral" rA
 \int_{$1}^{$2}
 endsnippet
 
 context "math()"
-snippet "\.i(nt)?l " "integral w/ only lower limit" rA
+snippet "\.int?l " "integral w/ only lower limit" rA
 \int_{$1}
 endsnippet
 
 context "math()"
-snippet "\.i(nt)?ff " "integral from -\infty to +\infty" rA
+snippet "\.int?ff " "integral from -\infty to +\infty" rA
 \int_{-\infty}^{\infty}
 endsnippet
 
 context "math()"
-snippet "\.i(nt)?p " "integral from 0 to 2\pi" rA
+snippet "\.int?p " "integral from 0 to 2\pi" rA
 \int_{0}^{2\pi}
 endsnippet
 
 context "math()"
-snippet "\.i(nt)?pp " "integral from -\pi to \pi" rA
+snippet "\.int?pp " "integral from -\pi to \pi" rA
 \int_{-\pi}^{\pi}
 endsnippet
