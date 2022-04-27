@@ -225,6 +225,16 @@ snippet "\.li?mnf " "limit to -\infty" rA
 \lim_{${1:x} \to -\infty}
 endsnippet
 
+context "math()"
+snippet "\.li?m0 " "limit to 0" rA
+\lim_{${1:x} \to 0}
+endsnippet
+
+context "math()"
+snippet "\.li?mv([a-zA-Z]|\\[a-zA-Z]+) " "limit with variable" rA
+\lim_{`!p snip.rv = match.group(1)` \to ${1:a}}
+endsnippet
+
 
 ###############
 # derivatives #
