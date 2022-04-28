@@ -4,6 +4,10 @@ def math():
 	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
 endglobal
 
+
+###################
+# math delimiters #
+###################
 # trigger option b doesn't work with r for some reason,
 # so had to hard code it
 context "not math()"
@@ -18,77 +22,86 @@ snippet "(?<=^)(\s*)dd " "multi-line display math" rA
 `!p snip.rv = match.group(1)`\]
 endsnippet
 
-# context "math()"
-# snippet $ "in-line math" A
-# $$1$
-# endsnippet
-
 context "not math()"
 snippet $ "move inside/outside of in-line math" i
 $1$
 endsnippet
 
-context "math()"
-snippet ",{ " "curly brackets" rA
-\\{$1\\}
-endsnippet
 
-context "math()"
-snippet ",< " "angle brackets" rA
-\langle$1\rangle
-endsnippet
-
-context "math()"
-snippet ",\| " "norm" rA
-\|$1\|
-endsnippet
-
+##################
+# big delimiters #
+##################
 context "math()"
 snippet ",\(\( " "big parentheses" rA
-\left($1\right)
+\left(${1:${VISUAL}}\right)
 endsnippet
 
 context "math()"
 snippet ",\[\[ " "big square brackets" rA
-\left[$1\right]
-endsnippet
-
-context "math()"
-snippet ",\|\| " "big absolute values" rA
-\left|$1\right|
-endsnippet
-
-context "math()"
-snippet ",\\\| " "big norm" rA
-\left\|$1\right\|
+\left[${1:${VISUAL}}\right]
 endsnippet
 
 context "math()"
 snippet ",{{ " "big curly brackets" rA
-\left\\{$1\right\\}
+\left\\{${1:${VISUAL}}\right\\}
+endsnippet
+
+# ,|| -> \left|$1\right|
+context "math()"
+snippet ",\|\| " "big absolute values" rA
+\left|${1:${VISUAL}}\right|
+endsnippet
+
+# ,\| -> \left\|$1\right\|
+context "math()"
+snippet ",\\\| " "big norm" rA
+\left\|${1:${VISUAL}}\right\|
 endsnippet
 
 context "math()"
 snippet ",<< " "big angle brackets" rA
-\left<$1\right>
+\left< ${1:${VISUAL}} \right>
+endsnippet
+
+
+####################
+# small delimiters #
+####################
+context "math()"
+snippet ",{ " "curly brackets" rA
+\\{${1:${VISUAL}}\\}
+endsnippet
+
+# ,| -> \|$1\|
+context "math()"
+snippet ",\| " "norm" rA
+\|${1:${VISUAL}}\|
 endsnippet
 
 context "math()"
+snippet ",< " "angle brackets" rA
+\langle ${1:${VISUAL}} \rangle
+endsnippet
+
+#####################
+# floor and ceiling #
+#####################
+context "math()"
 snippet "\.floor " "floor delimiters" rA
-\lfloor $1 \rfloor
+\lfloor ${1:${VISUAL}} \rfloor
 endsnippet
 
 context "math()"
 snippet "\.ceil " "ceiling delimiters" rA
-\lceil $1 \rceil
+\lceil ${1:${VISUAL}} \rceil
 endsnippet
 
 context "math()"
 snippet "\.floorr " "big floor delimiters" rA
-\left\lfloor $1 \right\rfloor
+\left\lfloor ${1:${VISUAL}} \right\rfloor
 endsnippet
 
 context "math()"
 snippet "\.ceill " "big ceiling delimiters" rA
-\left\lceil $1 \right\rceil
+\left\lceil ${1:${VISUAL}} \right\rceil
 endsnippet
