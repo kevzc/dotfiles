@@ -88,7 +88,7 @@ endif
 
 
 " ----------------
-" | APPEAREANCE  |
+" |  APPEARANCE  |
 " ----------------
 set guifont=Hack
 set laststatus=2	" always have stausline
@@ -122,11 +122,11 @@ if has("gui_running")
 endif
 
 
-
 " ------------
 " |  VIMTEX  |
 " ------------
 let g:tex_flavor="latex"	" set default ft to *.tex
+let g:loaded_matchparen=0	" disable matching parentheses (b/c very laggy!!!)
 
 " conceal
 " let g:tex_conceal='abmgs'
@@ -143,10 +143,16 @@ let g:vimtex_syntax_conceal={
 			\ 'sections': 0,
 			\ 'styles': 1,
 			\}
+let g:vimtex_syntax_custom_cmds = [
+			\ {'name': 'vocab', 'conceal': 1, 'argstyle': 'bold'},
+			\]
 
-" Use UltiSnips for macros
+" disable some macros
 let g:vimtex_imaps_leader=';'
 let g:vimtex_imaps_enabled=0
+let g:vimtex_mappings_disable={
+			\ 'i': [']]'],
+			\}
 
 " folding
 let g:vimtex_fold_enabled=1
@@ -165,7 +171,7 @@ let g:vimtex_view_method='skim'
 let g:vimtex_view_skim_activate=1
 let g:vimtex_view_skim_reading_bar=1
 
-" ignore warnings after compilation
+" ignore certain warnings
 let g:vimtex_quickfix_ignore_filters=[
 			\ 'Marginpar on page',
 			\ 'Overfull',
@@ -174,26 +180,26 @@ let g:vimtex_quickfix_ignore_filters=[
 			\ 'mdframed',
 			\]
 
-" remove parentheses matching (b/c it's laggy!!!)
-let g:loaded_matchparen=0
-let g:vimtex_mappings_disable={
-			\ 'i': [']]'],
-			\}
-
-" Prevent indenting \iff and &
+" disable some indenting
+let g:vimtex_indent_on_ampersands=0
+let g:vimtex_indent_ignored_envs=[
+			\ 'document',
+			\ 'frame',
+			\ 'lstlisting',
+			\]
+" note: close_indented --> no auto-indenting after close indenting
+" let g:vimtex_indent_delims={
+			" \ 'open' : ['{'],
+			" \ 'close' : ['}'],
+			" \ 'close_indented' : 0,
+			" \ 'include_modified_math' : 1,
+			" \}
+" do not indent \iff
 let g:vimtex_indent_conditionals={
 			\ 'open': '\v(\\newif)@<!\\if(f>|field|name|numequal|thenelse)@!',
-			\ }
-let g:vimtex_indent_on_ampersands=0
+			\}
 
-" vimtex_quickfix_latexlog is deprecated
-" let g:vimtex_quickfix_latexlog = {
-			" \ 'overfull' : 0,
-			" \ 'font' : 0,
-			" \ 'packages' : {
-			" \   'minitoc' : 0,
-			" \ },
-			" \}
+
 
 " Deprecated
 " refresh status bar after compiling
