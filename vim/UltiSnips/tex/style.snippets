@@ -4,6 +4,7 @@ def math():
 	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
 endglobal
 
+
 # template
 context "not math()"
 snippet templ "normal template" b
@@ -22,6 +23,24 @@ $0
 \end{document}
 endsnippet
 
+snippet templ-beamer "beamer template" b
+\documentclass{beamer}
+\usepackage[beamer]{kev}
+
+\title{$1}
+\author{Kevin Chen}
+\date{$2}
+
+\begin{document}
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
+
+
+# fonts
 context "not math()"
 snippet bf "bold"
 \textbf{${1:${VISUAL}}}
@@ -61,6 +80,7 @@ context "not math()"
 snippet voc "vocab"
 \vocab{${1:${VISUAL}}}
 endsnippet
+
 
 # sections
 snippet sec "section"
