@@ -4,10 +4,6 @@ set spell
 
 " add new math zone
 call vimtex#syntax#core#new_region_math('tikzcd')
-" TexNewMathZone was removed; use above instead
-" call TexNewMathZone("Z","tikzcd",0)
-" call TexNewMathZone("Z","align",0)
-" call TexNewMathZone("Z","align*",0)
 
 " asy syntax (putting spell before this cuases errors)
 " syntax include @ASY after/syntax/asy.vim
