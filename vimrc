@@ -138,7 +138,6 @@ let g:vimtex_mappings_disable={
 let g:loaded_matchparen=0	" disable matching parentheses (b/c very laggy!!!)
 
 " conceal
-" let g:tex_conceal='abmgs'
 let g:vimtex_syntax_conceal={
 			\ 'accents': 1,
 			\ 'cites': 1,
