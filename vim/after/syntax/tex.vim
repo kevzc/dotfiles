@@ -14,17 +14,11 @@ hi link Snip PreProc
 " listing syntax correction
 syntax region texZone start="\\begin{lstlisting}" end="\\end{lstlisting}\|%stopzone\>"
 
-" conceal
-" set conceallevel=2
-"let g:tex_subscripts="[0-9]"
-"let g:tex_supersciprts="[0-9]"
-
 " conceal some symbols because vimtex can't for some reason...
 if has("gui_running")
 	syntax match texMathSymbol "*" contained conceal cchar=∗
 	syntax match texMathSymbol "\\\#" contained conceal cchar=#
 endif
 
-" put spelling after conceal or else it won't work
 syntax spell toplevel
 set spell
