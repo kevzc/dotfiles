@@ -34,8 +34,10 @@ set number
 set wildmenu
 set tabstop=4
 set shiftwidth=4
+set conceallevel=2
 
-set shellcmdflag=-ic	" use stuff from .zshrc
+" use stuff from .zshrc
+set shellcmdflag=-ic
 
 " puts cursor at previous location before closing
 if has("autocmd")
@@ -126,6 +128,13 @@ endif
 " |  VIMTEX  |
 " ------------
 let g:tex_flavor="latex"	" set default ft to *.tex
+
+" disable annoying settings
+let g:vimtex_imaps_leader=';'
+let g:vimtex_imaps_enabled=0
+let g:vimtex_mappings_disable={
+			\ 'i': [']]'],
+			\}
 let g:loaded_matchparen=0	" disable matching parentheses (b/c very laggy!!!)
 
 " conceal
@@ -144,17 +153,29 @@ let g:vimtex_syntax_conceal={
 			\ 'styles': 1,
 			\}
 let g:vimtex_syntax_custom_cmds = [
+			\ {'name': 'NN', 'mathmode': 1, 'concealchar': 'ℕ'},
+			\ {'name': 'ZZ', 'mathmode': 1, 'concealchar': 'ℤ'},
+			\ {'name': 'QQ', 'mathmode': 1, 'concealchar': 'ℚ'},
+			\ {'name': 'RR', 'mathmode': 1, 'concealchar': 'ℝ'},
+			\ {'name': 'CC', 'mathmode': 1, 'concealchar': 'ℂ'},
+			\ {'name': 'half', 'mathmode': 1, 'concealchar': '½'},
 			\ {'name': 'vocab', 'conceal': 1, 'argstyle': 'bold'},
+			\ {'name': 'lto', 'mathmode': 1, 'concealchar': '→'},
+			\ {'name': 'from', 'mathmode': 1, 'concealchar': '←'},
+			\ {'name': 'lfrom', 'mathmode': 1, 'concealchar': '←'},
+			\ {'name': 'injto', 'mathmode': 1, 'concealchar': '↪'},
+			\ {'name': 'linjto', 'mathmode': 1, 'concealchar': '↪'},
+			\ {'name': 'surjto', 'mathmode': 1, 'concealchar': '↠'},
+			\ {'name': 'lsurjto', 'mathmode': 1, 'concealchar': '↠'},
+			\ {'name': 'bij', 'mathmode': 1, 'concealchar': '↔'},
+			\ {'name': 'lbij', 'mathmode': 1, 'concealchar': '↔'},
+			\ {'name': 'lmapsto', 'mathmode': 1, 'concealchar': '↦'},
+			\ {'name': 'mapsfrom', 'mathmode': 1, 'concealchar': '↤'},
+			\ {'name': 'lmapsfrom', 'mathmode': 1, 'concealchar': '↤'},
 			\]
 
-" disable some macros
-let g:vimtex_imaps_leader=';'
-let g:vimtex_imaps_enabled=0
-let g:vimtex_mappings_disable={
-			\ 'i': [']]'],
-			\}
 
-" folding
+" folds
 let g:vimtex_fold_enabled=1
 let g:vimtex_fold_types={
 	\ 'envs' : {
@@ -166,7 +187,7 @@ let g:vimtex_fold_types={
 	\ 'cmd_multi' : {'enabled' : 0},
 	\}
 
-" skim pdf stuff
+" skim pdf set-up
 let g:vimtex_view_method='skim'
 let g:vimtex_view_skim_activate=1
 let g:vimtex_view_skim_reading_bar=1
@@ -227,7 +248,7 @@ let g:ycm_filetype_blacklist={
       \ 'infolog': 1,
       \ 'leaderf': 1,
       \ 'mail': 1,
-	  \ 'tex': 1
+	  \ 'tex': 1,
       \}
 set completeopt-=preview
 highlight SignColumn guibg=#006678
