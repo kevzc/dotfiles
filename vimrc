@@ -1,8 +1,6 @@
 " -------------
 " |  PLUGINS  |
 " -------------
-
-
 call plug#begin('~/.vim/plugged')
 
 " Completion
@@ -30,8 +28,6 @@ call plug#end()
 " ------------
 " |  BASICS  |
 " ------------
-
-
 filetype plugin indent on
 syntax on
 set number
@@ -94,8 +90,6 @@ endif
 " ----------------
 " | APPEAREANCE  |
 " ----------------
-
-
 set guifont=Hack
 set laststatus=2	" always have stausline
 set noshowmode		" don't show mode
@@ -132,8 +126,6 @@ endif
 " ------------
 " |  VIMTEX  |
 " ------------
-
-
 let g:tex_flavor="latex"	" set default ft to *.tex
 
 " conceal
@@ -214,8 +206,6 @@ let g:vimtex_indent_on_ampersands=0
 " -------------------
 " |  OTHER PLUGINS  |
 " -------------------
-
-
 " YCM
 let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
