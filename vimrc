@@ -174,7 +174,7 @@ let g:vimtex_quickfix_ignore_filters=[
 			\ 'mdframed',
 			\]
 
-" parentheses stuff (b/c it's laggy!!!)
+" remove parentheses matching (b/c it's laggy!!!)
 let g:loaded_matchparen=0
 let g:vimtex_mappings_disable={
 			\ 'i': [']]'],
