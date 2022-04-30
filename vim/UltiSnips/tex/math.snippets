@@ -131,6 +131,12 @@ snippet "(?<=[a-zA-Z0-9]|[\)\]\}\}])--" "^{-1}" rA
 ^{-1}
 endsnippet
 
+# a00 -> a_0
+context "math()"
+snippet "(?<=[a-zA-Z]|[\)\]\}\}])00" "_0" rA
+_0
+endsnippet
+
 # a^100 -> a^{100}, a_-2 -> a_{-2}
 context "math()"
 snippet "(?<=[a-zA-Z0-9]|[\)\]\}\|])(\^|_)(-[0-9]+|[0-9]{2,}) " "numerical super/subscript" rA
