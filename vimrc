@@ -158,7 +158,6 @@ let g:vimtex_syntax_custom_cmds = [
 			\ {'name': 'RR', 'mathmode': 1, 'concealchar': 'ℝ'},
 			\ {'name': 'CC', 'mathmode': 1, 'concealchar': 'ℂ'},
 			\ {'name': 'half', 'mathmode': 1, 'concealchar': '½'},
-			\ {'name': 'vocab', 'conceal': 1, 'argstyle': 'bold'},
 			\ {'name': 'lto', 'mathmode': 1, 'concealchar': '→'},
 			\ {'name': 'from', 'mathmode': 1, 'concealchar': '←'},
 			\ {'name': 'lfrom', 'mathmode': 1, 'concealchar': '←'},
@@ -171,6 +170,7 @@ let g:vimtex_syntax_custom_cmds = [
 			\ {'name': 'lmapsto', 'mathmode': 1, 'concealchar': '↦'},
 			\ {'name': 'mapsfrom', 'mathmode': 1, 'concealchar': '↤'},
 			\ {'name': 'lmapsfrom', 'mathmode': 1, 'concealchar': '↤'},
+			\ {'name': 'vocab', 'conceal': 1, 'argstyle': 'boldital'},
 			\]
 
 
