@@ -1,3 +1,11 @@
+" disable fullscreen in touchbar
+" this only works when put at the start of file,
+" so leave this here for now...
+if has("gui_macvim")
+	let g:macvim_default_touchbar_fullscreen=0
+endif
+
+
 " -------------
 " |  PLUGINS  |
 " -------------
