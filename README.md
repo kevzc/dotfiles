@@ -1,7 +1,7 @@
 kevzc's dotfiles
 ======================
 
-Here are quickstart instructions to downloading my dotifles for macOS
+Here are quickstart instructions to downloading my dotfiles for macOS
 that may or may not completely ruin everything.
 (Hopefully this works for any mac device, but i doubt i am that skillful...)
 
