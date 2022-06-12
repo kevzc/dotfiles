@@ -185,7 +185,12 @@ endsnippet
 
 context "math()"
 snippet "\.su?mf(\d+)? " "infinite sum" rA
-\sum_{${1:k}=`!p snip.rv = match.group(1) if match.group(1) != None else "0"`}^{\infty}
+\sum_{${1:n}=`!p snip.rv = match.group(1) if match.group(1) != None else "1"`}^{\infty}
+endsnippet
+
+context "math()"
+snippet "\.su?mp " "infinite sum" rA
+\sum_{${1:n}=0}^{\infty}
 endsnippet
 
 context "math()"
