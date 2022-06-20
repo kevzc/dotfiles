@@ -88,14 +88,6 @@ snippet ;@ "composition" iA
 \circ
 endsnippet
 
-snippet ... "lower dots" iA
-\ldots
-endsnippet
-
-snippet ::: "center dots" iA
-\cdots
-endsnippet
-
 
 ###############################
 # superscripts and subscripts #
@@ -302,4 +294,36 @@ endsnippet
 context "math()"
 snippet "\.int?pp " "integral from -\pi to \pi" rA
 \int_{-\pi}^{\pi}
+endsnippet
+
+
+#########
+# lists #
+#########
+snippet ... "lower dots" iA
+\ldots
+endsnippet
+
+snippet ::: "center dots" iA
+\cdots
+endsnippet
+
+context "math()"
+snippet "(?<![a-zA-Z0-9])xxx? " "x_1, ..., x_n" rA
+${1:x}_1, \ldots, $1_${2:n}
+endsnippet
+
+context "math()"
+snippet "(?<![a-zA-Z0-9])xx2 " "x_1, ..., x_n" rA
+${1:x}_1, $1_2 \ldots, $1_${2:n}
+endsnippet
+
+context "math()"
+snippet "xxu " "x + .... + x" rA
+\underbrace{${1:x} + \cdots + $1}_{\text{$${2:n}$ times}}
+endsnippet
+
+context "math()"
+snippet "xxu2 " "x + .... + x" rA
+\underbrace{${1:x} + $1 + \cdots + $1}_{\text{$${2:n}$ times}}
 endsnippet
