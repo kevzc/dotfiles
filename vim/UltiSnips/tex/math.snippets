@@ -186,7 +186,7 @@ snippet "\.su?mf(\d+)? " "infinite sum" rA
 endsnippet
 
 context "math()"
-snippet "\.su?mp " "infinite sum" rA
+snippet "\.su?mp " "infinite sum starting at 0" rA
 \sum_{${1:n}=0}^{\infty}
 endsnippet
 
@@ -299,6 +299,40 @@ endsnippet
 context "math()"
 snippet "\.int?pp " "integral from -\pi to \pi" rA
 \int_{-\pi}^{\pi}
+endsnippet
+
+
+#############
+# cups/caps #
+#############
+context "math()"
+snippet "\.cup? " "union" rA
+\bigcup_{$1}^{$2}
+endsnippet
+
+context "math()"
+snippet "\.cup?l " "union with only lower limit" rA
+\bigcup_{$1}
+endsnippet
+
+context "math()"
+snippet "\.cup?f " "union from 1 to \infty" rA
+\bigcup_{${1:i=1}}^{\infty}
+endsnippet
+
+context "math()"
+snippet "\.cap? " "intersection" rA
+\bigcap_{$1}^{$2}
+endsnippet
+
+context "math()"
+snippet "\.cap?l " "union with only lower limit" rA
+\bigcap_{$1}
+endsnippet
+
+context "math()"
+snippet "\.cap?f " "union from 1 to \infty" rA
+\bigcap_{${1:i=1}}^{\infty}
 endsnippet
 
 
