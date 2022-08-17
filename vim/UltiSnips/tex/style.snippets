@@ -81,6 +81,11 @@ snippet voc "vocab"
 \vocab{${1:${VISUAL}}}
 endsnippet
 
+context "math()"
+snippet box "boxed" i
+\boxed{${1:${VISUAL}}}
+endsnippet
+
 
 # sections
 snippet sec "section"
@@ -130,6 +135,7 @@ snippet "ssp(\d+)" "subsec-prob" br
 
 ${0:${VISUAL:%% text here}}
 endsnippet
+
 
 # ad hoc snippets
 snippet texpdf "texorpdfstring" i
