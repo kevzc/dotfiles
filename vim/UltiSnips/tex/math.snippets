@@ -326,18 +326,28 @@ snippet "\.cup?f " "union from 1 to \infty" rA
 endsnippet
 
 context "math()"
+snippet "\.cup?ff " "union from -\infty to \infty" rA
+\bigcup_{${1:i}=-\infty}^{\infty}
+endsnippet
+
+context "math()"
 snippet "\.cap? " "intersection" rA
 \bigcap_{$1}^{$2}
 endsnippet
 
 context "math()"
-snippet "\.cap?l " "union with only lower limit" rA
+snippet "\.cap?l " "intersection with only lower limit" rA
 \bigcap_{$1}
 endsnippet
 
 context "math()"
-snippet "\.cap?f " "union from 1 to \infty" rA
+snippet "\.cap?f " "intersection from 1 to \infty" rA
 \bigcap_{${1:i}=1}^{\infty}
+endsnippet
+
+context "math()"
+snippet "\.cap?ff " "intersection from -\infty to \infty" rA
+\bigcap_{${1:i}=-\infty}^{\infty}
 endsnippet
 
 
