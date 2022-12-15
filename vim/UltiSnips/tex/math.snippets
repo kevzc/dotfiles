@@ -331,6 +331,16 @@ snippet "\.cup?ff " "union from -\infty to \infty" rA
 endsnippet
 
 context "math()"
+snippet "\.cup?s " "square union" rA
+\bigsqcup_{$1}^{$2}
+endsnippet
+
+context "math()"
+snippet "\.cup?sl " "square union with only lower limit" rA
+\bigsqcup_{$1}
+endsnippet
+
+context "math()"
 snippet "\.cap? " "intersection" rA
 \bigcap_{$1}^{$2}
 endsnippet
