@@ -343,8 +343,8 @@
 	\RequirePackage[hidelinks,colorlinks=true]{hyperref}
 	\hypersetup{
 		linkcolor=RubineRed,
-		citecolor={green!50!black},
-		urlcolor={blue!80!black}
+		citecolor=ForestGreen,
+		urlcolor=RubineRed
 	}
 	% required to be put after hyperref
 	\RequirePackage[nameinlink]{cleveref}
@@ -363,6 +363,10 @@
 	\providecommand{\thetitle}{\@title}
 	\providecommand{\theauthor}{\@author}
 	\providecommand{\thedate}{\@date}
+
+	% hack to have black font but with links in TOC
+	\let\oldtoc\tableofcontents
+	\renewcommand{\tableofcontents}{{\hypersetup{linkcolor=black}\oldtoc}}
     
 	% Fakesubsection Title options
     \ifkevtitle
