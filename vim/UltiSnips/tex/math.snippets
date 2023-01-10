@@ -243,6 +243,25 @@ snippet "\.li?mv([a-zA-Z]|\\[a-zA-Z]+) " "limit with variable" rA
 \lim_{`!p snip.rv = match.group(1)` \to ${1:a}}
 endsnippet
 
+context "math()"
+snippet "\.li?ms " "limit" rA
+\limsup_{${1:x \to a}}
+endsnippet
+
+context "math()"
+snippet "\.li?msf " "limit to \infty" rA
+\limsup_{${1:x} \to \infty}
+endsnippet
+
+context "math()"
+snippet "\.li?mi " "limit" rA
+\liminf_{${1:x \to a}}
+endsnippet
+
+context "math()"
+snippet "\.li?mif " "limit to \infty" rA
+\liminf_{${1:x} \to \infty}
+endsnippet
 
 ###############
 # derivatives #
