@@ -84,25 +84,39 @@ snippet ",< " "angle brackets" rA
 endsnippet
 
 
+####################
+# other delimiters #
+####################
+context "math()"
+snippet "\.ket? " "ket" rA
+|${1:${VISUAL}}\rangle
+endsnippet
+
+context "math()"
+snippet "\.kket? " "ket" rA
+\left|${1:${VISUAL}}\right\rangle
+endsnippet
+
+
 #####################
 # floor and ceiling #
 #####################
 context "math()"
-snippet "\.floor " "floor delimiters" rA
+snippet "\.fl(oor)? " "floor delimiters" rA
 \lfloor ${1:${VISUAL}} \rfloor
 endsnippet
 
 context "math()"
-snippet "\.ceil " "ceiling delimiters" rA
+snippet "\.ce(il)? " "ceiling delimiters" rA
 \lceil ${1:${VISUAL}} \rceil
 endsnippet
 
 context "math()"
-snippet "\.floorr " "big floor delimiters" rA
+snippet "\.ffl(oor)? " "big floor delimiters" rA
 \left\lfloor ${1:${VISUAL}} \right\rfloor
 endsnippet
 
 context "math()"
-snippet "\.ceill " "big ceiling delimiters" rA
+snippet "\.cce(il)? " "big ceiling delimiters" rA
 \left\lceil ${1:${VISUAL}} \right\rceil
 endsnippet
