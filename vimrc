@@ -100,7 +100,7 @@ endif
 " ----------------
 " |  APPEARANCE  |
 " ----------------
-set guifont=Hack
+set guifont=Hack\ Regular:h13
 set laststatus=2	" always have stausline
 set noshowmode		" don't show mode
 
