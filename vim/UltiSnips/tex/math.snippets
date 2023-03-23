@@ -267,51 +267,70 @@ endsnippet
 # derivatives #
 ###############
 context "math()"
-snippet "\.der? " "derivative" rA
-\frac{d$1}{d${2:x}}
-endsnippet
-
-context "math()"
-snippet "\.der?p " "partial derivative" rA
-\frac{\partial$1}{\partial ${2:x}}
-endsnippet
-
-context "math()"
-snippet "\.der?m " "multiple derivatives" rA
-\frac{d^{${1:n}}$2}{d${3:x}^{$1}}
-endsnippet
-
-context "math()"
-snippet "\.der?pm " "partial derivative" rA
-\frac{\partial^{${1:n}}$2}{\partial ${4:${3:x}^{$1}}}
-endsnippet
-
-# new
-
-context "math()"
 snippet "\.dd " "derivative" rA
 \frac{d$1}{d${2:x}}
 endsnippet
 
 context "math()"
-snippet "\.dd?m([a-zA-Z0-9]|\\[a-zA-Z]+) " "description" rA
-\frac{d^`!p snip.rv = match.group(1)`$1}{d${2:x}^`!p snip.rv = match.group(1)`}
-endsnippet
-
-context "math()"
-snippet "\.dd?m " "multiple derivatives" rA
+snippet "\.ddm " "multiple der" rA
 \frac{d^{${1:n}}$2}{d${3:x}^{$1}}
 endsnippet
 
+context "math()"
+snippet "\.dd([a-zA-Z]|\\[a-zA-Z]+) " "der w/ var" rA
+\frac{d$1}{d`!p snip.rv = match.group(1)`}
+endsnippet
+
+context "math()"
+snippet "\.dd([a-zA-Z]|\\[a-zA-Z]+)([a-zA-Z0-9]|\\[a-zA-Z]+) " "multiple der w/ var" rA
+\frac{d^`!p snip.rv = match.group(2)`$1}{d`!p snip.rv = match.group(1)`^`!p snip.rv = match.group(2)`}
+endsnippet
+
+# partial derivatives
 context "math()"
 snippet "\.dp " "partial derivative" rA
 \frac{\partial$1}{\partial ${2:x}}
 endsnippet
 
 context "math()"
-snippet "\.dpm([a-zA-Z0-9]|\\[a-zA-Z]+) " "description" rA
-\frac{\partial^`!p snip.rv = match.group(1)`$1}{\partial ${2:x}^`!p snip.rv = match.group(1)`}
+snippet "\.dpm " "multiple der" rA
+\frac{\partial^{${1:n}}$2}{\partial ${3:x}^{$1}}
 endsnippet
+
+context "math()"
+snippet "\.dp([a-zA-Z]|\\[a-zA-Z]+) " "partial w/ var " rA
+\frac{\partial$1}{\partial `!p snip.rv = match.group(1)`}
+endsnippet
+
+context "math()"
+snippet "\.dp([a-zA-Z]|\\[a-zA-Z]+)([a-zA-Z0-9]|\\[a-zA-Z]+) " "multiple der w/ var" rA
+\frac{\partial^`!p snip.rv = match.group(2)`$1}{\partial `!p snip.rv = match.group(1)`^`!p snip.rv = match.group(2)`}
+endsnippet
+
+# context "math()"
+# snippet "\.dpm([a-zA-Z0-9]|\\[a-zA-Z]+) " "multiple partial derivative" rA
+# \frac{\partial^`!p snip.rv = match.group(1)`$1}{\partial ${2:x}^`!p snip.rv = match.group(1)`}
+# endsnippet
+
+# context "math()"
+# snippet "\.der? " "derivative" rA
+# \frac{d$1}{d${2:x}}
+# endsnippet
+
+# context "math()"
+# snippet "\.der?p " "partial derivative" rA
+# \frac{\partial$1}{\partial ${2:x}}
+# endsnippet
+
+# context "math()"
+# snippet "\.der?m " "multiple derivatives" rA
+# \frac{d^{${1:n}}$2}{d${3:x}^{$1}}
+# endsnippet
+
+# context "math()"
+# snippet "\.der?pm " "partial derivative" rA
+# \frac{\partial^{${1:n}}$2}{\partial ${4:${3:x}^{$1}}}
+# endsnippet
 
 
 #############
