@@ -1,5 +1,5 @@
 " add envs to math zones (also needed for ultisnips)
-call vimtex#syntax#core#new_region_math('tikzcd')
+" call vimtex#syntax#core#new_region_math('tikzcd')
 
 " listing syntax correction (actually needed, or things look bad)
 syntax region texZone start="\\begin{lstlisting}" end="\\end{lstlisting}\|%stopzone\>"
