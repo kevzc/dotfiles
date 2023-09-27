@@ -234,7 +234,7 @@ snippet "\.li?mnf " "limit to -\infty" rA
 endsnippet
 
 context "math()"
-snippet "\.li?m0 " "limit to 0" rA
+snippet "\.li?mz " "limit to 0" rA
 \lim_{${1:x} \to 0}
 endsnippet
 
@@ -263,6 +263,7 @@ snippet "\.li?mif " "limit to \infty" rA
 \liminf_{${1:x} \to \infty}
 endsnippet
 
+
 ###############
 # derivatives #
 ###############
@@ -272,18 +273,18 @@ snippet "\.dd " "derivative" rA
 endsnippet
 
 context "math()"
-snippet "\.ddm " "multiple der" rA
-\frac{d^{${1:n}}$2}{d${3:x}^{$1}}
-endsnippet
-
-context "math()"
-snippet "\.dd([a-zA-Z]|\\[a-zA-Z]+) " "der w/ var" rA
+snippet "\.dd([a-zA-Z0-9_^\\'(){}\[\]+\-]+) " "derivative w/ var" rA
 \frac{d$1}{d`!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
-snippet "\.dd([a-zA-Z]|\\[a-zA-Z]+)([a-zA-Z0-9]|\\[a-zA-Z]+) " "multiple der w/ var" rA
+snippet "\.dd([a-zA-Z0-9_^\\'(){}\[\]+\-]+),([0-9]|\\[a-zA-Z]+) " "multiple derivative" rA
 \frac{d^`!p snip.rv = match.group(2)`$1}{d`!p snip.rv = match.group(1)`^`!p snip.rv = match.group(2)`}
+endsnippet
+
+context "math()"
+snippet "\.dd,x([a-zA-Z0-9]|\\[a-zA-Z]+) " "derivative w/ var" rA
+\frac{d$1}{dx_`!p snip.rv = match.group(1)`}
 endsnippet
 
 # partial derivatives
@@ -293,44 +294,19 @@ snippet "\.dp " "partial derivative" rA
 endsnippet
 
 context "math()"
-snippet "\.dpm " "multiple der" rA
-\frac{\partial^{${1:n}}$2}{\partial ${3:x}^{$1}}
-endsnippet
-
-context "math()"
-snippet "\.dp([a-zA-Z]|\\[a-zA-Z]+) " "partial w/ var " rA
+snippet "\.dp([a-zA-Z0-9_^\\'(){}\[\]+\-]+) " "partial w/ var " rA
 \frac{\partial$1}{\partial `!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
-snippet "\.dp([a-zA-Z]|\\[a-zA-Z]+)([a-zA-Z0-9]|\\[a-zA-Z]+) " "multiple der w/ var" rA
+snippet "\.dp([a-zA-Z0-9_^\\'(){}\[\]+\-]+),([0-9]|\\[a-zA-Z]+) " "multiple derivative" rA
 \frac{\partial^`!p snip.rv = match.group(2)`$1}{\partial `!p snip.rv = match.group(1)`^`!p snip.rv = match.group(2)`}
 endsnippet
 
-# context "math()"
-# snippet "\.dpm([a-zA-Z0-9]|\\[a-zA-Z]+) " "multiple partial derivative" rA
-# \frac{\partial^`!p snip.rv = match.group(1)`$1}{\partial ${2:x}^`!p snip.rv = match.group(1)`}
-# endsnippet
-
-# context "math()"
-# snippet "\.der? " "derivative" rA
-# \frac{d$1}{d${2:x}}
-# endsnippet
-
-# context "math()"
-# snippet "\.der?p " "partial derivative" rA
-# \frac{\partial$1}{\partial ${2:x}}
-# endsnippet
-
-# context "math()"
-# snippet "\.der?m " "multiple derivatives" rA
-# \frac{d^{${1:n}}$2}{d${3:x}^{$1}}
-# endsnippet
-
-# context "math()"
-# snippet "\.der?pm " "partial derivative" rA
-# \frac{\partial^{${1:n}}$2}{\partial ${4:${3:x}^{$1}}}
-# endsnippet
+context "math()"
+snippet "\.dp,x([a-zA-Z0-9]|\\[a-zA-Z]+) " "derivative w/ var" rA
+\frac{\partial$1}{\partial x_`!p snip.rv = match.group(1)`}
+endsnippet
 
 
 #############
@@ -438,8 +414,8 @@ snippet ::: "center dots" iA
 endsnippet
 
 context "math()"
-snippet "(?<![a-zA-Z0-9])xxx? " "x_1, ..., x_n" rA
-${1:x}_1, \ldots, $1_${2:n}
+snippet "(?<![a-zA-Z0-9])xxx " "x_1, ..., x_n" rA
+${1:x}_1,\ldots,$1_${2:n}
 endsnippet
 
 context "math()"
