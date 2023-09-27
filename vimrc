@@ -290,3 +290,6 @@ let NERDSpaceDelims=1
 
 " ctrlp
 let g:ctrlp_cmd='CtrlPMRU'
+
+" ocaml
+set rtp^="/Users/kevinchen/.opam/cs3110-2023fa/share/ocp-indent/vim"
