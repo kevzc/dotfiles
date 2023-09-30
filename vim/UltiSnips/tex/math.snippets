@@ -155,6 +155,11 @@ snippet "\.ffi " "inverse" rA
 endsnippet
 
 context "math()"
+snippet "\.ffi([a-zA-Z0-9\\]+) " "inverse" rA
+\frac{1}{`!p snip.rv = match.group(1)`}
+endsnippet
+
+context "math()"
 snippet "\.sq([a-zA-Z0-9]+)? " "sqrt" rA
 \sqrt`!p
 snip.rv = "["+match.group(1)+"]" if match.group(1) != None else ""
@@ -282,20 +287,20 @@ snippet "\.dd([a-zA-Z0-9_^\\'(){}\[\]+\-]+),([0-9]|\\[a-zA-Z]+) " "multiple deri
 \frac{d^`!p snip.rv = match.group(2)`$1}{d`!p snip.rv = match.group(1)`^`!p snip.rv = match.group(2)`}
 endsnippet
 
-context "math()"
-snippet "\.dd,x([a-zA-Z0-9]|\\[a-zA-Z]+) " "derivative w/ var" rA
-\frac{d$1}{dx_`!p snip.rv = match.group(1)`}
-endsnippet
-
 # partial derivatives
 context "math()"
-snippet "\.dp " "partial derivative" rA
-\frac{\partial$1}{\partial ${2:x}}
+snippet "\.dp " "partial" rA
+\frac{\partial$1}{\partial$2}
 endsnippet
 
 context "math()"
-snippet "\.dp([a-zA-Z0-9_^\\'(){}\[\]+\-]+) " "partial w/ var " rA
+snippet "\.dp([a-zA-Z][a-zA-Z0-9_^\\'(){}\[\]+\-]*) " "partial w/ var " rA
 \frac{\partial$1}{\partial `!p snip.rv = match.group(1)`}
+endsnippet
+
+context "math()"
+snippet "\.dp(\\[a-zA-Z0-9_^\\'(){}\[\]+\-]+) " "partial w/ slash var " rA
+\frac{\partial$1}{\partial`!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
@@ -305,7 +310,7 @@ endsnippet
 
 context "math()"
 snippet "\.dp,x([a-zA-Z0-9]|\\[a-zA-Z]+) " "derivative w/ var" rA
-\frac{\partial$1}{\partial x_`!p snip.rv = match.group(1)`}
+\frac{\partial$1}{\partial x^`!p snip.rv = match.group(1)`}
 endsnippet
 
 
@@ -431,4 +436,18 @@ endsnippet
 context "math()"
 snippet "xxu2 " "x + .... + x" rA
 \underbrace{${1:x} + $1 + \cdots + $1}_{\text{$${2:n}$ times}}
+endsnippet
+
+
+###########
+# tensors #
+###########
+context "math()"
+snippet "\.tt " "tensor" rA
+\tensor{$1}{$2}
+endsnippet
+
+context "math()"
+snippet "\.tt,([a-zA-Z]|\\[a-zA-Z]+)([^_])([a-zA-Z0-9\\^_{}]+) " "tensor w/ two args" rA
+\tensor{`!p snip.rv = match.group(1)`}{`!p snip.rv = match.group(2)``!p snip.rv = match.group(3)`}
 endsnippet
