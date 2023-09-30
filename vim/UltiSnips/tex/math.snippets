@@ -278,12 +278,12 @@ snippet "\.dd " "derivative" rA
 endsnippet
 
 context "math()"
-snippet "\.dd([a-zA-Z0-9_^\\'(){}\[\]+\-]+) " "derivative w/ var" rA
+snippet "\.dd([a-zA-Z0-9\\_\^'(){}\[\]+\-]+) " "derivative w/ var" rA
 \frac{d$1}{d`!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
-snippet "\.dd([a-zA-Z0-9_^\\'(){}\[\]+\-]+),([0-9]|\\[a-zA-Z]+) " "multiple derivative" rA
+snippet "\.dd([a-zA-Z0-9\\_\^'(){}\[\]+\-]+),([0-9]|\\[a-zA-Z]+) " "multiple derivative" rA
 \frac{d^`!p snip.rv = match.group(2)`$1}{d`!p snip.rv = match.group(1)`^`!p snip.rv = match.group(2)`}
 endsnippet
 
@@ -294,18 +294,23 @@ snippet "\.dp " "partial" rA
 endsnippet
 
 context "math()"
-snippet "\.dp([a-zA-Z][a-zA-Z0-9_^\\'(){}\[\]+\-]*) " "partial w/ var " rA
+snippet "\.dp([a-zA-Z][a-zA-Z0-9\\_\^'(){}\[\]+\-]*) " "partial w/ var " rA
 \frac{\partial$1}{\partial `!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
-snippet "\.dp(\\[a-zA-Z0-9_^\\'(){}\[\]+\-]+) " "partial w/ slash var " rA
+snippet "\.dp(\\[a-zA-Z0-9\\_\^'(){}\[\]+\-]+) " "partial w/ slash var " rA
 \frac{\partial$1}{\partial`!p snip.rv = match.group(1)`}
 endsnippet
 
 context "math()"
-snippet "\.dp([a-zA-Z0-9_^\\'(){}\[\]+\-]+),([0-9]|\\[a-zA-Z]+) " "multiple derivative" rA
+snippet "\.dp([a-zA-Z][a-zA-Z0-9\\_\^'(){}\[\]+\-]*),([0-9]|\\[a-zA-Z]+) " "multiple derivative" rA
 \frac{\partial^`!p snip.rv = match.group(2)`$1}{\partial `!p snip.rv = match.group(1)`^`!p snip.rv = match.group(2)`}
+endsnippet
+
+context "math()"
+snippet "\.dp(\\[a-zA-Z0-9\\_\^'(){}\[\]+\-]+),([0-9]|\\[a-zA-Z]+) " "multiple derivative w/ slash" rA
+\frac{\partial^`!p snip.rv = match.group(2)`$1}{\partial`!p snip.rv = match.group(1)`^`!p snip.rv = match.group(2)`}
 endsnippet
 
 context "math()"
@@ -448,6 +453,6 @@ snippet "\.tt " "tensor" rA
 endsnippet
 
 context "math()"
-snippet "\.tt,([a-zA-Z]|\\[a-zA-Z]+)([^_])([a-zA-Z0-9\\^_{}]+) " "tensor w/ two args" rA
-\tensor{`!p snip.rv = match.group(1)`}{`!p snip.rv = match.group(2)``!p snip.rv = match.group(3)`}
+snippet "\.tt,([a-zA-Z]|\\[a-zA-Z]+)((?:[_\^](?:[a-zA-Z0-9\\]+|(?:\{[a-zA-Z0-9\\_\^\s]+\})))+) " "tensor w/ two args" rA
+\tensor{`!p snip.rv = match.group(1)`}{`!p snip.rv = match.group(2)`}
 endsnippet
