@@ -220,6 +220,92 @@ snippet "\.pr(od)?f(\d+)? " "infinite product" rA
 endsnippet
 
 
+#############
+# cups/caps #
+#############
+context "math()"
+snippet "\.cup? " "union" rA
+\bigcup_{$1}^{$2}
+endsnippet
+
+context "math()"
+snippet "\.cup?l " "union with only lower limit" rA
+\bigcup_{$1}
+endsnippet
+
+context "math()"
+snippet "\.cup?f " "union from 1 to \infty" rA
+\bigcup_{${1:i}=1}^{\infty}
+endsnippet
+
+context "math()"
+snippet "\.cup?ff " "union from -\infty to \infty" rA
+\bigcup_{${1:i}=-\infty}^{\infty}
+endsnippet
+
+context "math()"
+snippet "\.cup?s " "square union" rA
+\bigsqcup_{$1}^{$2}
+endsnippet
+
+context "math()"
+snippet "\.cup?sl " "square union with only lower limit" rA
+\bigsqcup_{$1}
+endsnippet
+
+context "math()"
+snippet "\.cap? " "intersection" rA
+\bigcap_{$1}^{$2}
+endsnippet
+
+context "math()"
+snippet "\.cap?l " "intersection with only lower limit" rA
+\bigcap_{$1}
+endsnippet
+
+context "math()"
+snippet "\.cap?f " "intersection from 1 to \infty" rA
+\bigcap_{${1:i}=1}^{\infty}
+endsnippet
+
+context "math()"
+snippet "\.cap?ff " "intersection from -\infty to \infty" rA
+\bigcap_{${1:i}=-\infty}^{\infty}
+endsnippet
+
+
+#########
+# lists #
+#########
+snippet .. "lower dots" iA
+\ldots
+endsnippet
+
+snippet :: "center dots" iA
+\cdots
+endsnippet
+
+context "math()"
+snippet "(?<![a-zA-Z0-9])xxx " "x_1, ..., x_n" rA
+${1:x}_1,\ldots,$1_${2:n}
+endsnippet
+
+context "math()"
+snippet "(?<![a-zA-Z0-9])xx2 " "x_1, ..., x_n" rA
+${1:x}_1, $1_2 \ldots, $1_${2:n}
+endsnippet
+
+context "math()"
+snippet "xxu " "x + .... + x" rA
+\underbrace{${1:x} + \cdots + $1}_{\text{$${2:n}$ times}}
+endsnippet
+
+context "math()"
+snippet "xxu2 " "x + .... + x" rA
+\underbrace{${1:x} + $1 + \cdots + $1}_{\text{$${2:n}$ times}}
+endsnippet
+
+
 ##########
 # limits #
 ##########
@@ -358,92 +444,6 @@ snippet "\.int?r " "integral over \RR^d" rA
 endsnippet
 
 
-#############
-# cups/caps #
-#############
-context "math()"
-snippet "\.cup? " "union" rA
-\bigcup_{$1}^{$2}
-endsnippet
-
-context "math()"
-snippet "\.cup?l " "union with only lower limit" rA
-\bigcup_{$1}
-endsnippet
-
-context "math()"
-snippet "\.cup?f " "union from 1 to \infty" rA
-\bigcup_{${1:i}=1}^{\infty}
-endsnippet
-
-context "math()"
-snippet "\.cup?ff " "union from -\infty to \infty" rA
-\bigcup_{${1:i}=-\infty}^{\infty}
-endsnippet
-
-context "math()"
-snippet "\.cup?s " "square union" rA
-\bigsqcup_{$1}^{$2}
-endsnippet
-
-context "math()"
-snippet "\.cup?sl " "square union with only lower limit" rA
-\bigsqcup_{$1}
-endsnippet
-
-context "math()"
-snippet "\.cap? " "intersection" rA
-\bigcap_{$1}^{$2}
-endsnippet
-
-context "math()"
-snippet "\.cap?l " "intersection with only lower limit" rA
-\bigcap_{$1}
-endsnippet
-
-context "math()"
-snippet "\.cap?f " "intersection from 1 to \infty" rA
-\bigcap_{${1:i}=1}^{\infty}
-endsnippet
-
-context "math()"
-snippet "\.cap?ff " "intersection from -\infty to \infty" rA
-\bigcap_{${1:i}=-\infty}^{\infty}
-endsnippet
-
-
-#########
-# lists #
-#########
-snippet ... "lower dots" iA
-\ldots
-endsnippet
-
-snippet ::: "center dots" iA
-\cdots
-endsnippet
-
-context "math()"
-snippet "(?<![a-zA-Z0-9])xxx " "x_1, ..., x_n" rA
-${1:x}_1,\ldots,$1_${2:n}
-endsnippet
-
-context "math()"
-snippet "(?<![a-zA-Z0-9])xx2 " "x_1, ..., x_n" rA
-${1:x}_1, $1_2 \ldots, $1_${2:n}
-endsnippet
-
-context "math()"
-snippet "xxu " "x + .... + x" rA
-\underbrace{${1:x} + \cdots + $1}_{\text{$${2:n}$ times}}
-endsnippet
-
-context "math()"
-snippet "xxu2 " "x + .... + x" rA
-\underbrace{${1:x} + $1 + \cdots + $1}_{\text{$${2:n}$ times}}
-endsnippet
-
-
 ###########
 # tensors #
 ###########
@@ -453,6 +453,6 @@ snippet "\.tt " "tensor" rA
 endsnippet
 
 context "math()"
-snippet "\.tt,([a-zA-Z]|\\[a-zA-Z]+)((?:[_\^](?:[a-zA-Z0-9\\]+|(?:\{[a-zA-Z0-9\\_\^\s]+\})))+) " "tensor w/ two args" rA
+snippet "\.tt,([a-zA-Z]|\\[a-zA-Z]+)((?:[_\^](?:[a-zA-Z0-9\\]+|(?:\{[a-zA-Z0-9\\_\^'\+-\{\}\s]+\})))+) " "tensor w/ two args" rA
 \tensor{`!p snip.rv = match.group(1)`}{`!p snip.rv = match.group(2)`}
 endsnippet
