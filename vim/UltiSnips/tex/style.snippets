@@ -5,7 +5,10 @@ def math():
 endglobal
 
 
-# template
+#############
+# templates #
+#############
+# default template
 context "not math()"
 snippet templ "normal template" b
 \documentclass{scrartcl}
@@ -23,6 +26,27 @@ $0
 \end{document}
 endsnippet
 
+# default template with roman numerals
+context "not math()"
+snippet templ-r "normal template" b
+\documentclass{scrartcl}
+\usepackage[fancy]{kev}
+\renewcommand{\thesubsection}{\thesection.\roman{subsection}}
+
+\title{$1}
+\author{Kevin Chen}
+\date{$2}
+
+\begin{document}
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
+
+# template for beamer
+context "not math()"
 snippet templ-beamer "beamer template" b
 \documentclass{beamer}
 \usepackage[beamer]{kev}
@@ -40,7 +64,9 @@ $0
 endsnippet
 
 
-# fonts
+##############
+# formatting #
+##############
 context "not math()"
 snippet bf "bold"
 \textbf{${1:${VISUAL}}}
@@ -54,16 +80,6 @@ endsnippet
 context "not math()"
 snippet it "italics" i
 \textit{${1:${VISUAL}}}
-endsnippet
-
-context "not math()"
-snippet tt "teletype"
-\texttt{${1:${VISUAL}}}
-endsnippet
-
-context "math()"
-snippet tt "teletype" i
-\mathtt{${1:${VISUAL}}}
 endsnippet
 
 context "math()"
@@ -86,8 +102,20 @@ snippet box "boxed" i
 \boxed{${1:${VISUAL}}}
 endsnippet
 
+context "math()"
+snippet ".qq " "qquad" rA
+\qquad
+endsnippet
 
-# sections
+context "math()"
+snippet ".qqt " "qquad with text" rA
+\qquad\text{$1}
+endsnippet
+
+
+############
+# sections #
+############
 snippet sec "section"
 \section{$1}
 
@@ -145,7 +173,15 @@ ${0:${VISUAL:%% text here}}
 endsnippet
 
 
-# ad hoc snippets
+###################
+# ad hoc snippets #
+###################
+context "not math()"
 snippet texpdf "texorpdfstring" i
 \texorpdfstring{$$1$}{$2}
+endsnippet
+
+context "not math()"
+snippet gpath "description" b
+\graphicspath{ {./images/} }
 endsnippet
