@@ -185,3 +185,8 @@ context "not math()"
 snippet gpath "description" b
 \graphicspath{ {./images/} }
 endsnippet
+
+context "not math()"
+snippet sec-r "roman numeral subsection" b
+\renewcommand{\thesubsection}{\thesection.\roman{subsection}}
+endsnippet
