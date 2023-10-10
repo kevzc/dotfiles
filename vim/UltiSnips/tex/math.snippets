@@ -453,11 +453,11 @@ endsnippet
 # tensors #
 ###########
 context "math()"
-snippet "\.tt " "tensor" rA
+snippet "\.tn " "tensor" rA
 \tensor{$1}{$2}
 endsnippet
 
 context "math()"
-snippet "\.tt,([a-zA-Z]|\\[a-zA-Z]+)((?:[_\^](?:[a-zA-Z0-9\\]+|(?:\{[a-zA-Z0-9\\_\^'\+-\{\}\s]+\})))+) " "tensor w/ two args" rA
+snippet "\.tn,([a-zA-Z]|\\[a-zA-Z]+)((?:[_\^](?:[a-zA-Z0-9\\]+|(?:\{[a-zA-Z0-9\\_\^'\+-\{\}\s]+\})))+) " "tensor w/ two args" rA
 \tensor{`!p snip.rv = match.group(1)`}{`!p snip.rv = match.group(2)`}
 endsnippet
