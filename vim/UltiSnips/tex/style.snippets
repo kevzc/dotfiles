@@ -87,11 +87,6 @@ snippet rm "roman" i
 \mathrm{${1:${VISUAL}}}
 endsnippet
 
-context "math()"
-snippet tx "text" i
-\text{${1:${VISUAL}}}
-endsnippet
-
 context "not math()"
 snippet voc "vocab"
 \vocab{${1:${VISUAL}}}
@@ -103,12 +98,43 @@ snippet box "boxed" i
 endsnippet
 
 context "math()"
+snippet boxl "boxed new line" i
+\boxed{
+	${1:${VISUAL}}
+}
+endsnippet
+
+
+########
+# text #
+########
+context "math()"
+snippet "\.tt " "text" rA
+\text{${1:${VISUAL}}}
+endsnippet
+
+context "math()"
+snippet "\.ttf " "text" rA
+\text{for each $$1$}
+endsnippet
+
+context "math()"
+snippet "\.ttfa " "text" rA
+\text{for all $$1$}
+endsnippet
+
+context "math()"
+snippet "\.tto " "text" rA
+\text{on $$1$}
+endsnippet
+
+context "math()"
 snippet "\.qq " "qquad" rA
 \qquad
 endsnippet
 
 context "math()"
-snippet "\.qqt " "qquad with text" rA
+snippet "\.qq?t " "qquad with text" rA
 \qquad\text{$1}
 endsnippet
 
