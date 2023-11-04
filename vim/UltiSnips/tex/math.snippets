@@ -29,6 +29,11 @@ snippet ;= "isomorphic/congruent" iA
 endsnippet
 
 context "math()"
+snippet := "colon equals" iA
+\coloneqq
+endsnippet
+
+context "math()"
 snippet ;\ "set complement" iA
 \setminus
 endsnippet
@@ -460,4 +465,9 @@ endsnippet
 context "math()"
 snippet "\.tn,([a-zA-Z]|\\[a-zA-Z]+)((?:[_\^](?:[a-zA-Z0-9\\]+|(?:\{[a-zA-Z0-9\\_\^'\+-\{\}\s]+\})))+) " "tensor w/ two args" rA
 \tensor{`!p snip.rv = match.group(1)`}{`!p snip.rv = match.group(2)`}
+endsnippet
+
+context "math()"
+snippet "\.tnt " "general tensor" rA
+\tensor{T}{^{\mu_1\cdots\mu_k}_{\nu_1\cdots\nu_\ell}}
 endsnippet
