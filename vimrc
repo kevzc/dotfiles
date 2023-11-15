@@ -179,6 +179,7 @@ let g:vimtex_syntax_custom_cmds = [
 			\ {'name': 'mapsfrom', 'mathmode': 1, 'concealchar': '↤'},
 			\ {'name': 'lmapsfrom', 'mathmode': 1, 'concealchar': '↤'},
 			\ {'name': 'vocab', 'conceal': 1, 'argstyle': 'boldital'},
+			\ {'name': 'bin', 'conceal': 1, 'argstyle': 'bold'},
 			\]
 
 
