@@ -104,6 +104,40 @@ snippet boxl "boxed new line" i
 }
 endsnippet
 
+context "not math()"
+snippet step "step" b
+\bin{Step $1:} ${2:title}
+endsnippet
+
+context "not math()"
+snippet "step([0-9]+)" "step" rb
+\bin{Step `!p snip.rv = match.group(1)`:} ${1:title}
+endsnippet
+
+context "not math()"
+snippet fstep "step" b
+% Fakesection ${3:title}
+\bin{Step $1:} ${2:title}
+endsnippet
+
+context "not math()"
+snippet "fstep([0-9]+)" "step" rb
+% Fakesection ${2:title}
+\bin{Step `!p snip.rv = match.group(1)`:} ${1:title}
+endsnippet
+
+context "not math()"
+snippet fsstep "step" b
+% Fakesubsection ${3:title}
+\bin{Step $1:} ${2:title}
+endsnippet
+
+context "not math()"
+snippet "fsstep([0-9]+)" "step" rb
+% Fakesubsection ${2:title}
+\bin{Step `!p snip.rv = match.group(1)`:} ${1:title}
+endsnippet
+
 
 ########
 # text #
@@ -198,6 +232,14 @@ ${0:${VISUAL:%% text here}}
 \eject
 endsnippet
 
+snippet fsec "fake section"
+% Fakesection ${1:title}
+endsnippet
+
+snippet fsub "fake section"
+% Fakesubsection ${1:title}
+endsnippet
+
 
 ###################
 # ad hoc snippets #
@@ -218,11 +260,11 @@ snippet sec-r "roman numeral subsection" b
 endsnippet
 
 context "not math()"
-snippet lhack "listhack" b
+snippet lh "listhack" b
 \listhack
 endsnippet
 
 context "not math()"
-snippet lhack1 "listhack" b
+snippet lh1 "listhack" b
 $\empty$
 endsnippet
