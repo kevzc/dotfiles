@@ -187,7 +187,7 @@ let g:vimtex_syntax_custom_cmds = [
 let g:vimtex_fold_enabled=1
 let g:vimtex_fold_types={
 	\ 'envs' : {
-	\	'whitelist' : ['asy', 'comment', 'abstract', 'abstract*', 'proof', 'subproof'],
+	\	'whitelist' : ['asy', 'comment', 'abstract', 'abstract*', 'proof', 'subproof', 'axis'],
 	\ },
 	\ 'markers' : {'enabled' : 0},
 	\ 'sections' : {'parse_levels' : 1},
