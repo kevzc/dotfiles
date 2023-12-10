@@ -311,6 +311,31 @@
 \newcommand{\wed}{\wedge}
 \newcommand{\bigwed}{\bigwedge}
 
+\newcommand{\dal}{\mathop{\mathpalette\dalembertian@\relax}}
+\newcommand{\dalembertian@}[2]{%
+  \begingroup
+  \sbox\z@{$\m@th#1\square$}%
+  \dimen0=\fontdimen8
+    \ifx#1\displaystyle\textfont\else
+    \ifx#1\textstyle\textfont\else
+    \ifx#1\scriptstyle\scriptfont\else
+    \scriptscriptfont\fi\fi\fi3
+  \makebox[\wd\z@]{%
+    \hbox to \ht\z@{%
+      \vrule width \dimen0
+      \kern-\dimen0
+      \vbox to \ht\z@{
+        \hrule height \dimen0 width \ht\z@
+        \vss
+        \hrule height 2\dimen0
+      }%
+      \kern-2.5\dimen0
+      \vrule width 2.5\dimen0
+    }%
+  }%
+  \endgroup
+}
+
 % Fakesection Options
 
 \newif\ifkevsetup\kevsetuptrue
