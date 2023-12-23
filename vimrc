@@ -106,10 +106,10 @@ set noshowmode		" don't show mode
 
 if has("gui_running")
 	colorscheme solarized
-	set background=dark
+	set background=light
 
 	let g:airline_theme='solarized'
-	let g:airline_solarized_bg='dark'
+	let g:airline_solarized_bg='light'
 	
 	" font for arrows
 	let g:airline_powerline_fonts=1
