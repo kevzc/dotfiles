@@ -181,12 +181,19 @@
 \newcommand{\xfrom}{\xleftarrow}
 
 \newcommand{\injto}{\hookrightarrow}
+\newcommand{\linjto}{\xhookrightarrow{\hspace{1em}}}
 \newcommand{\xinjto}{\xhookrightarrow}
 \newcommand{\injfrom}{\hookleftarrow}
+\newcommand{\linjfrom}{\xhookleftarrow{\hspace{1em}}}
 \newcommand{\xinjfrom}{\xhookleftarrow}
 
 \newcommand{\surjto}{\twoheadrightarrow}
 \newcommand{\surjfrom}{\twoheadleftarrow}
+
+\newcommand{\xsurjto}[2][]{\xrightarrow[#1]{#2}\mathrel{\mkern-14mu}\rightarrow}
+\newcommand{\lsurjto}{\xsurjto{\hspace{1em}}}
+\newcommand{\xsurjfrom}[2][]{\leftarrow\mathrel{\mkern-14mu}\xleftarrow[#1]{#2}}
+\newcommand{\lsurjfrom}{\xsurjfrom{\hspace{1em}}}
 
 \newcommand{\bij}{\leftrightarrow}
 \newcommand{\lbij}{\longleftrightarrow}
