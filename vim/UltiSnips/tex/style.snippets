@@ -13,6 +13,7 @@ context "not math()"
 snippet templ "normal template" b
 \documentclass{scrartcl}
 \usepackage[fancy]{kev}
+\renewcommand{\thesubsection}{\thesection.\roman{subsection}}
 
 \title{$1}
 \author{Kevin Chen}
@@ -28,10 +29,9 @@ endsnippet
 
 # default template with roman numerals
 context "not math()"
-snippet templ-r "normal template" b
+snippet templ-nr "normal template" b
 \documentclass{scrartcl}
 \usepackage[fancy]{kev}
-\renewcommand{\thesubsection}{\thesection.\roman{subsection}}
 
 \title{$1}
 \author{Kevin Chen}
@@ -213,32 +213,34 @@ ${0:${VISUAL:%% text here}}
 endsnippet
 
 snippet "sp(\d+)" "sec-prob" br
-`!p snip.rv = "\\section{Problem " + match.group(1) + "}"`
+`!p snip.rv = "\\section{Problem " + match.group(1) + " (todo)}"`
 
-${0:${VISUAL:%% text here}}
-endsnippet
-
-snippet "spe(\d+)" "sec-prob" br
-`!p snip.rv = "\\section{Problem " + match.group(1) + "}"`
-
-${1:${VISUAL:%% text here}}
+%% text here
 
 \eject
 endsnippet
 
-snippet "ssp(\d+)" "subsec-prob" br
-`!p snip.rv = "\\subsection{Problem " + match.group(1) + "}"`
+# snippet "spe(\d+)" "sec-prob" br
+# `!p snip.rv = "\\section{Problem " + match.group(1) + "}"`
 
-${0:${VISUAL:%% text here}}
-endsnippet
+# ${1:${VISUAL:%% text here}}
 
-snippet sece "section"
-\section{$1}
+# \eject
+# endsnippet
 
-${0:${VISUAL:%% text here}}
+# snippet "ssp(\d+)" "subsec-prob" br
+# `!p snip.rv = "\\subsection{Problem " + match.group(1) + "}"`
 
-\eject
-endsnippet
+# ${0:${VISUAL:%% text here}}
+# endsnippet
+
+# snippet sece "section"
+# \section{$1}
+
+# ${0:${VISUAL:%% text here}}
+
+# \eject
+# endsnippet
 
 snippet fsec "fake section"
 % Fakesection ${1:title}
@@ -253,7 +255,7 @@ endsnippet
 # ad hoc snippets #
 ###################
 context "not math()"
-snippet texpdf "texorpdfstring" i
+snippet "t(ex)?pdf" "texorpdfstring" ri
 \texorpdfstring{$$1$}{$2}
 endsnippet
 
