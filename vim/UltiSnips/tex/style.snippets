@@ -218,6 +218,14 @@ snippet "sp(\d+)" "sec-prob" br
 ${0:${VISUAL:%% text here}}
 endsnippet
 
+snippet "spe(\d+)" "sec-prob" br
+`!p snip.rv = "\\section{Problem " + match.group(1) + "}"`
+
+${1:${VISUAL:%% text here}}
+
+\eject
+endsnippet
+
 snippet "ssp(\d+)" "subsec-prob" br
 `!p snip.rv = "\\subsection{Problem " + match.group(1) + "}"`
 
