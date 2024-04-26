@@ -40,9 +40,11 @@ filetype plugin indent on
 syntax on
 set number
 set wildmenu
+set conceallevel=2
+" tabs
 set tabstop=4
 set shiftwidth=4
-set conceallevel=2
+autocmd FileType c setlocal expandtab
 
 " use stuff from .zshrc
 set shellcmdflag=-ic
