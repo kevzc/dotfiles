@@ -275,6 +275,8 @@ let NERDTreeIgnore=['\~$','\.DS_Store$']	" files to ignore
 let NERDTreeQuitOnOpen=1					" quit when opening a file
 let NERDTreeAutoDeleteBuffer=1				" Delete buffer if file deleted
 
+let NERDTreeNaturalSort=1					" Natural sorting for files with numbers
+
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
