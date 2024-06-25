@@ -152,6 +152,7 @@ let g:vimtex_syntax_conceal={
 			\ 'accents': 1,
 			\ 'cites': 1,
 			\ 'fancy': 1,
+			\ 'spacing': 0,
 			\ 'greek': 1,
 			\ 'math_bounds': 0,
 			\ 'math_delimiters': 1,
