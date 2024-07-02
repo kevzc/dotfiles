@@ -10,6 +10,7 @@ alias mvim='open -a MacVim.app $1'
 alias python='python3'
 
 # g++ alias
+alias g++20='g++ -std=c++20 -O2 -Wall'
 alias g++17='g++ -std=c++17 -O2 -Wall'
 alias g++14='g++ -std=c++14 -O2 -Wall'
 alias g++11='g++ -std=c++11 -O2 -Wall'
