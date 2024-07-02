@@ -44,7 +44,8 @@ set conceallevel=2
 " tabs
 set tabstop=4
 set shiftwidth=4
-autocmd FileType c setlocal expandtab
+autocmd FileType c setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 expandtab
 
 " use stuff from .zshrc
 set shellcmdflag=-ic
