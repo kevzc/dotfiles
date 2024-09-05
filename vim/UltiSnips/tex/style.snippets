@@ -212,7 +212,7 @@ snippet subsub* "subsubsection"
 ${0:${VISUAL:%% text here}}
 endsnippet
 
-snippet "sp(\d+)" "sec-prob" br
+snippet "sp([0-9\.]+)" "sec-prob" br
 `!p snip.rv = "\\section{Problem " + match.group(1) + " (todo)}"`
 
 %% text here
