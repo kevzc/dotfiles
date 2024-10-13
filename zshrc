@@ -7,7 +7,7 @@ fi
 alias mvim='open -a MacVim.app $1'
 
 # use python3 instead of python2
-alias python='python3'
+alias python='python3.11'
 
 # g++ alias
 alias g++20='g++ -std=c++20 -O2 -Wall'
