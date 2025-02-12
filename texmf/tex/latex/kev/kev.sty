@@ -298,7 +298,6 @@
 \DeclareMathOperator{\Reg}{Reg}
 \DeclareMathOperator{\Rad}{Rad}
 
-
 % MAT365
 \newcommand{\id}{\mathrm{id}}
 \newcommand{\Id}{\mathrm{Id}}
@@ -371,12 +370,36 @@
 
 % category theory
 \DeclareMathOperator{\ob}{ob}
-\newcommand{\cat}{\mathsf}
+\newcommand{\cat}{\textsf}
 \newcommand{\ato}[1]{\xto{\hspace{.5em}#1\hspace{.5em}}}
 \newcommand{\afrom}[1]{\xfrom{\hspace{.5em}#1\hspace{.5em}}}
 \newcommand{\op}{\mathrm{op}}
 
+\DeclareMathOperator{\Mor}{Mor}
 \DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\colim}{colim}
+\DeclareMathOperator{\coker}{coker}
+
+\newcommand{\catSet}{\cat{Set}}
+\newcommand{\catGrp}{\cat{Grp}}
+\newcommand{\catRing}{\cat{Ring}}
+\newcommand{\catMod}{\cat{Mod}}
+\newcommand{\catAb}{\cat{Ab}}
+\newcommand{\catTop}{\cat{Top}}
+\newcommand{\catOp}{\cat{Op}}  % open sets
+
+\DeclareMathOperator{\res}{res}
+\newcommand{\catSh}{\cat{Sh}}
+\newcommand{\catPSh}{\cat{PSh}}
+
+\providecommand*{\dashv}{% right adjoint symbol
+  \mathrel{%
+    \mathpalette\@dashv\vdash
+  }%
+}
+\newcommand*{\@dashv}[2]{%
+  \reflectbox{$\m@th#1#2$}%
+}
 
 % CS 4780
 \DeclareMathOperator*{\argmin}{argmin}
