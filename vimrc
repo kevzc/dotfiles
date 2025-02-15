@@ -65,6 +65,9 @@ if !has("gui_runing")
 	let &t_EI.="\e[1 q"		"EI = NORMAL mode (ELSE)
 endif
 
+" colorcolumn
+set colorcolumn=80
+
 " tabs for macvim
 if has("gui_macvim")
 	noremap <C-Tab> <Esc>:tabnext<CR>
