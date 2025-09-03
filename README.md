@@ -119,7 +119,7 @@ By default, the output will be:
 ```
 /Users/[name]/Library/texmf
 ```
-If you are in a rush (and the `.zshrc` files isn't working), put your files in there.
+If you are in a rush (and the `.zshrc` files aren't working), put your files in there.
 Otherwise, you can change the defaul location as follows:
 
 
